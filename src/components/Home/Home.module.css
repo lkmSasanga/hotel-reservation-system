@@ -1,7 +1,41 @@
+.heading{
+    padding: 1rem 1rem 1rem 0;
+    margin-left: 5rem;
+    font-size: 30px;
+}
+.subHeading {
+    margin-left: 5rem;
+    margin-top: -30px;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5rem;
+    /*margin-right: 5rem;*/
+}
+
 .home {
-    width: 90%;
-    max-width: 40rem;
-    padding: 3rem;
-    margin: 2rem auto;
-    text-align: center;
+    /*width: 90%;*/
+    /*max-width: 40rem;*/
+    /*padding: 3rem;*/
+    /*margin: 2rem auto;*/
+    /*text-align: left;*/
+}
+.image {
+    width: 60%;
+    padding: 0;
+    margin: 2rem 0  0 0 ;
+    /*text-align: left;*/
+
+}
+
+.header {
+    /*text-align: left;*/
+}
+
+.details {
+    /*text-align: left;*/
+    margin-top: -10px;
 }
