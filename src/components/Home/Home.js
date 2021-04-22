@@ -12,7 +12,7 @@ import galle from '../Media/galle.jpg';
 
 const Home = (props) => {
     return (
-        <React.Fragment>
+        <div className={classes.main}>
             <h2 className={classes.heading}>Explore Holiday Resorts</h2>
             <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
             <div className={classes.row}>
@@ -69,7 +69,7 @@ const Home = (props) => {
                     <p className={classes.details}>14 Properties</p>
                 </div>
             </div>
-        </React.Fragment>
+        </div>
 
 
     );
