@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
@@ -28,13 +29,18 @@ function App() {
   };
 
   return (
-      <React.Fragment>
-        <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-        <main>
-          {!isLoggedIn && <Login onLogin={loginHandler} />}
-          {isLoggedIn && <Home onLogout={logoutHandler} />}
-        </main>
-      </React.Fragment>
+      <BrowserRouter>
+        {/*<Switch>*/}
+          <main>
+            {/*<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />*/}
+            <Route path="/login" component={Login}/>
+            <Route path="/" component={Home}/>
+            {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
+            {/*{isLoggedIn && <Home onLogout={logoutHandler} />}*/}
+          </main>
+        {/*</Switch>*/}
+
+      </BrowserRouter>
   );
 }
 

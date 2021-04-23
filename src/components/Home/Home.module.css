@@ -2,7 +2,7 @@
     color: #363636;
 }
 .heading{
-    padding: 1rem 1rem 1rem 0;
+    padding: 2rem 1rem 1rem 0;
     margin-left: 5rem;
     font-size: 30px;
 
@@ -38,6 +38,8 @@
 
 .header {
     /*text-align: left;*/
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .details {
