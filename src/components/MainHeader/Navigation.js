@@ -8,8 +8,13 @@ const Navigation = (props) => {
 
     const gotoHome = () => {
         history.push('/');
-      // props.onClikGoHome();
+    };
 
+    const gotoAbout = () => {
+      history.push('/about');
+    };
+    const gotoContact = () => {
+      history.push('/contact');
     };
 
     return (
@@ -22,12 +27,12 @@ const Navigation = (props) => {
                 {/*)}*/}
                 {/*{props.isLoggedIn && (*/}
                     <li>
-                        <a href="/">About</a>
+                        <a href="/about" onClick={gotoAbout}>About</a>
                     </li>
                 {/*)}*/}
                 {/*{props.isLoggedIn && (*/}
                     <li>
-                        <a href="/">Contact</a>
+                        <a href="/contact" onClick={gotoContact}>Contact</a>
                     </li>
                 {/*)}*/}
                 {/*{props.isLoggedIn && (*/}

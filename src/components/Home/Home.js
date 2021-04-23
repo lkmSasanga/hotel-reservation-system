@@ -30,11 +30,11 @@ const Home = (props) => {
                 <div>
                 <h2 className={classes.heading}>Explore Holiday Resorts</h2>
                 <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
-                <div className={classes.row}>
+               <div className={classes.row}>
                     <div className={classes.home}>
                         <img className={classes.image} src={galle} alt="Galle Image" onClick={loadPropertiesPageHandler}/>
-                        <h2 className={classes.header}>Galle</h2>
-                        <p className={classes.details}>14 Properties</p>
+                        <h2 className={classes.header} onClick={loadPropertiesPageHandler}>Galle</h2>
+                        <p className={classes.details} onClick={loadPropertiesPageHandler}>14 Properties</p>
                     </div>
                     <div className={classes.home}>
                         <img className={classes.image} src={galle} alt="Galle Image"/>

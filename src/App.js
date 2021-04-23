@@ -4,6 +4,8 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import MainHeader from './components/MainHeader/MainHeader';
+import Properties from "./components/Properties/Properties";
+import Property from "./components/Property/Property";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,9 +34,15 @@ function App() {
       <BrowserRouter>
         {/*<Switch>*/}
           <main>
-            {/*<MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />*/}
             <Route path="/login" component={Login}/>
-            <Route path="/" component={Home}/>
+            <div>
+              <MainHeader/>
+              <Route exact path="/" component={Home}/>
+              <Route path="/properties" component={Properties}/>
+              <Route path="/property" component={Property}/>
+            </div>
+
+
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
             {/*{isLoggedIn && <Home onLogout={logoutHandler} />}*/}
           </main>

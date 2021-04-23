@@ -5,7 +5,6 @@
     padding: 2rem 1rem 1rem 0;
     margin-left: 5rem;
     font-size: 30px;
-
 }
 .subHeading {
     margin-left: 5rem;
@@ -32,17 +31,18 @@
     width: 60%;
     padding: 0;
     margin: 2rem 0  0 0 ;
-    /*text-align: left;*/
+    cursor: pointer;
+
 
 }
 
 .header {
-    /*text-align: left;*/
+    cursor: pointer;
     margin-top: 10px;
     font-size: 20px;
 }
 
 .details {
-    /*text-align: left;*/
+    cursor: pointer;
     margin-top: -10px;
 }

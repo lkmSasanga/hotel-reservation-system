@@ -5,8 +5,10 @@
     box-sizing: border-box;
     border-radius: 100%;
     margin-left: 3rem;
+    cursor: pointer;
 }
 
 .Logo img {
     height: 100%;
+    cursor: pointer;
 }
