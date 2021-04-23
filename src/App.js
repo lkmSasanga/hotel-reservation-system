@@ -34,7 +34,7 @@ function App() {
       <BrowserRouter>
         {/*<Switch>*/}
           <main>
-            <Route path="/login" component={Login}/>
+            {/*<Route path="/login" component={Login}/>*/}
             <div>
               <MainHeader/>
               <Route exact path="/" component={Home}/>

@@ -1,8 +1,10 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
+import axios from 'axios';
 import classes from './Properties.module.css';
 import Card from "../UI/Card/Card";
+
 import galle from "../Media/galle.jpg";
 
 const Properties = (props) => {
@@ -11,6 +13,13 @@ const Properties = (props) => {
     const gotoProperty = () => {
         history.push("/property");
     };
+
+    axios.get('http://localhost:5000/hotels').then(response => {
+        const receivedData = response.data;
+        console.log(receivedData);
+    }).catch((error) => {
+        console.log(error);
+    });
 
 return (
     <div>
