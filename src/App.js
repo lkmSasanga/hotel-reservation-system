@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import axios from 'axios';
 
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
@@ -9,6 +10,9 @@ import Property from "./components/Property/Property";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [receivedData, setReceivedData] = useState('');
+
+
 
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
@@ -16,6 +20,14 @@ function App() {
     if (storedUserLoggedInInformation === '1') {
       setIsLoggedIn(true);
     }
+
+    axios.get('http://localhost:5000/hotels').then(response => {
+      const receivedData = response.data;
+      console.log(receivedData);
+      setReceivedData(response.data);
+    }).catch((error) => {
+      console.log(error);
+    });
 
   }, []);
 
@@ -30,6 +42,8 @@ function App() {
     setIsLoggedIn(false);
   };
 
+
+
   return (
       <BrowserRouter>
         {/*<Switch>*/}
@@ -39,7 +53,7 @@ function App() {
               <MainHeader/>
               <Route exact path="/" component={Home}/>
               <Route path="/properties" component={Properties}/>
-              <Route path="/property" component={Property}/>
+              <Route path="/property" component={() => (<Property hotelData={receivedData}/>)}/>
             </div>
 
 
