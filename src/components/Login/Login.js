@@ -24,7 +24,8 @@ class Login extends Component {
         invalidPassword: false,
         emailPlaceHolder: 'Email Address',
         passwordPlaceHolder: 'Password',
-        usernamePlaceHolder: 'Username'
+        usernamePlaceHolder: 'Username',
+        userType: 'Customer'
     }
 
     onChangeUsername = (e) => {
@@ -42,6 +43,10 @@ class Login extends Component {
         this.setState({password: e.target.value})
         console.log(e.target.value);
 
+    }
+    onSelectUserType = (e) => {
+        e.preventDefault()
+        this.setState({userType: e.target.value})
     }
 
 
@@ -140,6 +145,7 @@ class Login extends Component {
                         username: this.state.username,
                         email: this.state.email,
                         password: this.state.password,
+                        userType: this.state.userType
                     }),
                 }).then(res => res.json())
                     .then(json => {
@@ -151,6 +157,7 @@ class Login extends Component {
                                 username: '',
                                 email: '',
                                 password: '',
+                                userType: '',
                                 isLoading: false,
                                 signUpError: '',
                                 errorOccurs: false,
@@ -246,6 +253,16 @@ class Login extends Component {
                                                 <input type="password" required="required" name="password" autoComplete="on" onChange={e => this.onChangePassword(e)}/>
                                                 <label>Password</label>
                                             </div>
+
+                                            <div className={Classes.dropdownField}>
+                                                <label htmlFor="exampleFormControlSelect1">Choose user type</label>
+                                                <select className={Classes.dropdownOptions} onChange={e => this.onSelectUserType(e)}>
+                                                    <option>Customer</option>
+                                                    <option>Hotel Owner</option>
+
+                                                </select>
+                                            </div>
+
                                         </React.Fragment> : null
                                     }
 
