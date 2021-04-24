@@ -7,7 +7,7 @@ const Navigation = (props) => {
     const history = useHistory();
 
     const gotoHome = () => {
-        history.push('/');
+        history.push('/home');
     };
 
     const gotoAbout = () => {
