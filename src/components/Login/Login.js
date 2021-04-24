@@ -242,7 +242,8 @@ class Login extends Component {
                                             <label htmlFor="remember-me" className={Classes.RememberMe}>Remember me</label>
                                         </div>
                                         <div className={Classes.passLink}>
-                                            <a href="/">Forgot password?</a></div>
+                                            <a href="/">Forgot password?</a>
+                                        </div>
                                     </div>
 
                                     <div className={Classes.field}>
