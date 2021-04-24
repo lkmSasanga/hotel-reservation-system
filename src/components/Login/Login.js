@@ -5,7 +5,7 @@ import Classes from './Login.module.css';
 // import Signup from "./SignUp/Signup";
 // import InputControl from "../InputControl/InputControl";
 import Home from '../Home/Home';
-import ThreeDots from '../../components/UI/ThreeDots/ThreeDots';
+import ThreeDots from '../UI/ThreeDots/ThreeDots';
 
 class Login extends Component {
     state = {
@@ -250,7 +250,7 @@ class Login extends Component {
                                     </div>
                                     {!this.state.loadSignup ?
                                         <div className={Classes.signupLink}>
-                                            Not a member? <Link to="/signup" onClick={this.SignUpClickHandler}>Signup now</Link>
+                                            Not a member? <Link to="#" onClick={this.SignUpClickHandler}>Signup now</Link>
                                         </div> : null
                                     }
 
