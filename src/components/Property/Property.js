@@ -3,6 +3,7 @@ import React, {useState, useEffect} from "react";
 import classes from './Property.module.css';
 import Card from "../UI/Card/Card";
 import galle from '../Media/galle.jpg';
+import MainHeader from "../MainHeader/MainHeader";
 
 const Property = (props) => {
     const [incomingData, setIncomingData] = useState('');
@@ -17,6 +18,7 @@ const Property = (props) => {
 
     return (
         <div>
+            <MainHeader/>
             <h1 className={classes.heading}>Around Galle</h1>
             <div>
                 <img className={classes.image} src={galle} alt="Galle Image" />

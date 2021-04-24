@@ -5,6 +5,7 @@ import classes from './Properties.module.css';
 import Card from "../UI/Card/Card";
 
 import galle from "../Media/galle.jpg";
+import MainHeader from "../MainHeader/MainHeader";
 
 const Properties = (props) => {
     const history = useHistory();
@@ -17,6 +18,7 @@ const Properties = (props) => {
 
 return (
     <div>
+        <MainHeader/>
         <h1 className={classes.heading}>Properties Page</h1>
         <div className={classes.row}>
             <div className={classes.home}>

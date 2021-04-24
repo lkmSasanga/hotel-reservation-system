@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import Classes from './Login.module.css';
 // import Signup from "./SignUp/Signup";
 // import InputControl from "../InputControl/InputControl";
-
+import Home from '../Home/Home';
 import ThreeDots from '../../components/UI/ThreeDots/ThreeDots';
 
 class Login extends Component {
@@ -164,7 +164,7 @@ class Login extends Component {
         }
 
         if (this.state.loginSuccess) {
-            return <Link to="/search" replace><InputControl/></Link>
+            return <Link to="/home" replace><Home/></Link>
         }
 
         // this.props.history.push('/search');
@@ -268,8 +268,8 @@ class Login extends Component {
                     </>
                     :
                     <>
-                        <Redirect to="/search"/>
-                        <InputControl/>
+                        <Redirect to="/home"/>
+                        <Home/>
                     </>
                 }
                 {/*<Link to="/search" replace><InputControl/></Link>*/}

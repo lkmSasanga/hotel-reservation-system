@@ -50,8 +50,9 @@ function App() {
           <main>
             {/*<Route path="/login" component={Login}/>*/}
             <div>
-              <MainHeader/>
-              <Route exact path="/" component={Home}/>
+              {/*<MainHeader/>*/}
+              <Route path="/login" component={Login}/>
+              <Route exact path="/home" component={Home}/>
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (<Property hotelData={receivedData}/>)}/>
             </div>
