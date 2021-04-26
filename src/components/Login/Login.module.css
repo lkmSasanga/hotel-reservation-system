@@ -36,7 +36,7 @@
     user-select: none;
     border-radius: 15px 15px 0 0;
     /*background: linear-gradient(-135deg, #48ec4b, #1dd281);*/
-    background: linear-gradient(-135deg, #27005e, #004195);
+    background: linear-gradient(-135deg, #00025e, #3b0363);
     /*background: #033d44;*/
 }
 .wrapper form{
@@ -126,7 +126,7 @@ form .field input[type="submit"]{
     /*background: linear-gradient(-135deg, #c850c0, #4158d0);*/
     /*background: linear-gradient(-135deg, #48ec4b, #1dd281);*/
     /*background: #033d44;*/
-    background: linear-gradient(-135deg, #27005e, #004195);
+    background: linear-gradient(-135deg, #00025e, #3b0363);
 
 
 
