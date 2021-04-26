@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
 import axios from 'axios';
 
 import Login from './components/Login/Login';
@@ -51,6 +51,9 @@ function App() {
             {/*<Route path="/login" component={Login}/>*/}
             <div>
               {/*<MainHeader/>*/}
+              <Route exact path="/">
+                <Redirect to="/login" />
+              </Route>
               <Route path="/login" component={Login}/>
               {/*<Route path="/signup" component={Login}/>*/}
               <Route exact path="/home" component={Home}/>
