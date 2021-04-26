@@ -156,6 +156,8 @@ class Login extends Component {
                     .then(json => {
                         // console.log('json', json);
                         if (json.success) {
+                            this.setState({recievedUserType: json.user.userType});
+
                             this.setState({
                                 // signUpError: json.message,
                                 // isLoading: false,
