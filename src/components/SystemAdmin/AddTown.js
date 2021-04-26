@@ -1,6 +1,7 @@
-import React from 'React';
+import React from 'react';
 
-import classes from './AddTown.module.css';
+
+// import classes from './AddTown.module.css';
 
 const AddTown = () => {
     return (

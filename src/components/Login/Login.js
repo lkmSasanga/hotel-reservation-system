@@ -6,6 +6,8 @@ import Classes from './Login.module.css';
 // import InputControl from "../InputControl/InputControl";
 import Home from '../Home/Home';
 import ThreeDots from '../UI/ThreeDots/ThreeDots';
+import OwnerDashboard from "../HotelOwner/OwnerDashboard";
+import AddTown from "../SystemAdmin/AddTown";
 
 class Login extends Component {
     state = {
@@ -308,18 +310,27 @@ class Login extends Component {
                     :
                     <>
                         {this.state.recievedUserType === 'System_Admin' ?
-                            <Redirect to="/add_town"/>
+                            <>
+                                <Redirect to="/add_town"/>
+                                <AddTown/>
+                            </>
                         : null}
 
                         {this.state.recievedUserType === 'Hotel_Owner' ?
-                            <Redirect to="/owner_dashboard"/>
+                            <>
+                                <Redirect to="/owner_dashboard"/>
+                                <OwnerDashboard/>
+                            </>
                             : null}
 
                         {this.state.recievedUserType === 'customer' ?
-                            <Redirect to="/home"/>
+                            <>
+                                <Redirect to="/home"/>
+                                <Home/>
+                            </>
+
                             : null}
 
-                        {/*<Home/>*/}
                     </>
                 }
                 {/*<Link to="/search" replace><InputControl/></Link>*/}

@@ -1,6 +1,7 @@
-import React from 'React';
+import React from 'react';
 
-import classes from './ViewBookings.module.css';
+
+// import classes from './ViewBookings.module.css';
 
 const ViewBookings = () => {
     return (

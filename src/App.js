@@ -8,6 +8,11 @@ import MainHeader from './components/MainHeader/MainHeader';
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 
+import AddTown from "./components/SystemAdmin/AddTown";
+import OwnerDashboard from "./components/HotelOwner/OwnerDashboard";
+import AddHotel from "./components/HotelOwner/AddHotel";
+import ViewBookings from "./components/HotelOwner/ViewBookings";
+
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [receivedData, setReceivedData] = useState('');
@@ -52,6 +57,11 @@ function App() {
               <Route exact path="/home" component={Home}/>
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (<Property hotelData={receivedData}/>)}/>
+
+              <Route path="/add_town" component={AddTown}/>
+              <Route path="/owner_dashboard" component={OwnerDashboard}/>
+              <Route path="/add_hotel" component={AddHotel}/>
+              <Route path="/view_Bookings" component={ViewBookings}/>
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}

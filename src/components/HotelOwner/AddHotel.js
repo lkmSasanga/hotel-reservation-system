@@ -1,6 +1,6 @@
-import React from 'React';
+import React from 'react';
 
-import classes from './AddHotel.module.css';
+// import classes from './AddHotel.module.css';
 
 const AddHotel = () => {
     return (

@@ -1,6 +1,7 @@
-import React from 'React';
+import React from 'react';
 
-import classes from './OwnerDashboard.module.css';
+
+// import classes from './OwnerDashboard.module.css';
 
 const OwnerDashboard = () => {
     return (
