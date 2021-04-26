@@ -7,7 +7,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #741188;
+    /*background: #741188;*/
+    background: linear-gradient(-135deg, #00025e, #3b0363);
+
     padding: 0 2rem;
 }
 

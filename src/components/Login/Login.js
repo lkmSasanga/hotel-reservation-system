@@ -25,7 +25,9 @@ class Login extends Component {
         emailPlaceHolder: 'Email Address',
         passwordPlaceHolder: 'Password',
         usernamePlaceHolder: 'Username',
-        userType: 'Customer'
+        userType: 'Customer',
+
+        recievedUserType: ''
     }
 
     onChangeUsername = (e) => {
@@ -107,6 +109,9 @@ class Login extends Component {
                         console.log('inside api call');
 
                         if (json.success) {
+                            // console.log('get user data', json.user.userType);
+                            this.setState({recievedUserType: json.user.userType});
+
                             this.setState({
                                 email: '',
                                 password: '',
@@ -259,6 +264,7 @@ class Login extends Component {
                                                 <select className={Classes.dropdownOptions} onChange={e => this.onSelectUserType(e)}>
                                                     <option>Customer</option>
                                                     <option>Hotel_Owner</option>
+                                                    <option>System_Admin</option>
 
                                                 </select>
                                             </div>
