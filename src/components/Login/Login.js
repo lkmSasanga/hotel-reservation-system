@@ -307,8 +307,19 @@ class Login extends Component {
                     </>
                     :
                     <>
-                        <Redirect to="/home"/>
-                        <Home/>
+                        {this.state.recievedUserType === 'System_Admin' ?
+                            <Redirect to="/add_town"/>
+                        : null}
+
+                        {this.state.recievedUserType === 'Hotel_Owner' ?
+                            <Redirect to="/owner_dashboard"/>
+                            : null}
+
+                        {this.state.recievedUserType === 'customer' ?
+                            <Redirect to="/home"/>
+                            : null}
+
+                        {/*<Home/>*/}
                     </>
                 }
                 {/*<Link to="/search" replace><InputControl/></Link>*/}
