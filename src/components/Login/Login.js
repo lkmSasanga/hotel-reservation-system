@@ -258,7 +258,7 @@ class Login extends Component {
                                                 <label htmlFor="exampleFormControlSelect1">Choose user type</label>
                                                 <select className={Classes.dropdownOptions} onChange={e => this.onSelectUserType(e)}>
                                                     <option>Customer</option>
-                                                    <option>Hotel Owner</option>
+                                                    <option>Hotel_Owner</option>
 
                                                 </select>
                                             </div>
