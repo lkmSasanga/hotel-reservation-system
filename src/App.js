@@ -12,8 +12,6 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [receivedData, setReceivedData] = useState('');
 
-
-
   useEffect(() => {
     const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
 
@@ -42,25 +40,19 @@ function App() {
     setIsLoggedIn(false);
   };
 
-
-
   return (
       <BrowserRouter>
         {/*<Switch>*/}
           <main>
-            {/*<Route path="/login" component={Login}/>*/}
             <div>
-              {/*<MainHeader/>*/}
               <Route exact path="/">
                 <Redirect to="/login" />
               </Route>
               <Route path="/login" component={Login}/>
-              {/*<Route path="/signup" component={Login}/>*/}
               <Route exact path="/home" component={Home}/>
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (<Property hotelData={receivedData}/>)}/>
             </div>
-
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
             {/*{isLoggedIn && <Home onLogout={logoutHandler} />}*/}
