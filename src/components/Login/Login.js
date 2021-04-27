@@ -40,12 +40,12 @@ class Login extends Component {
     onChangeEmail = (e) => {
         e.preventDefault()
         this.setState({email: e.target.value})
-        console.log(e.target.value);
+        // console.log(e.target.value);
     }
     onChangePassword = (e) => {
         e.preventDefault()
         this.setState({password: e.target.value})
-        console.log(e.target.value);
+        // console.log(e.target.value);
 
     }
     onSelectUserType = (e) => {
@@ -73,10 +73,10 @@ class Login extends Component {
 
     onClickHandler = (e) => {
         e.preventDefault();
-        console.log('clicked');
-        console.log(this.state.loadSignup);
-        console.log(this.state.email);
-        console.log(this.state.password);
+        // console.log('clicked');
+        // console.log(this.state.loadSignup);
+        // console.log(this.state.email);
+        // console.log(this.state.password);
 
         if(this.state.email === '' && this.state.password === '') {
             return this.setState({ emailPlaceHolder: 'Please enter your email', passwordPlaceHolder: 'Please enter your password' })
@@ -89,11 +89,11 @@ class Login extends Component {
         } else if(this.state.email && this.state.password) {
             this.setState({clicked: true, isLoading: true, errorOccurs: false})
         }
-            console.log('inside if')
+            // console.log('inside if')
 
             if (!this.state.loadSignup){
                 // console.log('loadSignup...', this.state.loadSignup)
-                console.log('inside if')
+                // console.log('inside if')
 
                 fetch('http://localhost:5000/api/login', {
                     method: 'POST',

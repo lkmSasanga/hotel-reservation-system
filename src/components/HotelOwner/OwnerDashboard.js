@@ -1,4 +1,5 @@
 import React from 'react';
+import MainHeader from "../MainHeader/MainHeader";
 
 
 // import classes from './OwnerDashboard.module.css';
@@ -6,6 +7,7 @@ import React from 'react';
 const OwnerDashboard = () => {
     return (
         <div>
+            <MainHeader/>
             <h1>Owner Dashboard</h1>
         </div>
     );
