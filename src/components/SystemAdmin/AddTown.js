@@ -4,6 +4,7 @@ import MainHeader from "../MainHeader/MainHeader";
 import classes from './AddTown.module.css';
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
+import ImageUpload from "../UI/ImageUpload/ImageUpload";
 
 const AddTown = () => {
     return (
@@ -25,12 +26,9 @@ const AddTown = () => {
                         </div>
                         <div className={classes.control}>
                             <label>Insert an Image</label>
-                            <input
-                                type="image"
-                                alt="hotelImage"
-                                // onChange={passwordChangeHandler}
-                            />
                         </div>
+                        <ImageUpload/>
+
                         <div className={classes.actions}>
                             <Button type="submit" className={classes.btn} >
                                 Submit
