@@ -14,7 +14,9 @@ class ImageUpload extends React.Component {
         this.state = {
             files: [],
             urls: [],
-            isDragging: false
+            isDragging: false,
+            file: null,
+            base64URL: ""
         }
 
         this.onChange = this.onChange.bind(this);
@@ -65,13 +67,58 @@ class ImageUpload extends React.Component {
             isDragging: false
         });
     }
+    getBase64 = file => {
+        return new Promise(resolve => {
+            let fileInfo;
+            let baseURL = "";
+            // Make new FileReader
+            let reader = new FileReader();
+
+            // Convert the file to base64 text
+            reader.readAsDataURL(file);
+
+            // on reader load something...
+            reader.onload = () => {
+                // Make a fileInfo Object
+                console.log("Called", reader);
+                baseURL = reader.result;
+                console.log(baseURL);
+                resolve(baseURL);
+            };
+            console.log(fileInfo);
+        });
+    };
 
     onChange = (e) => {
         e.preventDefault()
-        const files = e.target.files;
-        [].forEach.call(files, this.handleFiles);
-        this.props.onAddingImage(this.state.files);
-    }
+        // const files = e.target.files;
+        // [].forEach.call(files, this.handleFiles);
+
+        console.log('e.target files []',e.target.files[0]);
+        let { file } = this.state;
+
+        file = e.target.files[0]; // take img
+
+        this.getBase64(file)
+            .then(result => {
+                file["base64"] = result;
+                console.log("File Is", file);
+                this.setState({
+                    base64URL: result,
+                    file
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        this.setState({
+            file: e.target.files[0]
+        });
+
+        this.props.onAddingImage(this.state.base64URL);
+
+    };
 
     handleDrop(e) {
         e.stopPropagation();
@@ -90,9 +137,7 @@ class ImageUpload extends React.Component {
     }
 
     handleFiles(file) {
-
         // this could be refactored to not use the file reader
-
         var reader = new FileReader();
 
         reader.onloadend = () => {
@@ -103,9 +148,7 @@ class ImageUpload extends React.Component {
                 files: [file, ...this.state.files],
                 urls: [imageUrl, ...this.state.urls]
             });
-
         }
-
         reader.readAsDataURL(file);
     }
 
