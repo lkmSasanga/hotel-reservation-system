@@ -110,7 +110,7 @@ class ImageUpload extends React.Component {
 
     render() {
         const {urls, files, isDragging} = this.state;
-        const dropClass = isDragging ? "dragDrop dragging" : "dragDrop";
+        // const dropClass = isDragging && "dragging";
 
         return (
             <div>
@@ -120,23 +120,26 @@ class ImageUpload extends React.Component {
                            accept="image/*"
                            multiple
                     />
-                    <div className={dropClass}
-                         onDrop={this.handleDrop}
-                         onDragOver={this.handleDragOver}
-                         onDragEnter={this.handleDragEnter}
-                         onDragLeave={this.handleDragLeave} >
-                        <div className={classes.inside}>
-                            <span>Drop files here</span>
-                            <div>
-                                <FontAwesomeIcon
-                                    className={classes.materialIcons}
-                                    icon={faArrowAltCircleUp}>
-                                    file_upload
-                                </FontAwesomeIcon>
-                                {/*<i className={classes.materialIcons}>file_upload</i>*/}
+                    <div className={classes.dragDrop}>
+                        <div
+                             onDrop={this.handleDrop}
+                             onDragOver={this.handleDragOver}
+                             onDragEnter={this.handleDragEnter}
+                             onDragLeave={this.handleDragLeave} >
+                            <div className={classes.inside}>
+                                <span>Drop files here</span>
+                                <div>
+                                    <FontAwesomeIcon
+                                        className={classes.materialIcons}
+                                        icon={faArrowAltCircleUp}>
+                                        file_upload
+                                    </FontAwesomeIcon>
+                                    {/*<i className={classes.materialIcons}>file_upload</i>*/}
+                                </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div className={classes.imagePreviewContainer}>
                     {

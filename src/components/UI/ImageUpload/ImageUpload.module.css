@@ -69,7 +69,7 @@ html {
     color: lightsteelblue;
 }
 
-.dragging FontAwesomeIcon.materialIcons {
+.dragging i.materialIcons {
     animation: bounce 1s infinite ease-in-out;
 }
 
