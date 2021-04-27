@@ -64,6 +64,11 @@
     text-align: center;
 }
 
+.btn {
+    background: #120a4e;
+    margin-top: 10px;
+}
+
 @media (min-width: 768px) {
     .control {
         align-items: center;

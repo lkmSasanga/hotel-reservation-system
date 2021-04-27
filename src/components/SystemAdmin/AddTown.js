@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MainHeader from "../MainHeader/MainHeader";
 
 import classes from './AddTown.module.css';
@@ -7,6 +7,23 @@ import Button from "../UI/Button/Button";
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 
 const AddTown = () => {
+    const [hotelName, setHotelName] = useState();
+    const [image, setImage] = useState();
+
+    const hotelNameChangeHandler = e => {
+        setHotelName(e.target.value);
+    };
+
+    const imageAddingHandler = (file) => {
+        setImage(file);
+        // console.log(file)
+    };
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        console.log(hotelName, image);
+    };
+
     return (
         <React.Fragment>
             <MainHeader/>
@@ -20,17 +37,22 @@ const AddTown = () => {
                             <label>Hotel name</label>
                             <input
                                 type="text"
-                                // onChange={emailChangeHandler}
+                                required
+                                onChange={hotelNameChangeHandler}
                                 // onBlur={validateEmailHandler}
                             />
                         </div>
                         <div className={classes.control}>
                             <label>Insert an Image</label>
                         </div>
-                        <ImageUpload/>
+                        <ImageUpload onAddingImage={imageAddingHandler}/>
 
                         <div className={classes.actions}>
-                            <Button type="submit" className={classes.btn} >
+                            <Button
+                                type="submit"
+                                className={classes.btn}
+                                onClick={onSubmit}
+                            >
                                 Submit
                             </Button>
                         </div>

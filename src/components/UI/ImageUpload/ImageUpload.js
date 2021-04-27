@@ -66,10 +66,11 @@ class ImageUpload extends React.Component {
         });
     }
 
-    onChange(e) {
+    onChange = (e) => {
         e.preventDefault()
         const files = e.target.files;
         [].forEach.call(files, this.handleFiles);
+        this.props.onAddingImage(this.state.files);
     }
 
     handleDrop(e) {
@@ -144,7 +145,7 @@ class ImageUpload extends React.Component {
                 <div className={classes.imagePreviewContainer}>
                     {
                         urls && (urls.map((url, i) => (
-                            <div className={classes.previewItem}>
+                            <div className={classes.previewItem} key={Math.random()}>
                                 <img className={classes.imagePreview} src={url} />
                                 <div className={classes.details}>
                                     <h6>{files[i].name}</h6>
