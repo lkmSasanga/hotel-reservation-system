@@ -102,7 +102,9 @@ class ImageUpload extends React.Component {
         this.getBase64(file)
             .then(result => {
                 file["base64"] = result;
-                console.log("File Is", file);
+                console.log("[Inside IMAGEUPLOAD]: File Is", result);
+                this.props.onAddingImage(result);
+
                 this.setState({
                     base64URL: result,
                     file
@@ -116,11 +118,8 @@ class ImageUpload extends React.Component {
             file: e.target.files[0]
         });
 
-        this.props.onAddingImage(this.state.base64URL);
-
 
         console.log('[CHECKING BASE64 BEFORE SENDING]', this.state.base64URL)
-
     };
 
     handleDrop(e) {
@@ -185,7 +184,6 @@ class ImageUpload extends React.Component {
                                         icon={faArrowAltCircleUp}>
                                         file_upload
                                     </FontAwesomeIcon>
-                                    {/*<i className={classes.materialIcons}>file_upload</i>*/}
                                 </div>
                             </div>
                         </div>

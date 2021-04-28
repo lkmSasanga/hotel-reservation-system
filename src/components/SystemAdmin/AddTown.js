@@ -21,7 +21,7 @@ const AddTown = (props) => {
 
     const imageAddingHandler = (file) => {
         setImage(file);
-        console.log('[Image adding handler running]')
+        console.log('[Image adding handler running]', file);
         // console.log(file)
     };
 
