@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import MainHeader from "../MainHeader/MainHeader";
 
 import classes from './AddTown.module.css';
@@ -9,6 +9,11 @@ import ImageUpload from "../UI/ImageUpload/ImageUpload";
 const AddTown = (props) => {
     const [hotelName, setHotelName] = useState();
     const [image, setImage] = useState();
+    const [loggedUserDetails, setLoggedUserDetails] = useState();
+
+    useEffect(() => {
+        setLoggedUserDetails(props.userDetails);
+    },[props.userDetails]);
 
     const hotelNameChangeHandler = e => {
         setHotelName(e.target.value);
@@ -16,17 +21,19 @@ const AddTown = (props) => {
 
     const imageAddingHandler = (file) => {
         setImage(file);
+        console.log('[Image adding handler running]')
         // console.log(file)
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log(hotelName, image);
+        console.log('[IMAGE ONSUBMIT]',image);
+        console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
 
         fetch('http://localhost:5000/api/add_town', {
             method: 'POST',
             headers: {
-                'Authorization': `${props.userDetails.data.token}`,
+                // 'Authorization': `${props.userDetails.data.token}`,
                 'Content-Type': 'application/json',
 
             },

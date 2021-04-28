@@ -54,7 +54,6 @@ class Login extends Component {
         this.setState({userType: e.target.value})
     }
 
-
     SignUpClickHandler = () => {
         if(this.state.loadSignup) {
             if(this.state.email === '' && this.state.password === '' && this.state.username === '') {
@@ -69,7 +68,6 @@ class Login extends Component {
         }
 
         this.setState({loadSignup: true, submitButtonName: 'Signup', errorOccurs: false})
-
     }
 
     onClickHandler = (e) => {
@@ -113,7 +111,7 @@ class Login extends Component {
 
                         if (json.success) {
                             console.log('get user data', json.data.token);
-                            // this.setState({recievedUserType: json.user.userType});
+                            this.setState({receivedUserData: json});
 
                             this.setState({
                                 email: '',
@@ -122,7 +120,7 @@ class Login extends Component {
                                 signUpError: '',
                                 errorOccurs: false,
                                 loginSuccess: true,
-                                receivedUserData: json,
+                                // receivedUserData: json,
                                 recievedUserType: json.user.userType
 
                             });

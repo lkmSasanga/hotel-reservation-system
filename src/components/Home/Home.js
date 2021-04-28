@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
-import { useHistory } from "react-router-dom";
+import React, {} from 'react';
+// import { useHistory } from "react-router-dom";
 
 // import Card from '../UI/Card/Card';
 import classes from './Home.module.css';
 
 // import galle from '../Media/galle.jpg';
-import Properties from "../Properties/Properties";
+// import Properties from "../Properties/Properties";
 import MainHeader from "../MainHeader/MainHeader";
 // import ambalangoda from '../Media/1.jpg';
 // import hikkaduwa from '../Media/2.jpg';

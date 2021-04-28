@@ -154,7 +154,11 @@ class ImageUpload extends React.Component {
     }
 
     render() {
-        const {urls, files, isDragging} = this.state;
+        const {
+            urls,
+            files,
+            // isDragging
+        } = this.state;
         // const dropClass = isDragging && "dragging";
 
         return (
@@ -190,7 +194,7 @@ class ImageUpload extends React.Component {
                     {
                         urls && (urls.map((url, i) => (
                             <div className={classes.previewItem} key={Math.random()}>
-                                <img className={classes.imagePreview} src={url} />
+                                <img alt="uploadImage" className={classes.imagePreview} src={url} />
                                 <div className={classes.details}>
                                     <h6>{files[i].name}</h6>
                                     <h6>{files[i].size.toLocaleString()} KBs</h6>
