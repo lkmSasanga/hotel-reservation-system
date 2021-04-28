@@ -91,8 +91,8 @@ class ImageUpload extends React.Component {
 
     onChange = (e) => {
         e.preventDefault()
-        // const files = e.target.files;
-        // [].forEach.call(files, this.handleFiles);
+        const files = e.target.files;
+        [].forEach.call(files, this.handleFiles);
 
         console.log('e.target files []',e.target.files[0]);
         let { file } = this.state;
@@ -117,6 +117,7 @@ class ImageUpload extends React.Component {
         });
 
         this.props.onAddingImage(this.state.base64URL);
+        console.log('[CHECKING BASE64 BEFORE SENDING]', this.state.base64URL)
 
     };
 

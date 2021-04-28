@@ -29,7 +29,8 @@ class Login extends Component {
         usernamePlaceHolder: 'Username',
         userType: 'Customer',
 
-        recievedUserType: ''
+        recievedUserType: '',
+        receivedUserData: ''
     }
 
     onChangeUsername = (e) => {
@@ -111,8 +112,8 @@ class Login extends Component {
                         console.log('inside api call');
 
                         if (json.success) {
-                            // console.log('get user data', json.user.userType);
-                            this.setState({recievedUserType: json.user.userType});
+                            console.log('get user data', json.data.token);
+                            // this.setState({recievedUserType: json.user.userType});
 
                             this.setState({
                                 email: '',
@@ -120,7 +121,10 @@ class Login extends Component {
                                 isLoading: false,
                                 signUpError: '',
                                 errorOccurs: false,
-                                loginSuccess: true
+                                loginSuccess: true,
+                                receivedUserData: json,
+                                recievedUserType: json.user.userType
+
                             });
                         }
                         else {

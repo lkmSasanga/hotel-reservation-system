@@ -22,6 +22,52 @@ const AddTown = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         console.log(hotelName, image);
+
+        fetch('http://localhost:5000/api/add_town', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+
+            },
+            body: JSON.stringify({
+                name: hotelName,
+                image: image,
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                console.log('inside api call');
+
+                if (json.success) {
+                    // console.log('get user data', json.user.userType);
+                    // this.setState({recievedUserType: json.user.userType});
+
+                    // this.setState({
+                        // email: '',
+                        // password: '',
+                        // isLoading: false,
+                        // signUpError: '',
+                        // errorOccurs: false,
+                        // loginSuccess: true
+                    // });
+                }
+                else {
+                    // if(json.message === 'Invalid Email!') {
+                    //     this.setState({invalidEmail: true})
+                    // } else if(json.message === 'Invalid Password!') {
+                    //     this.setState({invalidPassword: true})
+                    // }
+                    //
+                    // this.setState({
+                        // signUpError: json.message,
+                        // email: '',
+                        // password: '',
+                        // isLoading: false,
+                        // errorOccurs: true
+                    // });
+                }
+            });
+
     };
 
     return (
@@ -31,7 +77,7 @@ const AddTown = () => {
                 <h2 className={classes.heading}>Add a new Town</h2>
                 <p className={classes.subHeading}>Expanding our services</p>
                 <Card className={classes.cardBody}>
-                    <h1 className={classes.newHotel}>New Hotel</h1>
+                    <h1 className={classes.newHotel}>Town Info</h1>
                     <form>
                         <div className={classes.control}>
                             <label>Hotel name</label>

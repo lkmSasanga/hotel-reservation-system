@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Route, Switch, BrowserRouter, Redirect } from "react-router-dom";
+import { Route, BrowserRouter, Redirect } from "react-router-dom";
 import axios from 'axios';
 
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
-import MainHeader from './components/MainHeader/MainHeader';
+// import MainHeader from './components/MainHeader/MainHeader';
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 
@@ -14,15 +14,15 @@ import AddHotel from "./components/HotelOwner/AddHotel";
 import ViewBookings from "./components/HotelOwner/ViewBookings";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [receivedData, setReceivedData] = useState('');
 
   useEffect(() => {
-    const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
+    // const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
 
-    if (storedUserLoggedInInformation === '1') {
-      setIsLoggedIn(true);
-    }
+    // if (storedUserLoggedInInformation === '1') {
+    //   setIsLoggedIn(true);
+    // }
 
     axios.get('http://localhost:5000/hotels').then(response => {
       const receivedData = response.data;
@@ -34,16 +34,16 @@ function App() {
 
   }, []);
 
-  const loginHandler = (email, password) => {
-    //  should check email and password
-    localStorage.setItem('isLoggedIn', '1');
-    setIsLoggedIn(true);
-  };
+  // const loginHandler = (email, password) => {
+  //   //  should check email and password
+  //   localStorage.setItem('isLoggedIn', '1');
+  //   setIsLoggedIn(true);
+  // };
 
-  const logoutHandler = () => {
-    localStorage.removeItem('isLoggedIn');
-    setIsLoggedIn(false);
-  };
+  // const logoutHandler = () => {
+  //   localStorage.removeItem('isLoggedIn');
+  //   setIsLoggedIn(false);
+  // };
 
   return (
       <BrowserRouter>

@@ -1,7 +1,7 @@
 import React from 'react';
 import MainHeader from "../MainHeader/MainHeader";
 
-import classes from './ViewBookings.module.css';
+// import classes from './ViewBookings.module.css';
 
 const ViewBookings = () => {
     return (
