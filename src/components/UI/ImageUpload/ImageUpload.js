@@ -82,7 +82,6 @@ class ImageUpload extends React.Component {
                 // Make a fileInfo Object
                 console.log("Called", reader);
                 baseURL = reader.result;
-                console.log(baseURL);
                 resolve(baseURL);
             };
             console.log(fileInfo);
@@ -94,7 +93,8 @@ class ImageUpload extends React.Component {
         const files = e.target.files;
         [].forEach.call(files, this.handleFiles);
 
-        console.log('e.target files []',e.target.files[0]);
+        // console.log('e.target files []',e.target.files[0]);
+
         let { file } = this.state;
 
         file = e.target.files[0]; // take img
@@ -117,6 +117,8 @@ class ImageUpload extends React.Component {
         });
 
         this.props.onAddingImage(this.state.base64URL);
+
+
         console.log('[CHECKING BASE64 BEFORE SENDING]', this.state.base64URL)
 
     };
@@ -205,13 +207,6 @@ class ImageUpload extends React.Component {
                                         icon={faTrashAlt} >
                                         delete
                                     </FontAwesomeIcon>
-                                    {/*<FaRegTrashAlt*/}
-                                    {/*    className={classes.materialIcons}*/}
-                                    {/*    onClick={() => this.onRemove(i)}>*/}
-                                    {/*    delete*/}
-                                    {/*</FaRegTrashAlt>*/}
-                                    {/*<i className={classes.materialIcons}*/}
-                                    {/*   onClick={() => this.onRemove(i)}>delete</i>*/}
                                 </div>
                             </div>
                         )))
