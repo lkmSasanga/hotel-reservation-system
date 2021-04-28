@@ -6,7 +6,7 @@ import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 
-const AddTown = () => {
+const AddTown = (props) => {
     const [hotelName, setHotelName] = useState();
     const [image, setImage] = useState();
 
@@ -26,6 +26,7 @@ const AddTown = () => {
         fetch('http://localhost:5000/api/add_town', {
             method: 'POST',
             headers: {
+                'Authorization': `${props.userDetails.data.token}`,
                 'Content-Type': 'application/json',
 
             },

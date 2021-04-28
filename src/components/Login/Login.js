@@ -162,7 +162,7 @@ class Login extends Component {
                     .then(json => {
                         // console.log('json', json);
                         if (json.success) {
-                            this.setState({recievedUserType: json.user.userType});
+                            // this.setState({recievedUserType: json.user.userType});
 
                             this.setState({
                                 // signUpError: json.message,
@@ -175,6 +175,9 @@ class Login extends Component {
                                 signUpError: '',
                                 errorOccurs: false,
                                 loginSuccess: true,
+                                receivedUserData: json,
+                                recievedUserType: json.user.userType
+
                             });
                         }
                         else {
@@ -316,7 +319,7 @@ class Login extends Component {
                         {this.state.recievedUserType === 'System_Admin' ?
                             <>
                                 <Redirect to="/add_town"/>
-                                <AddTown/>
+                                <AddTown userDetails={this.state.receivedUserData}/>
                             </>
                         : null}
 
