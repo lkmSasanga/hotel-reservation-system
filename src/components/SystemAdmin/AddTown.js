@@ -9,11 +9,16 @@ import ImageUpload from "../UI/ImageUpload/ImageUpload";
 const AddTown = (props) => {
     const [hotelName, setHotelName] = useState();
     const [image, setImage] = useState();
-    const [loggedUserDetails, setLoggedUserDetails] = useState();
+    const [loggedUserToken, setLoggedUserToken] = useState();
 
     useEffect(() => {
-        setLoggedUserDetails(props.userDetails);
-    },[props.userDetails]);
+        if (props.userDetails) {
+            setLoggedUserToken(props.userDetails.data.token);
+            console.log('[PROPS CHECKING]', props.userDetails.data.token);
+        }
+
+
+    },[]);
 
     const hotelNameChangeHandler = e => {
         setHotelName(e.target.value);
@@ -21,60 +26,50 @@ const AddTown = (props) => {
 
     const imageAddingHandler = (file) => {
         setImage(file);
-        console.log('[Image adding handler running]', file);
+        // console.log('[Image adding handler running]', file);
         // console.log(file)
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        console.log('[IMAGE ONSUBMIT]',image);
-        console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
+        // console.log('[ONSUBMIT]',image);
+        // console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
 
-        fetch('http://localhost:5000/api/add_town', {
-            method: 'POST',
-            headers: {
-                // 'Authorization': `${props.userDetails.data.token}`,
-                'Content-Type': 'application/json',
+        if (loggedUserToken) {
+            fetch('http://localhost:5000/api/add_town', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `${loggedUserToken}`,
+                    'Content-Type': 'application/json',
 
-            },
-            body: JSON.stringify({
-                name: hotelName,
-                image: image,
-            }),
-        }).then(res => res.json())
-            .then(json => {
-                console.log('json', json);
-                console.log('inside api call');
+                },
+                body: JSON.stringify({
+                    name: hotelName,
+                    image: image,
+                }),
+            }).then(res => res.json())
+                .then(json => {
+                    console.log('json', json);
+                    console.log('inside api call');
 
-                if (json.success) {
-                    // console.log('get user data', json.user.userType);
-                    // this.setState({recievedUserType: json.user.userType});
+                    if (json.success) {
+                        console.log('login successful', json);
+                        // this.setState({recievedUserType: json.user.userType});
+                        setImage('');
+                        setHotelName('');
 
-                    // this.setState({
-                        // email: '',
-                        // password: '',
-                        // isLoading: false,
-                        // signUpError: '',
-                        // errorOccurs: false,
-                        // loginSuccess: true
-                    // });
-                }
-                else {
-                    // if(json.message === 'Invalid Email!') {
-                    //     this.setState({invalidEmail: true})
-                    // } else if(json.message === 'Invalid Password!') {
-                    //     this.setState({invalidPassword: true})
-                    // }
-                    //
-                    // this.setState({
-                        // signUpError: json.message,
-                        // email: '',
-                        // password: '',
-                        // isLoading: false,
-                        // errorOccurs: true
-                    // });
-                }
-            });
+                    }
+                    else {
+                        console.log('Error Occurred');
+                        console.log(json)
+
+                    }
+                });
+        }
+        console.log('Button Clicked');
+        console.log(props.userDetails)
+
+
 
     };
 

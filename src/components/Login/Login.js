@@ -114,6 +114,8 @@ class Login extends Component {
                             this.setState({receivedUserData: json});
 
                             this.setState({
+                                recievedUserType: json.user.userType,
+
                                 email: '',
                                 password: '',
                                 isLoading: false,
@@ -121,7 +123,6 @@ class Login extends Component {
                                 errorOccurs: false,
                                 loginSuccess: true,
                                 // receivedUserData: json,
-                                recievedUserType: json.user.userType
 
                             });
                         }

@@ -51,10 +51,12 @@ class ImageUpload extends React.Component {
     }
 
     handleDragEnter(e) {
+        e.preventDefault()
         this.handleDrags(e);
     }
 
     handleDragOver(e) {
+        e.preventDefault()
         this.handleDrags(e);
     }
 
