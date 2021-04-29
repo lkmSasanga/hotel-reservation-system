@@ -19,6 +19,7 @@ const Navigation = (props) => {
 
     const onLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('id');
         history.push("/login");
     };
 

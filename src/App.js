@@ -34,15 +34,13 @@ function App() {
   }, []);
 
   const loginHandler = (token) => {
-    //  should check email and password
     localStorage.setItem('token', token);
-    // setIsLoggedIn(true);
   };
 
-  // const logoutHandler = () => {
-  //   localStorage.removeItem('token');
-  //   // setIsLoggedIn(false);
-  // };
+  const onLoginUserDetailsHandler = (user) => {
+    localStorage.setItem('id', user);
+    console.log(user);
+  };
 
   return (
       <BrowserRouter>
@@ -56,7 +54,10 @@ function App() {
                   path="/login"
                   // component={Login}
                   // onLogin={() => loginHandler()}
-                  render={() => <Login onLogin={loginHandler} />}
+                  render={() => <Login
+                      onLogin={loginHandler}
+                      onLoginUserDetails={onLoginUserDetailsHandler}
+                  />}
               />
               <Route
                   path="/home"

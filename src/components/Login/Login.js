@@ -30,7 +30,8 @@ class Login extends Component {
         userType: 'Customer',
 
         recievedUserType: '',
-        receivedUserData: ''
+        receivedUserData: '',
+        // userData: ''
     }
 
     onChangeUsername = (e) => {
@@ -115,6 +116,7 @@ class Login extends Component {
                             this.setState({receivedUserData: json});
 
                             this.props.onLogin(json.data.token);
+                            localStorage.setItem('id', json.user._id);
 
                             this.setState({
                                 recievedUserType: json.user.userType,
@@ -125,7 +127,7 @@ class Login extends Component {
                                 signUpError: '',
                                 errorOccurs: false,
                                 loginSuccess: true,
-                                // receivedUserData: json,
+                                receivedUserData: json,
 
                             });
                         }
@@ -164,7 +166,9 @@ class Login extends Component {
                         if (json.success) {
                             this.setState({recievedUserType: json.user.userType});
 
-                            this.props.onLogin(json.data.token);
+                            this.props.onLogin(json.data);
+                            // console.log('from LOGIN',json.data)
+                            this.props.onLoginUserDetails(json.user);
 
                             this.setState({
                                 // signUpError: json.message,
