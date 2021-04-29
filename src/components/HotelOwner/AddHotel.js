@@ -159,6 +159,8 @@ const AddHotel = () => {
                     </form>
                 </Card>
             </div>
+
+            <div style={{paddingBottom: '20px'}}>.</div>
         </React.Fragment>
     );
 };
