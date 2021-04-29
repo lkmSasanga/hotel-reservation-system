@@ -11,7 +11,8 @@ const AddTown = (props) => {
     const [hotelName, setHotelName] = useState();
     const [image, setImage] = useState();
     const [loggedUserToken, setLoggedUserToken] = useState();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState();
+    const [submitMsg, setSubmitMsg] = useState('');
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
@@ -62,6 +63,7 @@ const AddTown = (props) => {
                     if (json.success) {
                         console.log('login successful', json);
                         setLoading(false);
+                        setSubmitMsg('New Town added Successfully');
                         // this.setState({recievedUserType: json.user.userType});
                         setImage('');
                         setHotelName('');
@@ -70,6 +72,7 @@ const AddTown = (props) => {
                     else {
                         console.log('Error Occurred');
                         console.log(json)
+                        setSubmitMsg('Unable to add new Town');
 
                     }
                 });
@@ -108,6 +111,7 @@ const AddTown = (props) => {
                                 Submit
                             </Button>
                         </div>
+                        {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
                         {loading && <ThreeDots/>}
                     </form>
                 </Card>

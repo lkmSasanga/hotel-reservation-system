@@ -69,6 +69,12 @@
     margin-top: 10px;
 }
 
+.submittingMsg {
+    text-align: center;
+    color: green;
+    /*padding: 5px;*/
+}
+
 @media (min-width: 768px) {
     .control {
         align-items: center;
