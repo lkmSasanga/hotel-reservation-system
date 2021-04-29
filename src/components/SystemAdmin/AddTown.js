@@ -25,7 +25,7 @@ const AddTown = (props) => {
         e.preventDefault();
 
         setHotelName(e.target.value);
-        console.log('[PROPS CHECKING]', loggedUserToken);
+        // console.log('[PROPS CHECKING]', loggedUserToken);
 
     };
 
@@ -74,11 +74,6 @@ const AddTown = (props) => {
                     }
                 });
         }
-        console.log('Button Clicked');
-        console.log(props.userDetails)
-
-
-
     };
 
     return (

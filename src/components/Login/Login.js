@@ -107,11 +107,11 @@ class Login extends Component {
                     }),
                 }).then(res => res.json())
                     .then(json => {
-                        console.log('json', json);
-                        console.log('inside api call');
+                        // console.log('json', json);
+                        // console.log('inside api call');
 
                         if (json.success) {
-                            console.log('get user data', json.data.token);
+                            // console.log('get user data', json.data.token);
                             this.setState({receivedUserData: json});
 
                             this.props.onLogin(json.data.token);

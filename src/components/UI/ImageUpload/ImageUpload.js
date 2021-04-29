@@ -71,7 +71,7 @@ class ImageUpload extends React.Component {
     }
     getBase64 = file => {
         return new Promise(resolve => {
-            let fileInfo;
+            // let fileInfo;
             let baseURL = "";
             // Make new FileReader
             let reader = new FileReader();
@@ -82,11 +82,11 @@ class ImageUpload extends React.Component {
             // on reader load something...
             reader.onload = () => {
                 // Make a fileInfo Object
-                console.log("Called", reader);
+                // console.log("Called", reader);
                 baseURL = reader.result;
                 resolve(baseURL);
             };
-            console.log(fileInfo);
+            // console.log(fileInfo);
         });
     };
 
@@ -104,7 +104,7 @@ class ImageUpload extends React.Component {
         this.getBase64(file)
             .then(result => {
                 file["base64"] = result;
-                console.log("[Inside IMAGEUPLOAD]: File Is", result);
+                // console.log("[Inside IMAGEUPLOAD]: File Is", result);
                 this.props.onAddingImage(result);
 
                 this.setState({
@@ -121,7 +121,7 @@ class ImageUpload extends React.Component {
         });
 
 
-        console.log('[CHECKING BASE64 BEFORE SENDING]', this.state.base64URL)
+        // console.log('[CHECKING BASE64 BEFORE SENDING]', this.state.base64URL)
     };
 
     handleDrop(e) {
@@ -130,7 +130,7 @@ class ImageUpload extends React.Component {
 
         const data = e.dataTransfer;
         const files = data.files;
-        console.log("Oops...you dropped this: ", files);
+        // console.log("Oops...you dropped this: ", files);
 
         [].forEach.call(files, this.handleFiles);
 
