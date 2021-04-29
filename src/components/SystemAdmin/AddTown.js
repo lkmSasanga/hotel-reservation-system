@@ -16,30 +16,20 @@ const AddTown = (props) => {
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
-        // if (props.userDetails) {
-        //     setLoggedUserToken(props.userDetails.data.token);
-        //     console.log('[PROPS CHECKING]', props.userDetails.data.token);
-        // }
     },[]);
 
     const hotelNameChangeHandler = e => {
         e.preventDefault();
 
         setHotelName(e.target.value);
-        // console.log('[PROPS CHECKING]', loggedUserToken);
-
     };
 
     const imageAddingHandler = (file) => {
         setImage(file);
-        // console.log('[Image adding handler running]', file);
-        // console.log(file)
     };
 
     const onSubmit = (e) => {
         e.preventDefault();
-        // console.log('[ONSUBMIT]',image);
-        // console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
         setLoading(true);
 
         if (1) {
@@ -47,7 +37,6 @@ const AddTown = (props) => {
                 method: 'POST',
                 headers: {
                     'Authorization': `${loggedUserToken}`,
-                    // 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.NjA4OGViOWRmMzgwNTgyOWUwZWYzNmM3.kPqMRwD4kApJCnsBEfn0Jn1uUDwYEVITFY-6xxmuve0',
                     'Content-Type': 'application/json',
 
                 },
@@ -67,13 +56,11 @@ const AddTown = (props) => {
                         // this.setState({recievedUserType: json.user.userType});
                         setImage('');
                         setHotelName('');
-
                     }
                     else {
                         console.log('Error Occurred');
                         console.log(json)
                         setSubmitMsg('Unable to add new Town');
-
                     }
                 });
         }
@@ -94,7 +81,6 @@ const AddTown = (props) => {
                                 type="text"
                                 required
                                 onChange={hotelNameChangeHandler}
-                                // onBlur={validateEmailHandler}
                             />
                         </div>
                         <div className={classes.control}>
