@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 import classes from './Navigation.module.css';
 
@@ -17,12 +17,17 @@ const Navigation = (props) => {
       history.push('/contact');
     };
 
+    const onLogout = () => {
+        localStorage.removeItem('token');
+        history.push("/login");
+    };
+
     return (
         <nav className={classes.nav}>
             <ul>
                 {/*{props.isLoggedIn && (*/}
                     <li>
-                        <a href="/" onClick={gotoHome}>Home</a>
+                        <a href="/home" onClick={gotoHome}>Home</a>
                     </li>
                 {/*)}*/}
                 {/*{props.isLoggedIn && (*/}
@@ -42,7 +47,7 @@ const Navigation = (props) => {
                 {/*)}*/}
                 {/*{props.isLoggedIn && (*/}
                     <li>
-                        <button onClick={props.onLogout}>Logout</button>
+                        <button onClick={onLogout}>Logout</button>
                     </li>
                 {/*)}*/}
 

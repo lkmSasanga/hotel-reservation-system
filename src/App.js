@@ -40,8 +40,8 @@ function App() {
   };
 
   // const logoutHandler = () => {
-  //   localStorage.removeItem('isLoggedIn');
-  //   setIsLoggedIn(false);
+  //   localStorage.removeItem('token');
+  //   // setIsLoggedIn(false);
   // };
 
   return (
@@ -58,7 +58,10 @@ function App() {
                   // onLogin={() => loginHandler()}
                   render={() => <Login onLogin={loginHandler} />}
               />
-              <Route exact path="/home" component={Home}/>
+              <Route
+                  path="/home"
+                  component={Home}
+              />
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (
                   <Property
