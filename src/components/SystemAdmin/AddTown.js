@@ -31,38 +31,36 @@ const AddTown = (props) => {
         e.preventDefault();
         setLoading(true);
 
-        if (1) {
-            fetch('http://localhost:5000/api/add_town', {
-                method: 'POST',
-                headers: {
-                    'Authorization': `${loggedUserToken}`,
-                    'Content-Type': 'application/json',
+        fetch('http://localhost:5000/api/add_town', {
+            method: 'POST',
+            headers: {
+                'Authorization': `${loggedUserToken}`,
+                'Content-Type': 'application/json',
 
-                },
-                body: JSON.stringify({
-                    name: townName,
-                    image: image,
-                }),
-            }).then(res => res.json())
-                .then(json => {
-                    console.log('json', json);
-                    // console.log('inside api call');
+            },
+            body: JSON.stringify({
+                name: townName,
+                image: image,
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                // console.log('inside api call');
 
-                    if (json.success) {
-                        console.log('login successful', json);
-                        setLoading(false);
-                        setSubmitMsg('New Town added Successfully');
-                        // this.setState({recievedUserType: json.user.userType});
-                        setImage('');
-                        setTownName('');
-                    }
-                    else {
-                        console.log('Error Occurred');
-                        console.log(json)
-                        setSubmitMsg('Unable to add new Town');
-                    }
-                });
-        }
+                if (json.success) {
+                    console.log('login successful', json);
+                    setLoading(false);
+                    setSubmitMsg('New Town added Successfully');
+                    // this.setState({recievedUserType: json.user.userType});
+                    setImage('');
+                    setTownName('');
+                }
+                else {
+                    console.log('Error Occurred');
+                    console.log(json)
+                    setSubmitMsg('Unable to add new Town');
+                }
+            });
     };
 
     return (

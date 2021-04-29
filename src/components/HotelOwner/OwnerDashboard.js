@@ -8,37 +8,42 @@ import MainHeader from "../MainHeader/MainHeader";
 import classes from './OwnerDashboard.module.css';
 import Card from "../UI/Card/Card";
 import AddHotel from "./AddHotel";
+import {Redirect} from "react-router-dom";
 
 const OwnerDashboard = () => {
-    const [hideButtons, setHideButtons] = useState(false);
+    const [showHotelAddingForm, setShowHotelAddingForm] = useState(false);
+    const [showBookings, setShowBookings] = useState(false);
 
     const loadHotelAddingForm  = () => {
-        setHideButtons(true);
+        setShowHotelAddingForm(true);
     };
 
     const loadBookings = () => {
-      setHideButtons(true);
+        setShowBookings(true);
     };
 
     return (
         <div className={classes.main}>
             <MainHeader/>
             <h1 className={classes.heading}>Dashboard</h1>
+
             <div className={classes.row}>
                 <Card className={classes.cardBody}>
-                    {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
-                    <h1 className={classes.title} onClick={loadHotelAddingForm}>Add a Hotel</h1>
+                {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
+                <h1 className={classes.title} onClick={loadHotelAddingForm}>Add a Hotel</h1>
                 </Card>
                 <Card className={classes.cardBody}>
                     <h1 className={classes.title} onClick={loadBookings}>Bookings</h1>
                 </Card>
             </div>
-            <div>
-                <AddHotel/>
-            </div>
-
+            {showHotelAddingForm &&
+                <>
+                    <Redirect to={"/add_hotel"}/>
+                    <AddHotel/>
+                </>
+            }
         </div>
     );
-};
+}
 
 export default OwnerDashboard;

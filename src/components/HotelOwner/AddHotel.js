@@ -24,6 +24,7 @@ const AddHotel = () => {
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
+        setHotelOwnerID(localStorage.getItem('id'));
     },[]);
 
     const hotelNameChangeHandler = (e) => {
@@ -52,6 +53,41 @@ const AddHotel = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
+
+        fetch('http://localhost:5000/api/add_hotel', {
+            method: 'POST',
+            headers: {
+                'Authorization': `${loggedUserToken}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                hotelOwner_id: hotelOwnerID,
+                city: city,
+                hotel_name: hotelName,
+                rate: rate,
+                rooms_available: roomsAvailable,
+                price: price,
+                image: image
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                // console.log('inside api call');
+
+                if (json.success) {
+                    console.log('login successful', json);
+                    setLoading(false);
+                    setSubmitMsg('New Hotel added Successfully');
+                    // this.setState({recievedUserType: json.user.userType});
+                    setImage('');
+                    setHotelName('');
+                }
+                else {
+                    console.log('Error Occurred');
+                    console.log(json)
+                    setSubmitMsg('Unable to add new Hotel');
+                }
+            });
     };
 
     return (
