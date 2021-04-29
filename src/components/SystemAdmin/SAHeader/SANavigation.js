@@ -1,14 +1,11 @@
 import React from 'react';
 import {useHistory} from "react-router-dom";
 
-import classes from './HONavigation.module.css';
+import classes from './SANavigation.module.css';
 
 const SANavigation = () => {
     const history = useHistory();
 
-    const gotoDashboard = () => {
-        history.push('/owner_dashboard');
-    };
     const gotoContact = () => {
         history.push('/contact');
     };
@@ -23,9 +20,6 @@ const SANavigation = () => {
         <nav className={classes.nav}>
             <ul>
                 <li>
-                    <a href="/owner_dashboard" onClick={gotoDashboard}>Dashboard</a>
-                </li>
-                <li>
                     <a href="/contact" onClick={gotoContact}>Contact</a>
                 </li>
                 <li>
@@ -36,4 +30,4 @@ const SANavigation = () => {
     );
 };
 
-export default SANavigation;SA
+export default SANavigation;

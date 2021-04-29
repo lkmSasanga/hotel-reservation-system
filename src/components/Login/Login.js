@@ -325,7 +325,9 @@ class Login extends Component {
                         {this.state.recievedUserType === 'System_Admin' ?
                             <>
                                 <Redirect to="/add_town"/>
-                                <AddTown userDetails={this.state.receivedUserData}/>
+                                <AddTown/>
+                                {/*<Redirect to="/home"/>*/}
+                                {/*<Home/>*/}
                             </>
                         : null}
 
