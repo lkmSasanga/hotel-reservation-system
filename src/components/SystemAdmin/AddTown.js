@@ -8,7 +8,7 @@ import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 
 const AddTown = (props) => {
-    const [hotelName, setHotelName] = useState();
+    const [townName, setTownName] = useState();
     const [image, setImage] = useState();
     const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
@@ -18,10 +18,9 @@ const AddTown = (props) => {
         setLoggedUserToken(localStorage.getItem('token'));
     },[]);
 
-    const hotelNameChangeHandler = e => {
+    const townNameChangeHandler = e => {
         e.preventDefault();
-
-        setHotelName(e.target.value);
+        setTownName(e.target.value);
     };
 
     const imageAddingHandler = (file) => {
@@ -41,13 +40,13 @@ const AddTown = (props) => {
 
                 },
                 body: JSON.stringify({
-                    name: hotelName,
+                    name: townName,
                     image: image,
                 }),
             }).then(res => res.json())
                 .then(json => {
                     console.log('json', json);
-                    console.log('inside api call');
+                    // console.log('inside api call');
 
                     if (json.success) {
                         console.log('login successful', json);
@@ -55,7 +54,7 @@ const AddTown = (props) => {
                         setSubmitMsg('New Town added Successfully');
                         // this.setState({recievedUserType: json.user.userType});
                         setImage('');
-                        setHotelName('');
+                        setTownName('');
                     }
                     else {
                         console.log('Error Occurred');
@@ -76,11 +75,11 @@ const AddTown = (props) => {
                     <h1 className={classes.newHotel}>Town Info</h1>
                     <form>
                         <div className={classes.control}>
-                            <label>Hotel name</label>
+                            <label>Town name</label>
                             <input
                                 type="text"
                                 required
-                                onChange={hotelNameChangeHandler}
+                                onChange={townNameChangeHandler}
                             />
                         </div>
                         <div className={classes.control}>
@@ -103,7 +102,6 @@ const AddTown = (props) => {
                 </Card>
             </div>
         </React.Fragment>
-
     );
 };
 
