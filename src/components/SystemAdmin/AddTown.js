@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import MainHeader from "../MainHeader/MainHeader";
+import SAHeader from "./SAHeader/SAHeader";
 
 import classes from './AddTown.module.css';
 import Card from "../UI/Card/Card";
@@ -65,7 +65,7 @@ const AddTown = (props) => {
 
     return (
         <React.Fragment>
-            <MainHeader/>
+            <SAHeader/>
             <div className={classes.main}>
                 <h2 className={classes.heading}>Add a new Town</h2>
                 <p className={classes.subHeading}>Expanding our services</p>

@@ -1,12 +1,12 @@
 import React from 'react';
-import MainHeader from "../MainHeader/MainHeader";
+import HOHeader from "./HOHeader/HOHeader";
 
 // import classes from './ViewBookings.module.css';
 
 const ViewBookings = () => {
     return (
         <div>
-            <MainHeader/>
+            <HOHeader/>
             <h1>View Bookings</h1>
         </div>
     );
