@@ -4,7 +4,6 @@ import { Route, BrowserRouter, Redirect } from "react-router-dom";
 
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
-// import MainHeader from './components/MainHeader/MainHeader';
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 
@@ -53,7 +52,12 @@ function App() {
               <Route exact path="/">
                 <Redirect to="/login" />
               </Route>
-              <Route path="/login" component={Login} onLogin={loginHandler}/>
+              <Route
+                  path="/login"
+                  // component={Login}
+                  // onLogin={() => loginHandler()}
+                  render={() => <Login onLogin={loginHandler} />}
+              />
               <Route exact path="/home" component={Home}/>
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (

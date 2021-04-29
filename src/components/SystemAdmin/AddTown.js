@@ -12,10 +12,11 @@ const AddTown = (props) => {
     const [loggedUserToken, setLoggedUserToken] = useState();
 
     useEffect(() => {
-        if (props.userDetails) {
-            setLoggedUserToken(props.userDetails.data.token);
-            console.log('[PROPS CHECKING]', props.userDetails.data.token);
-        }
+        setLoggedUserToken(localStorage.getItem('token'));
+        // if (props.userDetails) {
+        //     setLoggedUserToken(props.userDetails.data.token);
+        //     console.log('[PROPS CHECKING]', props.userDetails.data.token);
+        // }
     },[]);
 
     const hotelNameChangeHandler = e => {
@@ -41,8 +42,8 @@ const AddTown = (props) => {
             fetch('http://localhost:5000/api/add_town', {
                 method: 'POST',
                 headers: {
-                    // 'Authorization': `${loggedUserToken}`,
-                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.NjA4OGViOWRmMzgwNTgyOWUwZWYzNmM3.kPqMRwD4kApJCnsBEfn0Jn1uUDwYEVITFY-6xxmuve0',
+                    'Authorization': `${loggedUserToken}`,
+                    // 'Authorization': 'eyJhbGciOiJIUzI1NiJ9.NjA4OGViOWRmMzgwNTgyOWUwZWYzNmM3.kPqMRwD4kApJCnsBEfn0Jn1uUDwYEVITFY-6xxmuve0',
                     'Content-Type': 'application/json',
 
                 },
