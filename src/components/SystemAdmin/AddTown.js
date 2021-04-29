@@ -4,12 +4,14 @@ import MainHeader from "../MainHeader/MainHeader";
 import classes from './AddTown.module.css';
 import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
+import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 
 const AddTown = (props) => {
     const [hotelName, setHotelName] = useState();
     const [image, setImage] = useState();
     const [loggedUserToken, setLoggedUserToken] = useState();
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
@@ -37,6 +39,7 @@ const AddTown = (props) => {
         e.preventDefault();
         // console.log('[ONSUBMIT]',image);
         // console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
+        setLoading(true);
 
         if (1) {
             fetch('http://localhost:5000/api/add_town', {
@@ -58,6 +61,7 @@ const AddTown = (props) => {
 
                     if (json.success) {
                         console.log('login successful', json);
+                        setLoading(false);
                         // this.setState({recievedUserType: json.user.userType});
                         setImage('');
                         setHotelName('');
@@ -109,6 +113,7 @@ const AddTown = (props) => {
                                 Submit
                             </Button>
                         </div>
+                        {loading && <ThreeDots/>}
                     </form>
                 </Card>
             </div>
