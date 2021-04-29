@@ -1,0 +1,41 @@
+.main{
+    color: #363636;
+}
+.heading{
+    padding: 2rem 1rem 1rem 0;
+    margin-left: 5rem;
+    font-size: 30px;
+}
+.subHeading {
+    margin-left: 5rem;
+    margin-top: -35px;
+
+}
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-left: 1rem;
+
+    /*margin-right: 5rem;*/
+}
+.title {
+    align-content: center;
+    padding-left: 10px;
+}
+.cardBody {
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    width: 240px;
+    /*max-width: 0rem;*/
+    padding: 1rem 2rem 1rem 1rem;
+    margin: 2rem 2rem 2rem 2rem ;
+    align-content: center;
+    cursor: pointer;
+
+    /*margin: 0;*/
+    /*position: absolute;*/
+    /*top: 50%;*/
+    /*-ms-transform: translateY(-50%);*/
+    /*transform: translateY(-50%);*/
+}
