@@ -16,12 +16,14 @@ const AddTown = (props) => {
             setLoggedUserToken(props.userDetails.data.token);
             console.log('[PROPS CHECKING]', props.userDetails.data.token);
         }
-
-
     },[]);
 
     const hotelNameChangeHandler = e => {
+        e.preventDefault();
+
         setHotelName(e.target.value);
+        console.log('[PROPS CHECKING]', loggedUserToken);
+
     };
 
     const imageAddingHandler = (file) => {
@@ -35,11 +37,12 @@ const AddTown = (props) => {
         // console.log('[ONSUBMIT]',image);
         // console.log('[PROPS CHECKING ONSUBMIT]', loggedUserDetails);
 
-        if (loggedUserToken) {
+        if (1) {
             fetch('http://localhost:5000/api/add_town', {
                 method: 'POST',
                 headers: {
-                    'Authorization': `${loggedUserToken}`,
+                    // 'Authorization': `${loggedUserToken}`,
+                    'Authorization': 'eyJhbGciOiJIUzI1NiJ9.NjA4OGViOWRmMzgwNTgyOWUwZWYzNmM3.kPqMRwD4kApJCnsBEfn0Jn1uUDwYEVITFY-6xxmuve0',
                     'Content-Type': 'application/json',
 
                 },

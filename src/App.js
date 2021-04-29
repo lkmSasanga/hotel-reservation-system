@@ -34,11 +34,11 @@ function App() {
 
   }, []);
 
-  // const loginHandler = (email, password) => {
-  //   //  should check email and password
-  //   localStorage.setItem('isLoggedIn', '1');
-  //   setIsLoggedIn(true);
-  // };
+  const loginHandler = (token) => {
+    //  should check email and password
+    localStorage.setItem('token', token);
+    // setIsLoggedIn(true);
+  };
 
   // const logoutHandler = () => {
   //   localStorage.removeItem('isLoggedIn');
@@ -53,7 +53,7 @@ function App() {
               <Route exact path="/">
                 <Redirect to="/login" />
               </Route>
-              <Route path="/login" component={Login}/>
+              <Route path="/login" component={Login} onLogin={loginHandler}/>
               <Route exact path="/home" component={Home}/>
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (

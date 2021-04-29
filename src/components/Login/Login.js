@@ -77,6 +77,7 @@ class Login extends Component {
         // console.log(this.state.email);
         // console.log(this.state.password);
 
+
         if(this.state.email === '' && this.state.password === '') {
             return this.setState({ emailPlaceHolder: 'Please enter your email', passwordPlaceHolder: 'Please enter your password' })
         } else if(this.state.password === ''){
@@ -112,6 +113,8 @@ class Login extends Component {
                         if (json.success) {
                             console.log('get user data', json.data.token);
                             this.setState({receivedUserData: json});
+
+                            this.props.onLogin(json.data.token);
 
                             this.setState({
                                 recievedUserType: json.user.userType,
