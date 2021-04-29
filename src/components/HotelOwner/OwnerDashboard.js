@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import MainHeader from "../MainHeader/MainHeader";
+import HOHeader from "./HOHeader/HOHeader";
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
@@ -24,7 +24,7 @@ const OwnerDashboard = () => {
 
     return (
         <div className={classes.main}>
-            <MainHeader/>
+            <HOHeader/>
             <h1 className={classes.heading}>Dashboard</h1>
 
             <div className={classes.row}>

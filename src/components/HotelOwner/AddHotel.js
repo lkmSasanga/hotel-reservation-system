@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import MainHeader from "../MainHeader/MainHeader";
+import HOHeader from "./HOHeader/HOHeader";
 
 import classes from './AddHotel.module.css';
 import Card from "../UI/Card/Card";
@@ -92,7 +92,7 @@ const AddHotel = () => {
 
     return (
         <React.Fragment>
-            <MainHeader/>
+            <HOHeader/>
             <div className={classes.main}>
                 <h2 className={classes.heading}>Add a new Hotel</h2>
                 <p className={classes.subHeading}>Expanding your services</p>
