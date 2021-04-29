@@ -152,7 +152,6 @@ class Login extends Component {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-
                     },
                     body: JSON.stringify({
                         username: this.state.username,
@@ -162,9 +161,10 @@ class Login extends Component {
                     }),
                 }).then(res => res.json())
                     .then(json => {
-                        // console.log('json', json);
                         if (json.success) {
-                            // this.setState({recievedUserType: json.user.userType});
+                            this.setState({recievedUserType: json.user.userType});
+
+                            this.props.onLogin(json.data.token);
 
                             this.setState({
                                 // signUpError: json.message,
