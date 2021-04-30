@@ -1,0 +1,48 @@
+.main{
+    color: #363636;
+}
+.heading{
+    padding: 2rem 1rem 1rem 0;
+    margin-left: 5rem;
+    font-size: 30px;
+}
+.subHeading {
+    margin-left: 5rem;
+    margin-top: -35px;
+
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5rem;
+    /*margin-right: 5rem;*/
+}
+
+.home {
+    /*width: 90%;*/
+    /*max-width: 40rem;*/
+    /*padding: 3rem;*/
+    /*margin: 2rem auto;*/
+    /*text-align: left;*/
+}
+.image {
+    width: 60%;
+    padding: 0;
+    margin: 2rem 0  0 0 ;
+    cursor: pointer;
+
+
+}
+
+.header {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.details {
+    cursor: pointer;
+    margin-top: -10px;
+}

@@ -3,7 +3,7 @@ import { Route, BrowserRouter, Redirect } from "react-router-dom";
 // import axios from 'axios';
 
 import Login from './components/Login/Login';
-import Home from './components/Home/Home';
+// import Home from './components/Home/Home';
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 
@@ -11,6 +11,7 @@ import AddTown from "./components/SystemAdmin/AddTown";
 import OwnerDashboard from "./components/HotelOwner/OwnerDashboard";
 import AddHotel from "./components/HotelOwner/AddHotel";
 import ViewBookings from "./components/HotelOwner/ViewBookings";
+import GetTowns from "./components/Customer/GetTowns";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,8 +61,8 @@ function App() {
                   />}
               />
               <Route
-                  path="/home"
-                  component={Home}
+                  path="/get_towns"
+                  component={GetTowns}
               />
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (
