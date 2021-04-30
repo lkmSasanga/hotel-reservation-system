@@ -1,0 +1,67 @@
+.main{
+    color: #363636;
+}
+.heading{
+    padding: 2rem 1rem 1rem 0;
+    margin-left: 5rem;
+    font-size: 30px;
+}
+.subHeading {
+    margin-left: 5rem;
+    margin-top: -35px;
+
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    /*margin-right: 5rem;*/
+    flex-wrap: wrap;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    margin-bottom: 5px;
+}
+
+.home {
+    /*width: 90%;*/
+    /*max-width: 40rem;*/
+    /*padding: 3rem;*/
+    /*margin: 2rem auto;*/
+    /*text-align: left;*/
+}
+.oneHotel {
+    /*justify-content: center;*/
+    padding: 1rem;
+
+
+}
+.image {
+    width: 300px;
+    height: 200px;
+    padding: 0;
+    margin: 2rem 0  0 0 ;
+    cursor: pointer;
+
+
+}
+
+.header {
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.details {
+    cursor: pointer;
+    margin-top: -10px;
+}
+
+.cardBody {
+    padding: 3rem;
+    margin: 5rem;
+    justify-content: space-around;
+}

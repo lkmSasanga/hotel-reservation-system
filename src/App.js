@@ -12,6 +12,7 @@ import OwnerDashboard from "./components/HotelOwner/OwnerDashboard";
 import AddHotel from "./components/HotelOwner/AddHotel";
 import ViewBookings from "./components/HotelOwner/ViewBookings";
 import GetTowns from "./components/Customer/GetTowns";
+import GetHotels from "./components/Customer/GetHotels";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -60,10 +61,7 @@ function App() {
                       onLoginUserDetails={onLoginUserDetailsHandler}
                   />}
               />
-              <Route
-                  path="/get_towns"
-                  component={GetTowns}
-              />
+
               <Route path="/properties" component={Properties}/>
               <Route path="/property" component={() => (
                   <Property
@@ -76,7 +74,7 @@ function App() {
               <Route path="/view_Bookings" component={ViewBookings}/>
 
               <Route path="/get_towns" component={GetTowns}/>
-              {/*<Route path="/get_hotels" component={GETHotels}/>*/}
+              <Route path="/get_hotels" component={GetHotels}/>
               {/*<Route path="/get_towns" component={GetTowns}/>*/}
             </div>
 

@@ -26,10 +26,10 @@ const CNavigation = () => {
         <nav className={classes.nav}>
             <ul>
                 <li>
-                    <a href="/home" onClick={gotoHome}>Home</a>
+                    <a href="/get_towns" onClick={gotoHome}>Home</a>
                 </li>
                 <li>
-                    <a href="/bookings" onClick={gotoBookings}>My Bookings</a>
+                    <a href="/get_bookings" onClick={gotoBookings}>My Bookings</a>
                 </li>
                 <li>
                     <a href="/contact" onClick={gotoContact}>Contact</a>
