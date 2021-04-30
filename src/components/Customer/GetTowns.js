@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import classes from './GetTowns.module.css';
 import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
+import Card from "../UI/Card/Card";
 
 const GetTowns = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -57,12 +58,21 @@ const GetTowns = () => {
           <h1 className={classes.heading}>Towns</h1>
           <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
           {townsDetails &&
-          <div>
+          <div className={classes.row}>
+
               {townsDetails.map((town) =>
-                  <div key={town._id}>
-                      {town.name}
-                      <img alt="" src={town.image}/>
-                  </div>)}
+                  <div key={town._id} >
+                      <Card classname={classes.cardBody}>
+                          <div className={classes.oneTown}>
+                              <img alt="" className={classes.image} src={town.image}/>
+                              <p className={classes.header}>{town.name}</p>
+
+                          </div>
+                      </Card>
+
+
+                  </div>
+                  )}
           </div>
           }
 
