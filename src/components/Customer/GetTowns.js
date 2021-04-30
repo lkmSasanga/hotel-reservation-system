@@ -58,7 +58,11 @@ const GetTowns = () => {
           <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
           {townsDetails &&
           <div>
-              {townsDetails.map((town) => <li key={town._id}>{town.name}</li>)}
+              {townsDetails.map((town) =>
+                  <div key={town._id}>
+                      {town.name}
+                      <img alt="" src={town.image}/>
+                  </div>)}
           </div>
           }
 
