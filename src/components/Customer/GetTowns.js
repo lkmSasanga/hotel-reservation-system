@@ -5,6 +5,7 @@ import CHeader from "./CHeader/CHeader";
 
 const GetTowns = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
+    const [townsDetails, setTownsDetails] = useState('');
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
@@ -17,7 +18,8 @@ const GetTowns = () => {
             },
         }).then(res => res.json())
             .then(json => {
-                console.log(json)
+                console.log(json.data)
+                setTownsDetails(json.data)
                 if (json.success) {
                     console.log('success');
                 }
