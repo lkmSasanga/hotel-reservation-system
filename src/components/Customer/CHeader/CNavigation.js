@@ -9,6 +9,12 @@ const CNavigation = () => {
     const gotoContact = () => {
         history.push('/contact');
     };
+    const gotoHome = () => {
+        history.push('/get_towns');
+    };
+    const gotoBookings = () => {
+        history.push('/get_bookings');
+    };
 
     const onLogout = () => {
         localStorage.removeItem('token');
@@ -19,6 +25,12 @@ const CNavigation = () => {
     return (
         <nav className={classes.nav}>
             <ul>
+                <li>
+                    <a href="/home" onClick={gotoHome}>Home</a>
+                </li>
+                <li>
+                    <a href="/bookings" onClick={gotoBookings}>My Bookings</a>
+                </li>
                 <li>
                     <a href="/contact" onClick={gotoContact}>Contact</a>
                 </li>

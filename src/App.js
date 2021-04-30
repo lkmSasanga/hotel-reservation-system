@@ -74,6 +74,10 @@ function App() {
               <Route path="/owner_dashboard" component={OwnerDashboard}/>
               <Route path="/add_hotel" component={AddHotel}/>
               <Route path="/view_Bookings" component={ViewBookings}/>
+
+              <Route path="/get_towns" component={GetTowns}/>
+              {/*<Route path="/get_hotels" component={GETHotels}/>*/}
+              {/*<Route path="/get_towns" component={GetTowns}/>*/}
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
