@@ -115,12 +115,8 @@ const GetBookings = () => {
                                     <Button className={classes.payNowButton}>Pay Now</Button>
                                     <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
                                 </div>
-
-
                             </div>
                         </Card>
-
-
                     </div>
                 )}
             </div>
