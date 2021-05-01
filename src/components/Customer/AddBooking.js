@@ -56,12 +56,14 @@ const AddBooking = (props) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
+                hotel_name: hotelDetails.hotel_name,
                 customer_id: customerID,
                 hotelOwner_id: hotelDetails.hotelOwner_id,
                 hotel_id: hotelDetails._id,
                 checkin_date: checkinDate,
                 checkout_date: checkoutDate,
-                people_count: peopleCount
+                people_count: peopleCount,
+                payment: false
             }),
         }).then(res => res.json())
             .then(json => {
@@ -116,6 +118,7 @@ const AddBooking = (props) => {
                             <input
                                 type="number"
                                 required
+                                // value={peopleCount}
                                 onChange={peopleCountHandler}
                             />
                         </div>
