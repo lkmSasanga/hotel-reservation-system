@@ -41,27 +41,34 @@
 .image {
     width: 300px;
     height: 200px;
-    padding: 0;
+    /*padding-bottom: 10px;*/
     margin: 2rem 0  0 0 ;
-    cursor: pointer;
+    /*cursor: pointer;*/
 
 
 }
 
 .header {
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-top: 10px;
     font-size: 20px;
     font-weight: bold;
+    padding-top: 10px;
 }
 
 .details {
-    cursor: pointer;
+    /*cursor: pointer;*/
     margin-top: -10px;
+    padding-top: 5px;
 }
 
 .cardBody {
     padding: 3rem;
     margin: 5rem;
     justify-content: space-around;
+}
+.bookNowButton{
+    justify-content: center;
+    /*width: 60%;*/
+    margin: 20px 10px 20px 45px;
 }

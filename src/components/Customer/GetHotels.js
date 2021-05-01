@@ -5,6 +5,7 @@ import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
+import Button from "../UI/Button/Button";
 
 const GetHotels = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -64,17 +65,18 @@ const GetHotels = () => {
                             <div className={classes.oneHotel}>
                                 <img alt="" className={classes.image} src={hotel.image}/>
                                 <p className={classes.header}>{hotel.hotel_name}</p>
-                                <p className={classes.header}>Location: {hotel.city}</p>
-                                <p className={classes.header}>Rate: {hotel.rate}</p>
-                                <p className={classes.header}>Rooms Available: {hotel.rooms_available}</p>
-                                <p className={classes.header}>Price: {hotel.price}</p>
+                                <p className={classes.details}>Location: {hotel.city}</p>
+                                <p className={classes.details}>Rate: {hotel.rate}</p>
+                                <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p>
+                                <p className={classes.details}>Price: Rs.{hotel.price}</p>
+                                <Button className={classes.bookNowButton}>Book Now</Button>
 
                             </div>
+
                         </Card>
 
-
                     </div>
-                )}
+                    )}
             </div>
             }
             {showSpinner && <Spinner/>}
