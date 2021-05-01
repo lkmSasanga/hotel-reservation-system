@@ -93,7 +93,7 @@ const AddBooking = (props) => {
                 <p className={classes.subHeading}>Welcome to our booking service</p>
                 <Card className={classes.cardBody}>
                     <h1 className={classes.newHotel}>Booking to : {hotelDetails.hotel_name}</h1>
-                    <p>{hotelDetails.city}</p>
+                    <p className={classes.townName}>{hotelDetails.city}</p>
                     <form>
                         <div className={classes.control}>
                             <label>Checkin Date</label>

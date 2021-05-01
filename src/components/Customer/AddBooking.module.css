@@ -74,6 +74,10 @@
     color: green;
     /*padding: 5px;*/
 }
+.townName{
+    margin-top: -10px;
+    margin-bottom: 50px;
+}
 
 @media (min-width: 768px) {
     .control {
