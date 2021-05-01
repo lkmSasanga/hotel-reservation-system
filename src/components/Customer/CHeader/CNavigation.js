@@ -19,6 +19,7 @@ const CNavigation = () => {
     const onLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('id');
+        localStorage.removeItem('town');
         history.push("/login");
     };
 
