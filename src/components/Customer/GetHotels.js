@@ -4,15 +4,15 @@ import classes from './GetHotels.module.css';
 import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
+import AddBooking from "./AddBooking";
 
 const GetHotels = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
     const [hotelDetails, setHotelDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     const [clickedTown, setClickedTown] = useState();
-
 
     const history = useHistory();
 
@@ -48,6 +48,19 @@ const GetHotels = () => {
 
     },[]);
 
+    const gotoHotel = (hotel) => {
+        console.log(hotel.hotelOwner_id)
+        console.log(hotel._id)
+        history.push("/add_booking", {hotelDetails: hotel});
+        // return (
+        //   <>
+        //       <Redirect to="add_booking"/>
+        //       <AddBooking hotelDetails={hotel}/>
+        //   </>
+        // )
+
+    }
+
     // const townsList = () => {
     //     return townsDetails.map((town) => <li key={town._id}>{town.name}</li>);
     // };
@@ -69,7 +82,7 @@ const GetHotels = () => {
                                 <p className={classes.details}>Rate: {hotel.rate}</p>
                                 <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p>
                                 <p className={classes.details}>Price: Rs.{hotel.price}</p>
-                                <Button className={classes.bookNowButton}>Book Now</Button>
+                                <Button className={classes.bookNowButton} onClick={() => gotoHotel(hotel)}>Book Now</Button>
 
                             </div>
 

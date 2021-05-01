@@ -13,6 +13,7 @@ import AddHotel from "./components/HotelOwner/AddHotel";
 import ViewBookings from "./components/HotelOwner/ViewBookings";
 import GetTowns from "./components/Customer/GetTowns";
 import GetHotels from "./components/Customer/GetHotels";
+import AddBooking from "./components/Customer/AddBooking";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -75,7 +76,7 @@ function App() {
 
               <Route path="/get_towns" component={GetTowns}/>
               <Route path="/get_hotels" component={GetHotels}/>
-              {/*<Route path="/get_towns" component={GetTowns}/>*/}
+              <Route path="/add_booking" component={AddBooking}/>
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
