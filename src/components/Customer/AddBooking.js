@@ -10,89 +10,77 @@ import ThreeDots from "../UI/ThreeDots/ThreeDots";
 import CHeader from "./CHeader/CHeader";
 
 const AddBooking = (props) => {
-    const [hotelOwnerID, setHotelOwnerID] = useState();
-    const [hotelName, setHotelName] = useState();
-    const [city, setCity] = useState();
-    const [rate, setRate] = useState();
-    const [roomsAvailable, setRoomsAvailable] = useState();
-    const [price, setPrice] = useState();
-    const [image, setImage] = useState();
-
+    const [customerID, setCustomerID] = useState();
+    const [checkinDate, setCheckinDate] = useState();
+    const [checkoutDate, setCheckoutDate] = useState();
+    const [peopleCount, setPeopleCount] = useState();
 
     const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
-
     const [submitMsg, setSubmitMsg] = useState('');
+    const [hotelDetails, setHotelDetails] = useState('');
 
     const location  = useLocation();
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
-        setHotelOwnerID(localStorage.getItem('id'));
+        setCustomerID(localStorage.getItem('id'));
 
         console.log(location.state.hotelDetails);
+        setHotelDetails(location.state.hotelDetails);
         // console.log(props.hotelDetails)
     },[]);
 
-    const hotelNameChangeHandler = (e) => {
+    const checkinDateHandler = (e) => {
         e.preventDefault();
-        setHotelName(e.target.value);
+        setCheckinDate(e.target.value);
     };
-    const cityChangeHandler = (e) => {
+    const checkoutDateHandler = (e) => {
         e.preventDefault();
-        setCity(e.target.value);
+        setCheckoutDate(e.target.value);
     };
-    const rateChangeHandler = (e) => {
+    const peopleCountHandler = (e) => {
         e.preventDefault();
-        setRate(e.target.value);
+        setPeopleCount(e.target.value);
     };
-    const roomsAvailableChangeHandler = (e) => {
-        e.preventDefault();
-        setRoomsAvailable(e.target.value);
-    };
-    const priceChangeHandler = (e) => {
-        e.preventDefault();
-        setPrice(e.target.value);
-    };
-    const imageAddingHandler = (file) => {
-        setImage(file);
-    };
+
     const onSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
+        console.log(hotelDetails);
 
-        fetch('http://localhost:5000/api/add_hotel', {
+        fetch('http://localhost:5000/api/add_booking', {
             method: 'POST',
             headers: {
                 'Authorization': `${loggedUserToken}`,
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                hotelOwner_id: hotelOwnerID,
-                city: city,
-                hotel_name: hotelName,
-                rate: rate,
-                rooms_available: roomsAvailable,
-                price: price,
-                image: image
+                customer_id: customerID,
+                hotelOwner_id: hotelDetails.hotelOwner_id,
+                hotel_id: hotelDetails._id,
+                checkin_date: checkinDate,
+                checkout_date: checkoutDate,
+                people_count: peopleCount
             }),
         }).then(res => res.json())
             .then(json => {
-                console.log('json', json);
+                // console.log('json', json);
                 // console.log('inside api call');
 
                 if (json.success) {
-                    console.log('login successful', json);
+                    console.log('booking successful', json);
                     setLoading(false);
-                    setSubmitMsg('New Hotel added Successfully');
-                    // this.setState({recievedUserType: json.user.userType});
-                    setImage('');
-                    setHotelName('');
+                    setSubmitMsg('Booking added Successfully');
+
+                    setCheckinDate('');
+                    setCheckoutDate('');
+                    setPeopleCount('');
                 }
                 else {
                     console.log('Error Occurred');
                     console.log(json)
-                    setSubmitMsg('Unable to add new Hotel');
+                    setSubmitMsg('Unable to add the Booking');
                 }
             });
     };
@@ -101,56 +89,36 @@ const AddBooking = (props) => {
         <React.Fragment>
             <CHeader/>
             <div className={classes.main}>
-                <h2 className={classes.heading}>Add a Booking</h2>
-                <p className={classes.subHeading}>Expanding your services</p>
+                <h2 className={classes.heading}>Hotel Booking</h2>
+                <p className={classes.subHeading}>Welcome to our booking service</p>
                 <Card className={classes.cardBody}>
-                    <h1 className={classes.newHotel}>Booking Info</h1>
+                    <h1 className={classes.newHotel}>Booking to : {hotelDetails.hotel_name}</h1>
+                    <p>{hotelDetails.city}</p>
                     <form>
                         <div className={classes.control}>
-                            <label>Hotel name</label>
+                            <label>Checkin Date</label>
                             <input
-                                type="text"
+                                type="date"
                                 required
-                                onChange={hotelNameChangeHandler}
+                                onChange={checkinDateHandler}
                             />
                         </div>
                         <div className={classes.control}>
-                            <label>City</label>
+                            <label>Checkout Date</label>
                             <input
-                                type="text"
+                                type="date"
                                 required
-                                onChange={cityChangeHandler}
+                                onChange={checkoutDateHandler}
                             />
                         </div>
                         <div className={classes.control}>
-                            <label>Rate</label>
+                            <label>People Count</label>
                             <input
-                                type="text"
+                                type="number"
                                 required
-                                onChange={rateChangeHandler}
+                                onChange={peopleCountHandler}
                             />
                         </div>
-                        <div className={classes.control}>
-                            <label>Rooms Available</label>
-                            <input
-                                type="text"
-                                required
-                                onChange={roomsAvailableChangeHandler}
-                            />
-                        </div>
-                        <div className={classes.control}>
-                            <label>Price</label>
-                            <input
-                                type="text"
-                                required
-                                onChange={priceChangeHandler}
-                            />
-                        </div>
-
-                        <div className={classes.control}>
-                            <label>Insert an Image</label>
-                        </div>
-                        <ImageUpload onAddingImage={imageAddingHandler}/>
 
                         <div className={classes.actions}>
                             <Button
