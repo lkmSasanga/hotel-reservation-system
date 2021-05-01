@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import moment from "moment";
 
 import classes from './GetBookings.module.css';
 import CHeader from "./CHeader/CHeader";
@@ -14,6 +15,7 @@ const GetBookings = () => {
     // const [paymentStatus, setPaymentStatus] = useState('Pending');
 
     // const history = useHistory();
+    moment().format();
 
     useEffect(() => {
         setLoggedUserId(localStorage.getItem('id'));
@@ -63,6 +65,29 @@ const GetBookings = () => {
     //     console.log(town);
     //
     // };
+    const removeBooking = (id) => {
+        console.log('id', id);
+        fetch(`http://localhost:5000/api/delete_bookings/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`,
+                // 'Content-Type': 'application/json',
+            },
+        }).then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    // console.log('success');
+                    // console.log(typeof(json.data));
+                    console.log(json);
+                    window.location.reload();
+
+                    // setShowSpinner(false);
+                    // setBookingDetails(json.data)
+                } else {
+                    console.log('Error Occurred');
+                }
+            })
+    };
 
     return (
         <div className={classes.main}>
@@ -78,8 +103,8 @@ const GetBookings = () => {
                             <div className={classes.oneTown} >
                                 {/*<img alt="" className={classes.image} src={booking.image}/>*/}
                                 <p className={classes.header} >{booking.hotel_name}</p>
-                                <p className={classes.content}>Checkin Date : {booking.checkin_date}</p>
-                                <p className={classes.content}>Checkout Date : {booking.checkout_date}</p>
+                                <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
+                                <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
                                 <p className={classes.content}>People count : {booking.people_count}</p>
                                 {/*<p>Payment : {booking.payment &&}</p>*/}
                                 {booking.payment ?
@@ -88,7 +113,7 @@ const GetBookings = () => {
                                 }
                                 <div className={classes.buttons}>
                                     <Button className={classes.payNowButton}>Pay Now</Button>
-                                    <Button className={classes.cancelButton}>Cancel</Button>
+                                    <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
                                 </div>
 
 
