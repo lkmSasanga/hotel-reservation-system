@@ -33,6 +33,13 @@
     align-content: center;
     cursor: pointer;
 
+    border-style: solid;
+    border-bottom-width: 7px;
+    border-color: #374ab6;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+
     /*margin: 0;*/
     /*position: absolute;*/
     /*top: 50%;*/

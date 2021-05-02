@@ -8,18 +8,24 @@ import HOHeader from "./HOHeader/HOHeader";
 import classes from './OwnerDashboard.module.css';
 import Card from "../UI/Card/Card";
 import AddHotel from "./AddHotel";
-import {Redirect} from "react-router-dom";
+import {Redirect, useHistory} from "react-router-dom";
+import ViewBookings from "./ViewBookings";
 
 const OwnerDashboard = () => {
-    const [showHotelAddingForm, setShowHotelAddingForm] = useState(false);
-    const [showBookings, setShowBookings] = useState(false);
+    // const [showHotelAddingForm, setShowHotelAddingForm] = useState(false);
+    // const [showBookings, setShowBookings] = useState(false);
+    const history = useHistory();
 
     const loadHotelAddingForm  = () => {
-        setShowHotelAddingForm(true);
+        // setShowHotelAddingForm(true);
+        history.push("/add_hotel");
+
     };
 
     const loadBookings = () => {
-        setShowBookings(true);
+        // setShowBookings(true);
+        history.push("/hotel_bookings");
+
     };
 
     return (
@@ -36,12 +42,18 @@ const OwnerDashboard = () => {
                     <h1 className={classes.title} onClick={loadBookings}>Bookings</h1>
                 </Card>
             </div>
-            {showHotelAddingForm &&
-                <>
-                    <Redirect to={"/add_hotel"}/>
-                    <AddHotel/>
-                </>
-            }
+            {/*/!*{showHotelAddingForm &&*!/*/}
+            {/*    <>*/}
+            {/*        <Redirect to={"/add_hotel"}/>*/}
+            {/*        <AddHotel/>*/}
+            {/*    </>*/}
+            {/*}*/}
+            {/*{showBookings &&*/}
+            {/*<>*/}
+            {/*    <Redirect to={"/hotel_bookings"}/>*/}
+            {/*    <ViewBookings/>*/}
+            {/*</>*/}
+            {/*}*/}
         </div>
     );
 }

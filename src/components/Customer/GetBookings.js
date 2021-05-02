@@ -8,6 +8,11 @@ import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
 
+import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const GetBookings = () => {
     const [loggedUserId, setLoggedUserId] = useState('');
     const [bookingDetails, setBookingDetails] = useState('');
@@ -41,30 +46,8 @@ const GetBookings = () => {
                 }
             })
 
-        // axios.get('http://localhost:5000/api/get_towns', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Authorization': `${loggedUserToken}`,
-        //     }
-        // }).then(response => {
-        //     let output = response.data
-        //     console.log(output);
-        // }).catch((error) => {
-        //     console.log(error);
-        // })
     },[]);
 
-    // const townsList = () => {
-    //     return townsDetails.map((town) => <li key={town._id}>{town.name}</li>);
-    // };
-
-    // const gotoHotels = (town) => {
-    //     // e.preventDefault();
-    //     history.push("/get_hotels");
-    //     localStorage.setItem('town', town);
-    //     console.log(town);
-    //
-    // };
     const removeBooking = (id) => {
         console.log('id', id);
         fetch(`http://localhost:5000/api/delete_bookings/${id}`, {
@@ -87,6 +70,20 @@ const GetBookings = () => {
                     console.log('Error Occurred');
                 }
             })
+    };
+
+    const handleToken = async (token, address) => {
+        const response = await axios.post(
+            "http://loalhost:5000/checkout",
+            {token}
+        );
+        const {status} = response.data;
+        console.log("Response:", response.data);
+        if (status === "success") {
+            toast("Success! Check email for details", {type: "success"});
+        } else {
+            toast("Something went wrong", {type: "error"});
+        }
     };
 
     return (
@@ -112,7 +109,15 @@ const GetBookings = () => {
                                     : <p className={classes.content}>Payment : Pending</p>
                                 }
                                 <div className={classes.buttons}>
-                                    <Button className={classes.payNowButton}>Pay Now</Button>
+                                    {/*<Button className={classes.payNowButton} onClick={payNowHandler}>Pay Now</Button>*/}
+                                    <StripeCheckout
+                                        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                                        token={handleToken}
+                                        // amount={+bookingDetails * 100}
+                                        name="Tesla Roadster"
+                                        // billingAddress
+                                        // shippingAddress
+                                    />
                                     <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
                                 </div>
                             </div>
