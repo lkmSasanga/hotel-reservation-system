@@ -72,10 +72,10 @@ const GetBookings = () => {
             })
     };
 
-    const handleToken = async (token, address) => {
+    const handleToken = async (token) => {
         const response = await axios.post(
             "http://loalhost:5000/checkout",
-            {token}
+            {token, bookingDetails}
         );
         const {status} = response.data;
         console.log("Response:", response.data);
@@ -103,6 +103,7 @@ const GetBookings = () => {
                                 <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
                                 <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
                                 <p className={classes.content}>People count : {booking.people_count}</p>
+                                <p className={classes.content}>Price : {booking.price}</p>
                                 {/*<p>Payment : {booking.payment &&}</p>*/}
                                 {booking.payment ?
                                 <p className={classes.content}>Payment : Completed</p>
@@ -113,10 +114,10 @@ const GetBookings = () => {
                                     <StripeCheckout
                                         stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
                                         token={handleToken}
-                                        // amount={+bookingDetails * 100}
-                                        name="Tesla Roadster"
-                                        // billingAddress
-                                        // shippingAddress
+                                        amount={+bookingDetails.price * 100}
+                                        name="Hotel Booking"
+                                        billingAddress
+                                        shippingAddress
                                     />
                                     <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
                                 </div>

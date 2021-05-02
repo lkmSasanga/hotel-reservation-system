@@ -63,6 +63,7 @@ const AddBooking = (props) => {
                 checkin_date: checkinDate,
                 checkout_date: checkoutDate,
                 people_count: peopleCount,
+                price: hotelDetails.price,
                 payment: false
             }),
         }).then(res => res.json())
