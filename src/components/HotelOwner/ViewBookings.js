@@ -5,13 +5,11 @@ import classes from './ViewBookings.module.css';
 // import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
-import Button from "../UI/Button/Button";
 import HOHeader from "./HOHeader/HOHeader";
 import Background from "../../assets/bg2.png";
 
 const ViewBookings = () => {
-    const [loggedUserId, setLoggedUserId] = useState('');
+    // const [loggedUserId, setLoggedUserId] = useState('');
     const [bookingDetails, setBookingDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     // const [paymentStatus, setPaymentStatus] = useState('Pending');
@@ -20,7 +18,7 @@ const ViewBookings = () => {
     moment().format();
 
     useEffect(() => {
-        setLoggedUserId(localStorage.getItem('id'));
+        // setLoggedUserId(localStorage.getItem('id'));
         setShowSpinner(true);
 
         fetch(`http://localhost:5000/api/hotel_bookings/${encodeURIComponent(localStorage.getItem('id'))}`, {

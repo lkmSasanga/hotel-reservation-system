@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import classes from './GetTowns.module.css';
 import CHeader from "./CHeader/CHeader";
@@ -7,7 +7,7 @@ import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMapMarkerAlt, faStar} from '@fortawesome/free-solid-svg-icons'
+import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
 
 const GetTowns = () => {
     // const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -16,7 +16,7 @@ const GetTowns = () => {
 
     const history = useHistory();
 
-    let isRendered = useRef(false);
+    // let isRendered = useRef(false);
     useEffect(() => {
         // let isMounted = true;
         setShowSpinner(true);
@@ -36,9 +36,9 @@ const GetTowns = () => {
                 }
             })
         // return () => { isMounted = false };
-        return () => {
-            isRendered = false;
-        };
+        // return () => {
+        //     isRendered = false;
+        // };
     },[]);
 
 

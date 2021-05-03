@@ -5,8 +5,6 @@ import classes from './GetBookings.module.css';
 import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
-import Button from "../UI/Button/Button";
 
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
@@ -26,7 +24,7 @@ import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 // } from '@stripe/react-stripe-js';
 
 const GetBookings = () => {
-    const [loggedUserId, setLoggedUserId] = useState('');
+    // const [loggedUserId, setLoggedUserId] = useState('');
     const [bookingDetails, setBookingDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     // const [paymentStatus, setPaymentStatus] = useState('Pending');
@@ -39,7 +37,7 @@ const GetBookings = () => {
     // const elements = useElements();
 
     useEffect(() => {
-        setLoggedUserId(localStorage.getItem('id'));
+        // setLoggedUserId(localStorage.getItem('id'));
         setShowSpinner(true);
 
         fetch(`http://localhost:5000/api/get_bookings?id=${encodeURIComponent(localStorage.getItem('id'))}`, {

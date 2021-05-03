@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import HOHeader from "./HOHeader/HOHeader";
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,9 +7,9 @@ import HOHeader from "./HOHeader/HOHeader";
 
 import classes from './OwnerDashboard.module.css';
 import Card from "../UI/Card/Card";
-import AddHotel from "./AddHotel";
-import {Redirect, useHistory} from "react-router-dom";
-import ViewBookings from "./ViewBookings";
+// import AddHotel from "./AddHotel";
+import {useHistory} from "react-router-dom";
+// import ViewBookings from "./ViewBookings";
 import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBookmark, faHotel} from "@fortawesome/free-solid-svg-icons";

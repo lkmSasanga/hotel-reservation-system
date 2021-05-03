@@ -1,10 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { useLocation } from "react-router-dom";
-// import HOHeader from "./HOHeader/HOHeader";
 
 import classes from './AddBooking.module.css';
 import Card from "../UI/Card/Card";
-import ImageUpload from "../UI/ImageUpload/ImageUpload";
 import Button from "../UI/Button/Button";
 import ThreeDots from "../UI/ThreeDots/ThreeDots";
 import CHeader from "./CHeader/CHeader";

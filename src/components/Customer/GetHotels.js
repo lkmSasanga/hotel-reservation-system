@@ -4,7 +4,7 @@ import classes from './GetHotels.module.css';
 import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {Redirect, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
 import Background from '../../assets/bg2.png';
 
@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const GetHotels = () => {
-    const [loggedUserToken, setLoggedUserToken] = useState('');
+    // const [loggedUserToken, setLoggedUserToken] = useState('');
     const [hotelDetails, setHotelDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     const [clickedTown, setClickedTown] = useState();
@@ -20,7 +20,7 @@ const GetHotels = () => {
     const history = useHistory();
 
     useEffect(() => {
-        setLoggedUserToken(localStorage.getItem('token'));
+        // setLoggedUserToken(localStorage.getItem('token'));
         setClickedTown(localStorage.getItem('town'));
         setShowSpinner(true);
 
@@ -47,7 +47,6 @@ const GetHotels = () => {
                     }
                 })
         }
-
 
     },[]);
 
