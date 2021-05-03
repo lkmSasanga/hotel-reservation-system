@@ -8,6 +8,7 @@ import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 import { ToastContainer,toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Background from "../../assets/bg2.png";
 
 
 const AddTown = (props) => {
@@ -15,7 +16,6 @@ const AddTown = (props) => {
     const [image, setImage] = useState();
     const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
-    const [submitMsg, setSubmitMsg] = useState('');
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
@@ -48,14 +48,12 @@ const AddTown = (props) => {
         }).then(res => res.json())
             .then(json => {
                 console.log('json', json);
-                // console.log('inside api call');
 
                 if (json.success) {
                     console.log('login successful', json);
                     setLoading(false);
                     toast("New Town added Successfully!", {type: "success"});
 
-                    // this.setState({recievedUserType: json.user.userType});
                     setImage('');
                     setTownName('');
                 }
@@ -67,46 +65,57 @@ const AddTown = (props) => {
                 }
             });
     };
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
+
 
     return (
         <React.Fragment>
-            <SAHeader/>
-            <div className={classes.main}>
-                <h2 className={classes.heading}>Add a new Town</h2>
-                <p className={classes.subHeading}>Expanding our services</p>
-                <ToastContainer/>
+            <section style={ sectionStyle }>
+                <SAHeader/>
+                <div className={classes.main}>
+                    <h2 className={classes.heading}>Add a new Town</h2>
+                    <p className={classes.subHeading}>Expanding our services</p>
+                    <ToastContainer/>
 
-                <Card className={classes.cardBody}>
-                    <h1 className={classes.newHotel}>Town Info</h1>
-                    <form>
-                        <div className={classes.control}>
-                            <label>Town name</label>
-                            <input
-                                type="text"
-                                required
-                                onChange={townNameChangeHandler}
-                            />
-                        </div>
-                        <div className={classes.control}>
-                            <label>Insert an Image</label>
-                        </div>
-                        <ImageUpload onAddingImage={imageAddingHandler}/>
+                    <Card className={classes.cardBody}>
+                        <h1 className={classes.newHotel}>Town Info</h1>
+                        <form>
+                            <div className={classes.control}>
+                                <label>Town name</label>
+                                <input
+                                    type="text"
+                                    required
+                                    onChange={townNameChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Insert an Image</label>
+                            </div>
+                            <ImageUpload onAddingImage={imageAddingHandler}/>
 
-                        <div className={classes.actions}>
-                            <Button
-                                type="submit"
-                                className={classes.btn}
-                                onClick={onSubmit}
-                            >
-                                Submit
-                            </Button>
-                        </div>
-                        {/*{!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}*/}
-                        {loading && <ThreeDots/>}
-                    </form>
-                </Card>
-            </div>
-            <div style={{paddingBottom: '20px'}}>.</div>
+                            <div className={classes.actions}>
+                                <Button
+                                    type="submit"
+                                    className={classes.btn}
+                                    onClick={onSubmit}
+                                >
+                                    Submit
+                                </Button>
+                            </div>
+                            {loading && <ThreeDots/>}
+                        </form>
+                    </Card>
+                </div>
+                <div style={{paddingBottom: '20px'}}>.</div>
+            </section>
 
         </React.Fragment>
     );
