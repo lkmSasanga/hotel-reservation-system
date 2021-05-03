@@ -88,9 +88,26 @@ const GetHotels = () => {
                                     <p className={classes.header}>{hotel.hotel_name}</p>
                                     <p className={classes.details}>Location: {hotel.city}</p>
                                     <p className={classes.details}>Rate: {hotel.rate}</p>
-                                    <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p>
+                                    {+hotel.rooms_available > 0 ?
+                                        <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p> :
+                                        <p className={classes.details}
+                                           style={{color:'white', backgroundColor: 'red', borderRadius: '20px', width:'7rem'}}>Houseful
+                                        </p>
+                                    }
                                     <p className={classes.details}>Price: Rs.{hotel.price}</p>
-                                    <Button className={classes.bookNowButton} onClick={() => gotoHotel(hotel)}>Book Now</Button>
+                                    {+hotel.rooms_available > 0 ?
+                                        <Button
+                                             className={classes.bookNowButton}
+                                             onClick={() => gotoHotel(hotel)}>Book Now
+                                        </Button> :
+                                        <Button
+                                            className={classes.bookNowButton}
+                                            style={{backgroundColor: '#32315e'}}
+                                            // disabled={true}
+                                            >Book Now
+                                        </Button>
+
+                                    }
 
                                 </div>
 
