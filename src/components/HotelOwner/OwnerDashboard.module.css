@@ -5,11 +5,12 @@
     padding: 2rem 1rem 1rem 0;
     margin-left: 5rem;
     font-size: 30px;
+    color: white;
 }
 .subHeading {
     margin-left: 5rem;
     margin-top: -35px;
-
+    color: white;
 }
 .row{
     display: flex;
@@ -22,12 +23,10 @@
 .title {
     align-content: center;
     padding-left: 10px;
+    color: #120c5c;
 }
 .cardBody {
-    /*display: flex;*/
-    /*flex-direction: row;*/
     width: 240px;
-    /*max-width: 0rem;*/
     padding: 1rem 2rem 1rem 1rem;
     margin: 2rem 2rem 2rem 2rem ;
     align-content: center;
@@ -40,9 +39,7 @@
     border-top: none;
     border-left: none;
 
-    /*margin: 0;*/
-    /*position: absolute;*/
-    /*top: 50%;*/
-    /*-ms-transform: translateY(-50%);*/
-    /*transform: translateY(-50%);*/
+    background: rgba(255, 255, 255, 0.3) !important;
+
+
 }

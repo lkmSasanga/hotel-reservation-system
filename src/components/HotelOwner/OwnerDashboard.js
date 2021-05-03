@@ -10,50 +10,47 @@ import Card from "../UI/Card/Card";
 import AddHotel from "./AddHotel";
 import {Redirect, useHistory} from "react-router-dom";
 import ViewBookings from "./ViewBookings";
+import Background from "../../assets/bg2.png";
 
 const OwnerDashboard = () => {
-    // const [showHotelAddingForm, setShowHotelAddingForm] = useState(false);
-    // const [showBookings, setShowBookings] = useState(false);
     const history = useHistory();
 
     const loadHotelAddingForm  = () => {
-        // setShowHotelAddingForm(true);
         history.push("/add_hotel");
-
     };
 
     const loadBookings = () => {
-        // setShowBookings(true);
         history.push("/hotel_bookings");
+    };
 
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
     };
 
     return (
         <div className={classes.main}>
-            <HOHeader/>
-            <h1 className={classes.heading}>Dashboard</h1>
+            <section style={ sectionStyle }>
+                <HOHeader/>
 
-            <div className={classes.row}>
-                <Card className={classes.cardBody}>
-                {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
-                <h1 className={classes.title} onClick={loadHotelAddingForm}>Add a Hotel</h1>
-                </Card>
-                <Card className={classes.cardBody}>
-                    <h1 className={classes.title} onClick={loadBookings}>Bookings</h1>
-                </Card>
-            </div>
-            {/*/!*{showHotelAddingForm &&*!/*/}
-            {/*    <>*/}
-            {/*        <Redirect to={"/add_hotel"}/>*/}
-            {/*        <AddHotel/>*/}
-            {/*    </>*/}
-            {/*}*/}
-            {/*{showBookings &&*/}
-            {/*<>*/}
-            {/*    <Redirect to={"/hotel_bookings"}/>*/}
-            {/*    <ViewBookings/>*/}
-            {/*</>*/}
-            {/*}*/}
+                <h1 className={classes.heading}>Dashboard</h1>
+                <p className={classes.subHeading}>Hey, Welcome to Board!</p>
+
+                <div className={classes.row}>
+                    <Card className={classes.cardBody}>
+                        {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
+                        <h1 className={classes.title} onClick={loadHotelAddingForm}>Add a Hotel</h1>
+                    </Card>
+                    <Card className={classes.cardBody}>
+                        <h1 className={classes.title} onClick={loadBookings}>Bookings</h1>
+                    </Card>
+                </div>
+            </section>
         </div>
     );
 }

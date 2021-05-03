@@ -5,11 +5,12 @@
     padding: 2rem 1rem 1rem 0;
     margin-left: 5rem;
     font-size: 30px;
+    color: white;
 }
 .subHeading {
     margin-left: 5rem;
     margin-top: -35px;
-
+    color: white;
 }
 
 .row{
@@ -40,13 +41,13 @@
     margin-bottom: 30px;
     /*border-color: red;*/
     border-style: solid;
-    border-left-width: 7px;
+    border-left-width: 9px;
     border-color: #374ab6;
     border-right: none;
     border-top: none;
     border-bottom: none;
-    /*border-left: red!important;*/
-    /*border-color: red!important;*/
+    background: rgba(255, 255, 255, 0.35);
+
 
 }
 /*.image {*/

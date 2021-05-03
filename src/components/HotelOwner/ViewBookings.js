@@ -8,6 +8,7 @@ import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
 import HOHeader from "./HOHeader/HOHeader";
+import Background from "../../assets/bg2.png";
 
 const ViewBookings = () => {
     const [loggedUserId, setLoggedUserId] = useState('');
@@ -44,41 +45,53 @@ const ViewBookings = () => {
 
     },[]);
 
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
 
     return (
         <div className={classes.main}>
-            <HOHeader/>
-            <h1 className={classes.heading}>Up coming Bookings</h1>
-            <p className={classes.subHeading}>Thank you for choosing our booking service.</p>
-            {bookingDetails &&
-            <div className={classes.row}>
+            <section style={ sectionStyle }>
+                <HOHeader/>
+                <h1 className={classes.heading}>Up coming Bookings</h1>
+                <p className={classes.subHeading}>Thank you for choosing our booking service.</p>
+                {bookingDetails &&
+                <div className={classes.row}>
 
-                {bookingDetails.map((booking) =>
-                    <div key={booking._id}>
-                        <Card classname={classes.cardBody} >
-                            <div className={classes.oneTown} >
-                                {/*<img alt="" className={classes.image} src={booking.image}/>*/}
-                                <p className={classes.header} >{booking.hotel_name}</p>
-                                <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
-                                <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
-                                <p className={classes.content}>People count : {booking.people_count}</p>
-                                {/*<p>Payment : {booking.payment &&}</p>*/}
-                                {booking.payment ?
-                                    <p className={classes.content}>Payment : Completed</p>
-                                    : <p className={classes.content}>Payment : Pending</p>
-                                }
-                                {/*<div className={classes.buttons}>*/}
+                    {bookingDetails.map((booking) =>
+                        <div key={booking._id}>
+                            <Card classname={classes.cardBody} >
+                                <div className={classes.oneTown} >
+                                    {/*<img alt="" className={classes.image} src={booking.image}/>*/}
+                                    <p className={classes.header} >{booking.hotel_name}</p>
+                                    <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
+                                    <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
+                                    <p className={classes.content}>People count : {booking.people_count}</p>
+                                    {/*<p>Payment : {booking.payment &&}</p>*/}
+                                    {booking.payment ?
+                                        <p className={classes.content}>Payment : Completed</p>
+                                        : <p className={classes.content}>Payment : Pending</p>
+                                    }
+                                    {/*<div className={classes.buttons}>*/}
                                     {/*<Button className={classes.payNowButton}>Pay Now</Button>*/}
                                     {/*<Button className={classes.cancelButton}>Cancel</Button>*/}
-                                {/*</div>*/}
-                            </div>
-                        </Card>
-                    </div>
-                )}
-            </div>
-            }
+                                    {/*</div>*/}
+                                </div>
+                            </Card>
+                        </div>
+                    )}
+                </div>
+                }
 
-            {showSpinner && <Spinner/>}
+                {showSpinner && <Spinner/>}
+            </section>
+
         </div>
     );
 }
