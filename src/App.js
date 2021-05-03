@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, BrowserRouter, Redirect } from "react-router-dom";
 // import axios from 'axios';
+// import {loadStripe} from '@stripe/stripe-js';
 
 import Login from './components/Login/Login';
 // import Home from './components/Home/Home';
@@ -19,6 +20,9 @@ import GetBookings from "./components/Customer/GetBookings";
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [receivedData, setReceivedData] = useState('');
+
+  //stripe
+  // const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
   useEffect(() => {
     // const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
@@ -78,13 +82,19 @@ function App() {
               <Route path="/get_towns" component={GetTowns}/>
               <Route path="/get_hotels" component={GetHotels}/>
               <Route path="/add_booking" component={AddBooking}/>
-              <Route path="/get_bookings" component={GetBookings}/>
+              <Route
+                  path="/get_bookings"
+                  render={() => <GetBookings
+                      // stripe={stripePromise}
+                  />}
+              />
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
             {/*{isLoggedIn && <Home onLogout={logoutHandler} />}*/}
           </main>
         {/*</Switch>*/}
+
 
       </BrowserRouter>
   );

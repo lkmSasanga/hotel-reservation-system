@@ -13,6 +13,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// import {loadStripe} from '@stripe/stripe-js';
+// import {
+//     CardElement,
+//     Elements,
+//     useStripe,
+//     useElements,
+// } from '@stripe/react-stripe-js';
+
 const GetBookings = () => {
     const [loggedUserId, setLoggedUserId] = useState('');
     const [bookingDetails, setBookingDetails] = useState('');
@@ -21,6 +29,10 @@ const GetBookings = () => {
 
     // const history = useHistory();
     moment().format();
+
+    //stripe content
+    // const stripe = useStripe();
+    // const elements = useElements();
 
     useEffect(() => {
         setLoggedUserId(localStorage.getItem('id'));
@@ -72,10 +84,17 @@ const GetBookings = () => {
             })
     };
 
+    //stripe legacy
+
+    const [product] = React.useState({
+        name: "Tesla Roadster",
+        price: 64998.67,
+        description: "Cool car"
+    });
     const handleToken = async (token) => {
         const response = await axios.post(
-            "http://loalhost:5000/checkout",
-            {token, bookingDetails}
+            "https://v1lrm.sse.codesandbox.io/checkout",
+            {token, product}
         );
         const {status} = response.data;
         console.log("Response:", response.data);
@@ -85,6 +104,15 @@ const GetBookings = () => {
             toast("Something went wrong", {type: "error"});
         }
     };
+
+    //stripe new
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     const {error, paymentMethod} = await stripe.createPaymentMethod({
+    //         type: 'card',
+    //         card: elements.getElement(CardElement),
+    //     });
+    // };
 
     return (
         <div className={classes.main}>
@@ -116,9 +144,17 @@ const GetBookings = () => {
                                         token={handleToken}
                                         amount={+bookingDetails.price * 100}
                                         name="Hotel Booking"
-                                        billingAddress
-                                        shippingAddress
+                                        // billingAddress
+                                        // shippingAddress
                                     />
+
+                                    {/*<form onSubmit={handleSubmit}>*/}
+                                    {/*    <CardElement />*/}
+                                    {/*    <button type="submit" disabled={!stripe}>*/}
+                                    {/*        Pay*/}
+                                    {/*    </button>*/}
+                                    {/*</form>*/}
+
                                     <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
                                 </div>
                             </div>
@@ -132,5 +168,13 @@ const GetBookings = () => {
         </div>
     );
 };
+// const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+//
+// const App = () => (
+//     <Elements stripe={stripePromise}>
+//         <GetBookings />
+//     </Elements>
+// );
 
+// ReactDOM.render(<App />, document.body);
 export default GetBookings;
