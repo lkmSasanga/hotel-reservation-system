@@ -83,3 +83,14 @@
 .cancelButton:hover{
     background: #d41e52;
 }
+.closeIcon{
+    color: #e24444;
+    display: block;
+    margin-left: 14rem;
+    cursor: pointer;
+    /*size: 110%;*/
+}
+.payNowStripe{
+    margin-left: 20px;
+    /*border-radius: 10%!important;*/
+}

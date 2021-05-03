@@ -14,6 +14,9 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Background from "../../assets/bg2.png";
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+
 // import {loadStripe} from '@stripe/stripe-js';
 // import {
 //     CardElement,
@@ -72,13 +75,9 @@ const GetBookings = () => {
         }).then(res => res.json())
             .then(json => {
                 if (json.success) {
-                    // console.log('success');
-                    // console.log(typeof(json.data));
                     console.log(json);
                     window.location.reload();
 
-                    // setShowSpinner(false);
-                    // setBookingDetails(json.data)
                 } else {
                     console.log('Error Occurred');
                 }
@@ -86,7 +85,6 @@ const GetBookings = () => {
     };
 
     //stripe legacy
-
     const [product] = React.useState({
         name: "Tesla Roadster",
         price: 64998.67,
@@ -138,6 +136,11 @@ const GetBookings = () => {
                             <Card classname={classes.cardBody} >
                                 <div className={classes.oneTown} >
                                     {/*<img alt="" className={classes.image} src={booking.image}/>*/}
+                                    <FontAwesomeIcon
+                                        icon={faTimesCircle}
+                                        className={classes.closeIcon}
+                                        onClick={() => removeBooking(booking._id)}
+                                    />
                                     <p className={classes.header} >{booking.hotel_name}</p>
                                     <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
                                     <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
@@ -155,6 +158,7 @@ const GetBookings = () => {
                                             token={handleToken}
                                             amount={+bookingDetails.price * 100}
                                             name="Hotel Booking"
+                                            className={classes.payNowStripe}
                                             // billingAddress
                                             // shippingAddress
                                         />
@@ -166,7 +170,7 @@ const GetBookings = () => {
                                         {/*    </button>*/}
                                         {/*</form>*/}
 
-                                        <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
+                                        {/*<Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>*/}
                                     </div>
                                 </div>
                             </Card>
