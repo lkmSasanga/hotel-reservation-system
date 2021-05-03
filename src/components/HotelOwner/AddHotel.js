@@ -6,6 +6,8 @@ import Card from "../UI/Card/Card";
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
 import Button from "../UI/Button/Button";
 import ThreeDots from "../UI/ThreeDots/ThreeDots";
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddHotel = () => {
     const [hotelOwnerID, setHotelOwnerID] = useState();
@@ -20,7 +22,7 @@ const AddHotel = () => {
     const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
 
-    const [submitMsg, setSubmitMsg] = useState('');
+    // const [submitMsg, setSubmitMsg] = useState('');
 
     useEffect(() => {
         setLoggedUserToken(localStorage.getItem('token'));
@@ -77,15 +79,17 @@ const AddHotel = () => {
                 if (json.success) {
                     console.log('login successful', json);
                     setLoading(false);
-                    setSubmitMsg('New Hotel added Successfully');
+                    // setSubmitMsg('New Hotel added Successfully');
                     // this.setState({recievedUserType: json.user.userType});
+                    toast("New Hotel added Successfully!", {type: "success"});
+
                     setImage('');
                     setHotelName('');
                 }
                 else {
                     console.log('Error Occurred');
                     console.log(json)
-                    setSubmitMsg('Unable to add new Hotel');
+                    toast("Unable to add the Hotel. Try again!", {type: "error"});
                 }
             });
     };
@@ -93,9 +97,12 @@ const AddHotel = () => {
     return (
         <React.Fragment>
             <HOHeader/>
+
             <div className={classes.main}>
                 <h2 className={classes.heading}>Add a new Hotel</h2>
                 <p className={classes.subHeading}>Expanding your services</p>
+                <ToastContainer/>
+
                 <Card className={classes.cardBody}>
                     <h1 className={classes.newHotel}>Hotel Info</h1>
                     <form>
@@ -154,7 +161,7 @@ const AddHotel = () => {
                                 Submit
                             </Button>
                         </div>
-                        {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
+                        {/*{!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}*/}
                         {loading && <ThreeDots/>}
                     </form>
                 </Card>

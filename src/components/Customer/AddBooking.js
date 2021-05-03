@@ -100,10 +100,11 @@ const AddBooking = (props) => {
         <React.Fragment>
             <section style={ sectionStyle }>
                 <CHeader/>
-                <ToastContainer/>
                 <div className={classes.main}>
                     <h2 className={classes.heading}>Hotel Booking</h2>
                     <p className={classes.subHeading}>Welcome to our booking service</p>
+                    <ToastContainer/>
+
                     <Card className={classes.cardBody}>
                         <h1 className={classes.newHotel}>Booking to : {hotelDetails.hotel_name}</h1>
                         <p className={classes.townName}>{hotelDetails.city}</p>

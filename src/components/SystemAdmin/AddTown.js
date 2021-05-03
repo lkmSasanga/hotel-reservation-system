@@ -6,6 +6,9 @@ import Card from "../UI/Card/Card";
 import Button from "../UI/Button/Button";
 import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const AddTown = (props) => {
     const [townName, setTownName] = useState();
@@ -50,7 +53,8 @@ const AddTown = (props) => {
                 if (json.success) {
                     console.log('login successful', json);
                     setLoading(false);
-                    setSubmitMsg('New Town added Successfully');
+                    toast("New Town added Successfully!", {type: "success"});
+
                     // this.setState({recievedUserType: json.user.userType});
                     setImage('');
                     setTownName('');
@@ -58,7 +62,8 @@ const AddTown = (props) => {
                 else {
                     console.log('Error Occurred');
                     console.log(json)
-                    setSubmitMsg('Unable to add new Town');
+                    toast("Unable to add new Town!", {type: "error"});
+
                 }
             });
     };
@@ -69,6 +74,8 @@ const AddTown = (props) => {
             <div className={classes.main}>
                 <h2 className={classes.heading}>Add a new Town</h2>
                 <p className={classes.subHeading}>Expanding our services</p>
+                <ToastContainer/>
+
                 <Card className={classes.cardBody}>
                     <h1 className={classes.newHotel}>Town Info</h1>
                     <form>
@@ -94,7 +101,7 @@ const AddTown = (props) => {
                                 Submit
                             </Button>
                         </div>
-                        {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
+                        {/*{!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}*/}
                         {loading && <ThreeDots/>}
                     </form>
                 </Card>
