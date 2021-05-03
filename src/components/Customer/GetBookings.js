@@ -133,9 +133,8 @@ const GetBookings = () => {
 
                     {bookingDetails.map((booking) =>
                         <div key={booking._id}>
-                            <Card classname={classes.cardBody} >
+                            <Card className={classes.cardBody} >
                                 <div className={classes.oneTown} >
-                                    {/*<img alt="" className={classes.image} src={booking.image}/>*/}
                                     <FontAwesomeIcon
                                         icon={faTimesCircle}
                                         className={classes.closeIcon}

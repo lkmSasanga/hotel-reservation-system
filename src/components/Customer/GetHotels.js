@@ -82,7 +82,7 @@ const GetHotels = () => {
                 <div className={classes.row}>
                     {hotelDetails.map((hotel) =>
                         <div key={hotel._id} >
-                            <Card classname={classes.cardBody}>
+                            <Card className={classes.cardBody}>
                                 <div className={classes.oneHotel}>
                                     <img alt="" className={classes.image} src={hotel.image}/>
                                     <p className={classes.header}>{hotel.hotel_name}</p>

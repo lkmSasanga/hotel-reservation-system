@@ -55,6 +55,7 @@
     font-size: 20px;
     font-weight: bold;
     padding-top: 10px;
+    color: #0b0350;
 }
 
 .details {
@@ -65,9 +66,10 @@
 }
 
 .cardBody {
-    padding: 3rem;
-    margin: 5rem;
+    /*padding: 3rem;*/
+    /*margin: 5rem;*/
     justify-content: space-around;
+    background: rgba(255, 255, 255, 0.68);
 }
 .bookNowButton{
     justify-content: center;

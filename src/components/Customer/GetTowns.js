@@ -68,7 +68,7 @@ const GetTowns = () => {
 
               {townsDetails.map((town) =>
                   <div key={town._id} onClick={() => gotoHotels(town.name)}>
-                      <Card classname={classes.cardBody} >
+                      <Card className={classes.cardBody} >
                           <div className={classes.oneTown} >
                               <img alt="" className={classes.image} src={town.image}/>
                               <p className={classes.header} >{town.name}</p>
