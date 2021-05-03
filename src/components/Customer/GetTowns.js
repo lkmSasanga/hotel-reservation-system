@@ -5,6 +5,7 @@ import CHeader from "./CHeader/CHeader";
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
+import Background from '../../assets/bg2.png';
 
 const GetTowns = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -59,14 +60,30 @@ const GetTowns = () => {
         history.push("/get_hotels");
         localStorage.setItem('town', town);
         console.log(town);
-
     };
+
+    let sectionStyle = {
+        // paddingTop: -10,
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
+
 
     return (
       <div className={classes.main}>
-          <CHeader/>
-          <h1 className={classes.heading}>Towns</h1>
-          <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
+          <section style={ sectionStyle }>
+              <CHeader/>
+
+              <h1 className={classes.heading}>Explore Holiday Resorts</h1>
+              <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
+
+
+
           {townsDetails &&
           <div className={classes.row}>
 
@@ -87,6 +104,7 @@ const GetTowns = () => {
           }
 
           {showSpinner && <Spinner/>}
+          </section>
       </div>
     );
 }
