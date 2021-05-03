@@ -8,6 +8,7 @@ import ImageUpload from "../UI/ImageUpload/ImageUpload";
 import Button from "../UI/Button/Button";
 import ThreeDots from "../UI/ThreeDots/ThreeDots";
 import CHeader from "./CHeader/CHeader";
+import Background from "../../assets/bg2.png";
 
 const AddBooking = (props) => {
     const [customerID, setCustomerID] = useState();
@@ -88,58 +89,72 @@ const AddBooking = (props) => {
             });
     };
 
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
+
     return (
         <React.Fragment>
-            <CHeader/>
-            <div className={classes.main}>
-                <h2 className={classes.heading}>Hotel Booking</h2>
-                <p className={classes.subHeading}>Welcome to our booking service</p>
-                <Card className={classes.cardBody}>
-                    <h1 className={classes.newHotel}>Booking to : {hotelDetails.hotel_name}</h1>
-                    <p className={classes.townName}>{hotelDetails.city}</p>
-                    <form>
-                        <div className={classes.control}>
-                            <label>Checkin Date</label>
-                            <input
-                                type="date"
-                                required
-                                onChange={checkinDateHandler}
-                            />
-                        </div>
-                        <div className={classes.control}>
-                            <label>Checkout Date</label>
-                            <input
-                                type="date"
-                                required
-                                onChange={checkoutDateHandler}
-                            />
-                        </div>
-                        <div className={classes.control}>
-                            <label>People Count</label>
-                            <input
-                                type="number"
-                                required
-                                // value={peopleCount}
-                                onChange={peopleCountHandler}
-                            />
-                        </div>
+            <section style={ sectionStyle }>
+                <CHeader/>
+                <div className={classes.main}>
+                    <h2 className={classes.heading}>Hotel Booking</h2>
+                    <p className={classes.subHeading}>Welcome to our booking service</p>
+                    <Card className={classes.cardBody}>
+                        <h1 className={classes.newHotel}>Booking to : {hotelDetails.hotel_name}</h1>
+                        <p className={classes.townName}>{hotelDetails.city}</p>
+                        <form>
+                            <div className={classes.control}>
+                                <label>Checkin Date</label>
+                                <input
+                                    type="date"
+                                    required
+                                    onChange={checkinDateHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Checkout Date</label>
+                                <input
+                                    type="date"
+                                    required
+                                    onChange={checkoutDateHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>People Count</label>
+                                <input
+                                    type="number"
+                                    required
+                                    // value={peopleCount}
+                                    onChange={peopleCountHandler}
+                                />
+                            </div>
 
-                        <div className={classes.actions}>
-                            <Button
-                                type="submit"
-                                className={classes.btn}
-                                onClick={onSubmit}
-                            >
-                                Submit
-                            </Button>
-                        </div>
-                        {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
-                        {loading && <ThreeDots/>}
-                    </form>
-                </Card>
-            </div>
+                            <div className={classes.actions}>
+                                <Button
+                                    type="submit"
+                                    className={classes.btn}
+                                    onClick={onSubmit}
+                                >
+                                    Submit
+                                </Button>
+                            </div>
+                            {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
+                            {loading && <ThreeDots/>}
+                        </form>
+                    </Card>
+                </div>
 
-            <div style={{paddingBottom: '20px'}}>.</div>
+                <div style={{paddingBottom: '20px'}}>.</div>
+            </section>
+
+
         </React.Fragment>
     );
 };

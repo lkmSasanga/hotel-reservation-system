@@ -12,6 +12,7 @@ import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Background from "../../assets/bg2.png";
 
 // import {loadStripe} from '@stripe/stripe-js';
 // import {
@@ -113,58 +114,70 @@ const GetBookings = () => {
     //         card: elements.getElement(CardElement),
     //     });
     // };
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
 
     return (
         <div className={classes.main}>
-            <CHeader/>
-            <h1 className={classes.heading}>My Bookings</h1>
-            <p className={classes.subHeading}>Thank you for choosing our booking service.</p>
-            {bookingDetails &&
-            <div className={classes.row}>
+            <section style={ sectionStyle }>
+                <CHeader/>
+                <h1 className={classes.heading}>My Bookings</h1>
+                <p className={classes.subHeading}>Thank you for choosing our booking service.</p>
+                {bookingDetails &&
+                <div className={classes.row}>
 
-                {bookingDetails.map((booking) =>
-                    <div key={booking._id}>
-                        <Card classname={classes.cardBody} >
-                            <div className={classes.oneTown} >
-                                {/*<img alt="" className={classes.image} src={booking.image}/>*/}
-                                <p className={classes.header} >{booking.hotel_name}</p>
-                                <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
-                                <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
-                                <p className={classes.content}>People count : {booking.people_count}</p>
-                                <p className={classes.content}>Price : {booking.price}</p>
-                                {/*<p>Payment : {booking.payment &&}</p>*/}
-                                {booking.payment ?
-                                <p className={classes.content}>Payment : Completed</p>
-                                    : <p className={classes.content}>Payment : Pending</p>
-                                }
-                                <div className={classes.buttons}>
-                                    {/*<Button className={classes.payNowButton} onClick={payNowHandler}>Pay Now</Button>*/}
-                                    <StripeCheckout
-                                        stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
-                                        token={handleToken}
-                                        amount={+bookingDetails.price * 100}
-                                        name="Hotel Booking"
-                                        // billingAddress
-                                        // shippingAddress
-                                    />
+                    {bookingDetails.map((booking) =>
+                        <div key={booking._id}>
+                            <Card classname={classes.cardBody} >
+                                <div className={classes.oneTown} >
+                                    {/*<img alt="" className={classes.image} src={booking.image}/>*/}
+                                    <p className={classes.header} >{booking.hotel_name}</p>
+                                    <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
+                                    <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
+                                    <p className={classes.content}>People count : {booking.people_count}</p>
+                                    <p className={classes.content}>Price : {booking.price}</p>
+                                    {/*<p>Payment : {booking.payment &&}</p>*/}
+                                    {booking.payment ?
+                                        <p className={classes.content}>Payment : Completed</p>
+                                        : <p className={classes.content}>Payment : Pending</p>
+                                    }
+                                    <div className={classes.buttons}>
+                                        {/*<Button className={classes.payNowButton} onClick={payNowHandler}>Pay Now</Button>*/}
+                                        <StripeCheckout
+                                            stripeKey="pk_test_4TbuO6qAW2XPuce1Q6ywrGP200NrDZ2233"
+                                            token={handleToken}
+                                            amount={+bookingDetails.price * 100}
+                                            name="Hotel Booking"
+                                            // billingAddress
+                                            // shippingAddress
+                                        />
 
-                                    {/*<form onSubmit={handleSubmit}>*/}
-                                    {/*    <CardElement />*/}
-                                    {/*    <button type="submit" disabled={!stripe}>*/}
-                                    {/*        Pay*/}
-                                    {/*    </button>*/}
-                                    {/*</form>*/}
+                                        {/*<form onSubmit={handleSubmit}>*/}
+                                        {/*    <CardElement />*/}
+                                        {/*    <button type="submit" disabled={!stripe}>*/}
+                                        {/*        Pay*/}
+                                        {/*    </button>*/}
+                                        {/*</form>*/}
 
-                                    <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
+                                        <Button className={classes.cancelButton} onClick={() => removeBooking(booking._id)}>Cancel</Button>
+                                    </div>
                                 </div>
-                            </div>
-                        </Card>
-                    </div>
-                )}
-            </div>
-            }
+                            </Card>
+                        </div>
+                    )}
+                </div>
+                }
 
-            {showSpinner && <Spinner/>}
+                {showSpinner && <Spinner/>}
+            </section>
+
         </div>
     );
 };

@@ -5,17 +5,18 @@
     padding: 2rem 1rem 1rem 0;
     margin-left: 5rem;
     font-size: 30px;
+    color: white;
 }
 .subHeading {
     margin-left: 5rem;
     margin-top: -35px;
-
+    color: white;
 }
 .cardBody {
     width: 90%;
     max-width: 40rem;
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 3rem auto;
 }
 .newHotel {
     text-align: left;
