@@ -36,7 +36,7 @@ const CNavigation = () => {
                 </li>
                 <li style={{color: '#ffffff'}}>
                     {/*<a href="/contact" onClick={gotoContact}>Contact</a>*/}
-                    <FontAwesomeIcon icon={faPhoneAlt} /> &nbsp; +94912290100
+                    <FontAwesomeIcon icon={faPhoneAlt} /> &nbsp; +94 91 22 90 100
                 </li>
                 <li>
                     <button onClick={onLogout}>Logout</button>

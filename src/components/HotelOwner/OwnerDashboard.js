@@ -11,6 +11,8 @@ import AddHotel from "./AddHotel";
 import {Redirect, useHistory} from "react-router-dom";
 import ViewBookings from "./ViewBookings";
 import Background from "../../assets/bg2.png";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faBookmark, faHotel} from "@fortawesome/free-solid-svg-icons";
 
 const OwnerDashboard = () => {
     const history = useHistory();
@@ -44,10 +46,16 @@ const OwnerDashboard = () => {
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
-                        <h1 className={classes.title} onClick={loadHotelAddingForm}>Add a Hotel</h1>
+
+
+                        <h1 className={classes.title}
+                            onClick={loadHotelAddingForm}>
+                            {<FontAwesomeIcon icon={faHotel} /> } &nbsp; Add a Hotel</h1>
                     </Card>
                     <Card className={classes.cardBody}>
-                        <h1 className={classes.title} onClick={loadBookings}>Bookings</h1>
+                        <h1 className={classes.title}
+                            onClick={loadBookings}>
+                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Bookings</h1>
                     </Card>
                 </div>
             </section>
