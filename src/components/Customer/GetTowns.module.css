@@ -15,7 +15,7 @@
 .row{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /*justify-content: space-between;*/
     margin-left: 3rem;
     margin-right: 3rem;
     /*margin-right: 5rem;*/
