@@ -6,7 +6,8 @@ import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {Redirect, useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
-import AddBooking from "./AddBooking";
+import Background from '../../assets/bg2.png';
+
 
 const GetHotels = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -61,38 +62,47 @@ const GetHotels = () => {
 
     }
 
-    // const townsList = () => {
-    //     return townsDetails.map((town) => <li key={town._id}>{town.name}</li>);
-    // };
+    let sectionStyle = {
+        marginTop: -18,
+        width: "100%",
+        height: "1000px",
+        backgroundImage: `url(${Background})`,
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+    };
 
     return (
         <div className={classes.main}>
-            <CHeader/>
-            <h1 className={classes.heading}>Hotels</h1>
-            <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
-            {hotelDetails &&
-            <div className={classes.row}>
-                {hotelDetails.map((hotel) =>
-                    <div key={hotel._id} >
-                        <Card classname={classes.cardBody}>
-                            <div className={classes.oneHotel}>
-                                <img alt="" className={classes.image} src={hotel.image}/>
-                                <p className={classes.header}>{hotel.hotel_name}</p>
-                                <p className={classes.details}>Location: {hotel.city}</p>
-                                <p className={classes.details}>Rate: {hotel.rate}</p>
-                                <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p>
-                                <p className={classes.details}>Price: Rs.{hotel.price}</p>
-                                <Button className={classes.bookNowButton} onClick={() => gotoHotel(hotel)}>Book Now</Button>
+            <section style={ sectionStyle }>
+                <CHeader/>
+                <h1 className={classes.heading}>Explore Hotels Nearby {clickedTown}</h1>
+                <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
+                {hotelDetails &&
+                <div className={classes.row}>
+                    {hotelDetails.map((hotel) =>
+                        <div key={hotel._id} >
+                            <Card classname={classes.cardBody}>
+                                <div className={classes.oneHotel}>
+                                    <img alt="" className={classes.image} src={hotel.image}/>
+                                    <p className={classes.header}>{hotel.hotel_name}</p>
+                                    <p className={classes.details}>Location: {hotel.city}</p>
+                                    <p className={classes.details}>Rate: {hotel.rate}</p>
+                                    <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p>
+                                    <p className={classes.details}>Price: Rs.{hotel.price}</p>
+                                    <Button className={classes.bookNowButton} onClick={() => gotoHotel(hotel)}>Book Now</Button>
 
-                            </div>
+                                </div>
 
-                        </Card>
+                            </Card>
 
-                    </div>
+                        </div>
                     )}
-            </div>
-            }
-            {showSpinner && <Spinner/>}
+                </div>
+                }
+                {showSpinner && <Spinner/>}
+            </section>
+
         </div>
     );
 }

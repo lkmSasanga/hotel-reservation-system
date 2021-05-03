@@ -63,7 +63,6 @@ const GetTowns = () => {
     };
 
     let sectionStyle = {
-        // paddingTop: -10,
         marginTop: -18,
         width: "100%",
         height: "1000px",
