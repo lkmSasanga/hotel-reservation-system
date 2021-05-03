@@ -37,6 +37,7 @@
 .oneTown {
     /*justify-content: center;*/
     padding: 1rem;
+    /*margin-left: 3rem;*/
 }
 .image {
     width: 300px;
@@ -60,12 +61,7 @@
 }
 
 .cardBody {
-    /*padding: 3rem;*/
-    /*margin: 5rem;*/
     justify-content: space-around;
-    /*color: rgba(255, 255, 255, 0.27)!important;*/
-    /*background: red!important;*/
     background: rgba(255, 255, 255, 0.51);
-
-
+    margin-left: 5rem;
 }

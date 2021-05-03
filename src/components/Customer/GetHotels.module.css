@@ -70,6 +70,7 @@
     /*margin: 5rem;*/
     justify-content: space-around;
     background: rgba(255, 255, 255, 0.68);
+    margin-left: 5rem;
 }
 .bookNowButton{
     justify-content: center;
