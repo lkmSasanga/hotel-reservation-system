@@ -8,6 +8,8 @@ import {Redirect, useHistory} from "react-router-dom";
 import Button from "../UI/Button/Button";
 import Background from '../../assets/bg2.png';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 const GetHotels = () => {
     const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -86,15 +88,20 @@ const GetHotels = () => {
                                 <div className={classes.oneHotel}>
                                     <img alt="" className={classes.image} src={hotel.image}/>
                                     <p className={classes.header}>{hotel.hotel_name}</p>
-                                    <p className={classes.details}>Location: {hotel.city}</p>
-                                    <p className={classes.details}>Rate: {hotel.rate}</p>
+                                    <p className={classes.details}>Location: &nbsp;{hotel.city}</p>
+                                    <p className={classes.details}>Rate: &nbsp;
+                                        {hotel.rate} &nbsp;
+                                        {<FontAwesomeIcon icon={faStar} style={{color: '#fcd100'}}
+                                        />}
+                                    </p>
+
                                     {+hotel.rooms_available > 0 ?
-                                        <p className={classes.details}>Rooms Available: {hotel.rooms_available}</p> :
+                                        <p className={classes.details}>Rooms Available: &nbsp;{hotel.rooms_available}</p> :
                                         <p className={classes.details}
                                            style={{color:'white', backgroundColor: 'red', borderRadius: '20px', width:'7rem'}}>Houseful
                                         </p>
                                     }
-                                    <p className={classes.details}>Price: Rs.{hotel.price}</p>
+                                    <p className={classes.details}>Price: &nbsp; Rs.{hotel.price}</p>
                                     {+hotel.rooms_available > 0 ?
                                         <Button
                                              className={classes.bookNowButton}

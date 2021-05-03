@@ -6,6 +6,8 @@ import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faMapMarkerAlt, faStar} from '@fortawesome/free-solid-svg-icons'
 
 const GetTowns = () => {
     // const [loggedUserToken, setLoggedUserToken] = useState('');
@@ -71,7 +73,11 @@ const GetTowns = () => {
                       <Card className={classes.cardBody} >
                           <div className={classes.oneTown} >
                               <img alt="" className={classes.image} src={town.image}/>
-                              <p className={classes.header} >{town.name}</p>
+                              <p className={classes.header}>
+                                  {<FontAwesomeIcon
+                                      icon={faMapMarkerAlt}
+                                      style={{color: '#9e0828'}}
+                              />} &nbsp; {town.name}</p>
                           </div>
                       </Card>
 
