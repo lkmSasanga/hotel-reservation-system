@@ -9,6 +9,8 @@ import Button from "../UI/Button/Button";
 import ThreeDots from "../UI/ThreeDots/ThreeDots";
 import CHeader from "./CHeader/CHeader";
 import Background from "../../assets/bg2.png";
+import { ToastContainer,toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddBooking = (props) => {
     const [customerID, setCustomerID] = useState();
@@ -18,7 +20,6 @@ const AddBooking = (props) => {
 
     const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
-    const [submitMsg, setSubmitMsg] = useState('');
     const [hotelDetails, setHotelDetails] = useState('');
 
     const location  = useLocation();
@@ -29,7 +30,6 @@ const AddBooking = (props) => {
 
         console.log(location.state.hotelDetails);
         setHotelDetails(location.state.hotelDetails);
-        // console.log(props.hotelDetails)
     },[]);
 
     const checkinDateHandler = (e) => {
@@ -69,13 +69,10 @@ const AddBooking = (props) => {
             }),
         }).then(res => res.json())
             .then(json => {
-                // console.log('json', json);
-                // console.log('inside api call');
-
                 if (json.success) {
                     console.log('booking successful', json);
                     setLoading(false);
-                    setSubmitMsg('Booking added Successfully');
+                    toast("Your Booking is added Successfully!", {type: "success"});
 
                     setCheckinDate('');
                     setCheckoutDate('');
@@ -84,7 +81,7 @@ const AddBooking = (props) => {
                 else {
                     console.log('Error Occurred');
                     console.log(json)
-                    setSubmitMsg('Unable to add the Booking');
+                    toast("Unable to add the Booking at this moment. Try again!", {type: "error"});
                 }
             });
     };
@@ -103,6 +100,7 @@ const AddBooking = (props) => {
         <React.Fragment>
             <section style={ sectionStyle }>
                 <CHeader/>
+                <ToastContainer/>
                 <div className={classes.main}>
                     <h2 className={classes.heading}>Hotel Booking</h2>
                     <p className={classes.subHeading}>Welcome to our booking service</p>
@@ -145,7 +143,6 @@ const AddBooking = (props) => {
                                     Submit
                                 </Button>
                             </div>
-                            {!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}
                             {loading && <ThreeDots/>}
                         </form>
                     </Card>
@@ -153,7 +150,6 @@ const AddBooking = (props) => {
 
                 <div style={{paddingBottom: '20px'}}>.</div>
             </section>
-
 
         </React.Fragment>
     );
