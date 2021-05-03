@@ -2,6 +2,8 @@ import React from 'react';
 import {useHistory} from "react-router-dom";
 
 import classes from './CNavigation.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {faPhoneAlt, faStar} from '@fortawesome/free-solid-svg-icons'
 
 const CNavigation = () => {
     const history = useHistory();
@@ -32,8 +34,9 @@ const CNavigation = () => {
                 <li>
                     <a href="/get_bookings" onClick={gotoBookings}>My Bookings</a>
                 </li>
-                <li>
-                    <a href="/contact" onClick={gotoContact}>Contact</a>
+                <li style={{color: '#ffffff'}}>
+                    {/*<a href="/contact" onClick={gotoContact}>Contact</a>*/}
+                    <FontAwesomeIcon icon={faPhoneAlt} /> &nbsp; +94912290100
                 </li>
                 <li>
                     <button onClick={onLogout}>Logout</button>

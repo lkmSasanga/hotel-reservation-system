@@ -16,6 +16,7 @@ const AddHotel = () => {
     const [city, setCity] = useState();
     const [rate, setRate] = useState();
     const [roomsAvailable, setRoomsAvailable] = useState();
+    const [contactNumber, setContactNumber] = useState();
     const [price, setPrice] = useState();
     const [image, setImage] = useState();
 
@@ -46,6 +47,10 @@ const AddHotel = () => {
         e.preventDefault();
         setRoomsAvailable(e.target.value);
     };
+    const contactNumberChangeHandler = (e) => {
+        e.preventDefault();
+        setContactNumber(e.target.value);
+    };
     const priceChangeHandler = (e) => {
         e.preventDefault();
         setPrice(e.target.value);
@@ -70,7 +75,8 @@ const AddHotel = () => {
                 rate: rate,
                 rooms_available: roomsAvailable,
                 price: price,
-                image: image
+                image: image,
+                contact_no: contactNumber
             }),
         }).then(res => res.json())
             .then(json => {
@@ -147,6 +153,14 @@ const AddHotel = () => {
                                     type="text"
                                     required
                                     onChange={roomsAvailableChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Contact Number</label>
+                                <input
+                                    type="text"
+                                    required
+                                    onChange={contactNumberChangeHandler}
                                 />
                             </div>
                             <div className={classes.control}>

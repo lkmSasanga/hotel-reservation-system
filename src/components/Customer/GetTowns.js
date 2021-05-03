@@ -55,12 +55,13 @@ const GetTowns = () => {
         backgroundImage: `url(${Background})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
+        resizeMode: 'repeat'
         // backgroundRepeat: 'no-repeat'
     };
 
     return (
       <div className={classes.main}>
-          <section style={ sectionStyle }>
+          <section style={ sectionStyle } >
               <CHeader/>
               <h1 className={classes.heading}>Explore Holiday Resorts</h1>
               <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
