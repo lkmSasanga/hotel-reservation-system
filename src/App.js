@@ -17,6 +17,7 @@ import GetHotels from "./components/Customer/GetHotels";
 import AddBooking from "./components/Customer/AddBooking";
 import GetBookings from "./components/Customer/GetBookings";
 import Contact from "./components/Contact/Contact";
+import GetMyHotels from "./components/HotelOwner/GetMyHotels";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -89,7 +90,7 @@ function App() {
                       // stripe={stripePromise}
                   />}
               />
-              <Route path="/contact" component={Contact}/>
+              <Route path="/get_my_hotels" component={GetMyHotels}/>
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}

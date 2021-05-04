@@ -24,6 +24,9 @@ const OwnerDashboard = () => {
     const loadBookings = () => {
         history.push("/hotel_bookings");
     };
+    const loadGetHotels = () => {
+        history.push("/get_my_hotels");
+    };
 
     let sectionStyle = {
         marginTop: -18,
@@ -46,8 +49,6 @@ const OwnerDashboard = () => {
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
-
-
                         <h1 className={classes.title}
                             onClick={loadHotelAddingForm}>
                             {<FontAwesomeIcon icon={faHotel} /> } &nbsp; Add a Hotel</h1>
@@ -56,6 +57,13 @@ const OwnerDashboard = () => {
                         <h1 className={classes.title}
                             onClick={loadBookings}>
                             {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Bookings</h1>
+                    </Card>
+                </div>
+                <div className={classes.row}>
+                    <Card className={classes.cardBody}>
+                        <h1 className={classes.title}
+                            onClick={loadGetHotels}>
+                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Get Hotels</h1>
                     </Card>
                 </div>
             </section>
