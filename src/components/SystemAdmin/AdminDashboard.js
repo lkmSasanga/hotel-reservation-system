@@ -15,6 +15,10 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBookmark, faCrown, faUser} from "@fortawesome/free-solid-svg-icons";
 import SAHeader from "./SAHeader/SAHeader";
 import GetAllCustomers from "./GetAllCustomers";
+import BarChart from "../UI/BarChart/BarChart";
+import DonetChart from "../UI/DonetChart/DonetChart";
+// import CountUp from 'react-countup';
+import { CountUp } from 'use-count-up'
 
 const AdminDashboard = () => {
     const [customerCount, setCustomerCount] = useState();
@@ -22,6 +26,17 @@ const AdminDashboard = () => {
     const [bookingsCount, setBookingsCount] = useState();
 
     const history = useHistory();
+
+    const ChartDetails = {
+      data1 : {
+          name: 'Customers',
+          count: customerCount
+      },
+      data2: {
+          name: 'Hotel Owners',
+          count: hotelOwnerCount
+      }
+    };
 
     useEffect(() => {
         fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
@@ -94,9 +109,13 @@ const AdminDashboard = () => {
         backgroundRepeat: 'no-repeat'
     };
 
+    const BookingCountComponent = () => <CountUp isCounting end={bookingsCount} duration={4} />
+    const CustomersCountComponent = () => <CountUp isCounting end={customerCount} duration={4} />
+    const HotelOwnersCountComponent = () => <CountUp isCounting end={hotelOwnerCount} duration={4} />
+
     return (
         <div className={classes.main}>
-            <section style={ sectionStyle }>
+            {/*<section style={ sectionStyle }>*/}
                 <SAHeader/>
 
                 <h1 className={classes.heading}>Dashboard</h1>
@@ -121,24 +140,25 @@ const AdminDashboard = () => {
                     </Card>
                 </div>
                 <div className={classes.row}>
-                    <Card className={classes.countCardBody}>
-                        <h1 className={classes.countName}>Customers</h1>
-                        <p className={classes.count}>{customerCount}</p>
-                    </Card>
-                    <Card className={classes.countCardBody}>
-                        <h1 className={classes.countName}>Hotel Owners</h1>
-                        <p className={classes.count}>{hotelOwnerCount}</p>
-                    </Card>
+
+                    <DonetChart chartDetails={ChartDetails}/>
+
                     <Card className={classes.countCardBody}>
                         <h1 className={classes.countName}>Bookings</h1>
-                        <p className={classes.count}>{bookingsCount}</p>
+                        <p className={classes.count}>{BookingCountComponent()}</p>
                     </Card>
-                </div>
-                <div className={classes.row}>
 
                 </div>
+            {/*<hr/>*/}
+            <div className={classes.rowBottom}>
+                <p className={classes.countDown}>+{CustomersCountComponent()}&nbsp;  Customers</p>
+                <p className={classes.countDown}>+{HotelOwnersCountComponent()}&nbsp; Hotel Owners</p>
+            </div>
+            {/*<hr/>*/}
+            <p className={classes.space}>.</p>
 
-            </section>
+
+            {/*</section>*/}
         </div>
     );
 }

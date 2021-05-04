@@ -12,14 +12,18 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.1",
+    "highcharts": "^9.1.0",
+    "highcharts-react-official": "^3.0.0",
     "moment": "^2.29.1",
     "react": "^17.0.2",
+    "react-countup": "^4.3.3",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-stripe-checkout": "^2.6.3",
     "react-toastify": "^7.0.4",
+    "use-count-up": "^2.3.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {

@@ -1,0 +1,221 @@
+.DonetChart {
+    /*margin: 0 auto;*/
+    /*padding: 0;*/
+    /*width: 100%;*/
+
+    /*align-items: center;*/
+    /*display: flex;*/
+    /*font-family: 'Poppins', sans-serif;*/
+
+    /*flex-flow: row;*/
+}
+
+.Cards {
+    font-family: 'Poppins', sans-serif;
+
+    height:33em;
+    width: 40em;
+    /*display:-webkit-box;*/
+    /*display:-ms-flexbox;*/
+    /*display:flex;*/
+
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+    /*padding: 0 10px;*/
+    /*flex-flow: row;*/
+    justify-content: center;
+    /*justify-content: space-between;*/
+    margin: 30px 10px;
+
+
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+    /*position:relative;*/
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius:16px;
+    overflow:hidden;
+    -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+    box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+
+.FeedbackCards {
+    font-family: 'Poppins', sans-serif;
+
+    height:21em;
+    width: 26.3em;
+    /*display:-webkit-box;*/
+    /*display:-ms-flexbox;*/
+    /*display:flex;*/
+
+    background-color: white;
+    flex-direction: row;
+    align-items: center;
+    /*padding: 0 10px;*/
+    /*flex-flow: row;*/
+    justify-content: center;
+    /*justify-content: space-between;*/
+    margin: 10px 10px 50px 10px;
+
+
+
+    -webkit-box-orient:horizontal;
+    -webkit-box-direction:normal;
+    -ms-flex-direction:row;
+    flex-direction:row;
+    /*position:relative;*/
+    -webkit-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition:all 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
+    border-radius:16px;
+    overflow:hidden;
+    -webkit-box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+    box-shadow:  15px 15px 27px #e1e1e3, -15px -15px 27px #ffffff;
+}
+.ChartsRow {
+    display: flex;
+    flex-direction: row;
+}
+.FeedbackCardsRow {
+    display: inline-flex;
+    position: relative;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+.PieChartTitle {
+    font-size: 30px;
+    color: #4c4c4c;
+    font-weight: bold;
+    /*display: block;*/
+    text-align: left;
+    position: center;
+    padding-left: 25px;
+    padding-top: 20px;
+    /*flex-direction: column;*/
+
+
+    /*display: inline-flex;*/
+    /*position: relative;*/
+    /*justify-content: space-between;*/
+    /*padding: 0 10px;*/
+}
+.PieChartItemName {
+    text-align: left;
+    font-weight: bold;
+    color: #4c4c4c;
+    padding-left: 25px;
+    font-size: 18px;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.PieChart {
+    display: flex;
+    padding-right: 70px;
+    cursor: pointer;
+    padding-top: -20px;
+    /*align-items: center;*/
+    /*justify-content: space-between;*/
+    /*padding-right: 180px;*/
+    /*margin: 0 auto;*/
+    /*margin-top: -30px;*/
+}
+
+.FeatureLabel {
+    font-weight: bold;
+    color: #2b2b2b;
+    text-align: left;
+    /*margin-top: 20px;*/
+    padding-left: 50px;
+}
+
+.ProgressBar {
+    padding-left: 50px;
+    padding-bottom: 30px;
+}
+
+
+@media screen and (max-width: 499px) {
+    .DonetChart {
+        /*flex-flow: column;*/
+        display: flex;
+        flex-direction: column;
+        height: 80%;
+    }
+    .Cards {
+        height:30em;
+        width: 23em;
+        /*margin-left: 8px;*/
+        /*margin-right: 8px;*/
+        /*flex-direction: column;*/
+        /*display: block;*/
+    }
+    .FeedbackCards{
+        height:22em;
+        width: 23em;
+        padding-left: 10px;
+        margin-bottom: 20px;
+    }
+
+    .ChartsRow {
+        display: block;
+        /*position: relative;*/
+        /*justify-content: space-between;*/
+        /*padding: 20px 10px;*/
+    }
+    .FeedbackCardsRow{
+        display: block;
+    }
+    .PieChartTitle {
+        font-size: 25px;
+        /*color: #4c4c4c;*/
+        /*font-weight: bold;*/
+        display: block;
+        text-align: left;
+        /*position: center;*/
+        /*padding-right: 250px;*/
+        /*padding-top: 20px;*/
+        /*flex-direction: column;*/
+
+
+        /*display: inline-flex;*/
+        /*position: relative;*/
+        /*justify-content: space-between;*/
+        /*padding: 0 10px;*/
+    }
+    .PieChartItemName {
+        /*padding: 0 50px 0 0;*/
+        /*margin-right: 350px;*/
+        font-size: 15px;
+        margin-top: 0;
+        margin-bottom: 25px;
+        /*padding-top: 0;*/
+    }
+
+    .PieChart {
+        height: 500px;
+        width: 500px;
+        /*padding-left: 10px;*/
+        /*margin-right: -280px;*/
+    }
+
+    .FeatureLabel {
+        /*font-weight: bold;*/
+        /*color: #2b2b2b;*/
+        /*text-align: left;*/
+        /*margin-top: 20px;*/
+        padding-left: 25px;
+    }
+
+    .ProgressBar {
+        padding-left: 15px;
+        padding-bottom: 40px;
+        margin-left: 8px;
+        /*margin: 0 auto;*/
+    }
+
+}
