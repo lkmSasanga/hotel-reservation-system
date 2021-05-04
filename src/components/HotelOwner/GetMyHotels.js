@@ -8,13 +8,14 @@ import Card from "../UI/Card/Card";
 import HOHeader from "./HOHeader/HOHeader";
 import Background from "../../assets/bg2.png";
 import Button from "../UI/Button/Button";
+import {useHistory} from "react-router-dom";
 
 const GetMyHotels = () => {
     const [myHotelDetails, setMyHotelDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     // const [paymentStatus, setPaymentStatus] = useState('Pending');
 
-    // const history = useHistory();
+    const history = useHistory();
     moment().format();
 
     useEffect(() => {
@@ -82,7 +83,7 @@ const GetMyHotels = () => {
                                     <p className={classes.content}>Rooms Available : {hotel.rooms_available}</p>
 
                                     <Button
-                                        className={classes.bookNowButton} onClick={() => gotoEditHotel(hotel)}>Update
+                                        className={classes.bookNowButton} onClick={() => gotoEditHotel(hotel)}>View
                                     </Button>
                                 </div>
                             </Card>

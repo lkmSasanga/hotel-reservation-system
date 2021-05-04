@@ -1,23 +1,44 @@
 import React, {useEffect, useState} from 'react';
+import { useLocation } from "react-router-dom";
 
-import classes from './UpdateHotel.css';
+
+import classes from './UpdateHotel.module.css';
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMapMarkerAlt} from '@fortawesome/free-solid-svg-icons'
+import {faMapMarkerAlt, faStar} from '@fortawesome/free-solid-svg-icons'
 import HOHeader from "./HOHeader/HOHeader";
+import Button from "../UI/Button/Button";
+import ImageUpload from "../UI/ImageUpload/ImageUpload";
+import ThreeDots from "../UI/ThreeDots/ThreeDots";
+import {toast} from "react-toastify";
 
-const UpdateHotel = () => {
+
+const UpdateHotel = (props) => {
     // const [loggedUserToken, setLoggedUserToken] = useState('');
-    const [townsDetails, setTownsDetails] = useState('');
+    const [hotelDetails, setHotelDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
+    const [hotelOwnerID, setHotelOwnerID] = useState();
+    const [hotelName, setHotelName] = useState();
+    const [city, setCity] = useState();
+    const [rate, setRate] = useState();
+    const [roomsAvailable, setRoomsAvailable] = useState();
+    const [contactNumber, setContactNumber] = useState();
+    const [price, setPrice] = useState();
+    const [image, setImage] = useState();
+
+    const [loggedUserToken, setLoggedUserToken] = useState();
+    const [loading, setLoading] = useState();
 
     const history = useHistory();
+    const location  = useLocation();
 
     useEffect(() => {
         setShowSpinner(true);
+        console.log(location.state.hotelDetails);
+        setHotelDetails(location.state.hotelDetails);
 
         // fetch('http://localhost:5000/api/get_towns', {
         //     method: 'GET',
@@ -37,10 +58,80 @@ const UpdateHotel = () => {
     },[]);
 
 
-    const gotoHotels = (town) => {
-        history.push("/get_hotels");
-        localStorage.setItem('town', town);
-        console.log(town);
+    // const gotoHotels = (town) => {
+    //     history.push("/get_hotels");
+    //     localStorage.setItem('town', town);
+    //     console.log(town);
+    // };
+
+    const hotelNameChangeHandler = (e) => {
+        e.preventDefault();
+        setHotelName(e.target.value);
+    };
+    const cityChangeHandler = (e) => {
+        e.preventDefault();
+        setCity(e.target.value);
+    };
+    const rateChangeHandler = (e) => {
+        e.preventDefault();
+        setRate(e.target.value);
+    };
+    const roomsAvailableChangeHandler = (e) => {
+        e.preventDefault();
+        setRoomsAvailable(e.target.value);
+    };
+    const contactNumberChangeHandler = (e) => {
+        e.preventDefault();
+        setContactNumber(e.target.value);
+    };
+    const priceChangeHandler = (e) => {
+        e.preventDefault();
+        setPrice(e.target.value);
+    };
+    const imageAddingHandler = (file) => {
+        setImage(file);
+    };
+    const onSubmit = (e) => {
+        e.preventDefault();
+        setLoading(true);
+
+        fetch(`http://localhost:5000/api/update_hotel/${hotelDetails._id}`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                hotelOwner_id: hotelOwnerID,
+                city: city,
+                hotel_name: hotelName,
+                rate: rate,
+                rooms_available: roomsAvailable,
+                price: price,
+                image: image,
+                contact_no: contactNumber
+            }),
+        }).then(res => res.json())
+            .then(json => {
+                console.log('json', json);
+                // console.log('inside api call');
+
+                if (json.success) {
+                    console.log('login successful', json);
+                    setLoading(false);
+                    // setSubmitMsg('New Hotel added Successfully');
+                    // this.setState({recievedUserType: json.user.userType});
+                    toast("New Hotel added Successfully!", {type: "success"});
+
+                    setImage('');
+                    setHotelName('');
+                }
+                else {
+                    console.log('Error Occurred');
+                    console.log(json)
+                    toast("Unable to add the Hotel. Try again!", {type: "error"});
+                }
+            });
     };
 
     let sectionStyle = {
@@ -56,33 +147,100 @@ const UpdateHotel = () => {
 
     return (
         <div className={classes.main}>
-            <section style={ sectionStyle } >
+            {/*<section style={ sectionStyle } >*/}
                 <HOHeader/>
-                <h1 className={classes.heading}>Explore Holiday Resorts</h1>
-                <p className={classes.subHeading}>These popular destinations have a lot to offer</p>
+                <h1 className={classes.heading}>Updating Hotel: {hotelDetails.hotel_name}</h1>
+                <p className={classes.subHeading}>Upgrade your Hotel Offerings to improve customer reach!</p>
 
-                {townsDetails &&
-                <div className={classes.row}>
+                {hotelDetails &&
+                <div>
+                    <Card className={classes.cardBody}>
+                        <h1 className={classes.newHotel}>Hotel Info</h1>
+                        <form>
+                            <div className={classes.control}>
+                                <label>Hotel name</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.hotel_name || ''}
+                                    onChange={hotelNameChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>City</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.city || ''}
+                                    onChange={cityChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Rate</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.rate || ''}
+                                    onChange={rateChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Rooms Available</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.rooms_available || ''}
+                                    onChange={roomsAvailableChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Contact Number</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.contact_no || ''}
 
-                    {townsDetails.map((town) =>
-                        <div key={town._id} onClick={() => gotoHotels(town.name)}>
-                            <Card className={classes.cardBody} >
-                                <div className={classes.oneTown} >
-                                    <img alt="" className={classes.image} src={town.image}/>
-                                    <p className={classes.header}>
-                                        {<FontAwesomeIcon
-                                            icon={faMapMarkerAlt}
-                                            style={{color: '#9e0828'}}
-                                        />} &nbsp; {town.name}</p>
-                                </div>
-                            </Card>
+                                    onChange={contactNumberChangeHandler}
+                                />
+                            </div>
+                            <div className={classes.control}>
+                                <label>Price (Rs.)</label>
+                                <input
+                                    type="text"
+                                    required
+                                    defaultValue={hotelDetails.price || ''}
+                                    onChange={priceChangeHandler}
+                                />
+                            </div>
 
-                        </div>
-                    )}
+                            <div className={classes.control}>
+                                <label>Insert an Image</label>
+                            </div>
+                            <ImageUpload
+                                onAddingImage={imageAddingHandler}
+                                defaultValue={hotelDetails.image || ''}
+
+                            />
+
+                            <div className={classes.actions}>
+                                <Button
+                                    type="submit"
+                                    className={classes.btn}
+                                    onClick={onSubmit}
+                                >
+                                    Update
+                                </Button>
+                            </div>
+                            {/*{!loading && <p className={classes.submittingMsg}>{submitMsg}</p>}*/}
+                            {loading && <ThreeDots/>}
+                        </form>
+                    </Card>
+
+
                 </div>
                 }
-                {showSpinner && <Spinner/>}
-            </section>
+                {/*{showSpinner && <Spinner/>}*/}
+            {/*</section>*/}
         </div>
     );
 }
