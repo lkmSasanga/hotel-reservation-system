@@ -45,7 +45,7 @@ const GetTowns = () => {
     const gotoHotels = (town) => {
         history.push("/get_hotels");
         localStorage.setItem('town', town);
-        console.log(town);
+        // console.log(town);
     };
 
     let sectionStyle = {

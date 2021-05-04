@@ -1,23 +1,13 @@
 import React, {useEffect, useState} from 'react';
-// import HOHeader from "./HOHeader/HOHeader";
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 import classes from './AdminDashboard.module.css';
 import Card from "../UI/Card/Card";
-// import AddHotel from "./AddHotel";
 import {useHistory} from "react-router-dom";
-// import ViewBookings from "./ViewBookings";
-import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBookmark, faCrown, faUser} from "@fortawesome/free-solid-svg-icons";
+import {faCrown, faUser} from "@fortawesome/free-solid-svg-icons";
 import SAHeader from "./SAHeader/SAHeader";
-import GetAllCustomers from "./GetAllCustomers";
-import BarChart from "../UI/BarChart/BarChart";
+
 import DonetChart from "../UI/DonetChart/DonetChart";
-// import CountUp from 'react-countup';
 import { CountUp } from 'use-count-up'
 
 const AdminDashboard = () => {
@@ -99,23 +89,12 @@ const AdminDashboard = () => {
         history.push("/all_hotel_owners");
     };
 
-    let sectionStyle = {
-        marginTop: -18,
-        width: "100%",
-        height: "1000px",
-        backgroundImage: `url(${Background})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-    };
-
     const BookingCountComponent = () => <CountUp isCounting end={bookingsCount} duration={4} />
     const CustomersCountComponent = () => <CountUp isCounting end={customerCount} duration={4} />
     const HotelOwnersCountComponent = () => <CountUp isCounting end={hotelOwnerCount} duration={4} />
 
     return (
         <div className={classes.main}>
-            {/*<section style={ sectionStyle }>*/}
                 <SAHeader/>
 
                 <h1 className={classes.heading}>Dashboard</h1>
@@ -123,7 +102,6 @@ const AdminDashboard = () => {
 
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
-                        {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
                         <h1 className={classes.title}
                             onClick={loadTownAddingForm}>
                             {<FontAwesomeIcon icon={faCrown} /> }&nbsp; Add a Town</h1>
@@ -149,16 +127,11 @@ const AdminDashboard = () => {
                     </Card>
 
                 </div>
-            {/*<hr/>*/}
             <div className={classes.rowBottom}>
                 <p className={classes.countDown}>+{CustomersCountComponent()}&nbsp;  Customers</p>
                 <p className={classes.countDown}>+{HotelOwnersCountComponent()}&nbsp; Hotel Owners</p>
             </div>
-            {/*<hr/>*/}
             <p className={classes.space}>.</p>
-
-
-            {/*</section>*/}
         </div>
     );
 }

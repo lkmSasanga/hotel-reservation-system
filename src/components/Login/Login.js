@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom'
 
 import Classes from './Login.module.css';
-// import Signup from "./SignUp/Signup";
-// import InputControl from "../InputControl/InputControl";
 import Home from '../Home/Home';
 import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import OwnerDashboard from "../HotelOwner/OwnerDashboard";
-import AddTown from "../SystemAdmin/AddTown";
 import GetTowns from "../Customer/GetTowns";
 import AdminDashboard from "../SystemAdmin/AdminDashboard";
 

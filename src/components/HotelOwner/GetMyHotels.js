@@ -31,9 +31,7 @@ const GetMyHotels = () => {
         }).then(res => res.json())
             .then(json => {
                 if (json.success) {
-                    // console.log('success');
-                    // console.log(typeof(json.data));
-                    console.log(json.data);
+                    // console.log(json.data);
 
                     setShowSpinner(false);
                     setMyHotelDetails(json.data)

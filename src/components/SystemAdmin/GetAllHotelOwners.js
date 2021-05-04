@@ -3,20 +3,16 @@ import React, {useEffect, useState} from 'react';
 import classes from './GetAllHotelOwners.module.css';
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCrown, faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
-import HOHeader from "../HotelOwner/HOHeader/HOHeader";
+import {faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
 import SAHeader from "./SAHeader/SAHeader";
 
 const GetAllHotelOwners = () => {
     const [customersDetails, setCustomersDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     const [clickedTown, setClickedTown] = useState();
-
-    const history = useHistory();
 
     useEffect(() => {
         setClickedTown(localStorage.getItem('town'));
@@ -26,7 +22,6 @@ const GetAllHotelOwners = () => {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
-                // 'Content-Type': 'application/json',
             },
         }).then(res => res.json())
             .then(json => {
@@ -45,13 +40,6 @@ const GetAllHotelOwners = () => {
             })
 
     },[]);
-
-    // const gotoHotel = (hotel) => {
-    //     console.log(hotel.hotelOwner_id)
-    //     console.log(hotel._id)
-    //     history.push("/add_booking", {hotelDetails: hotel});
-    //
-    // }
 
     let sectionStyle = {
         marginTop: -18,

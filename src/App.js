@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Route, BrowserRouter, Redirect } from "react-router-dom";
 
 import Login from './components/Login/Login';
-// import Home from './components/Home/Home';
 import Properties from "./components/Properties/Properties";
 import Property from "./components/Property/Property";
 
@@ -14,7 +13,6 @@ import GetTowns from "./components/Customer/GetTowns";
 import GetHotels from "./components/Customer/GetHotels";
 import AddBooking from "./components/Customer/AddBooking";
 import GetBookings from "./components/Customer/GetBookings";
-import Contact from "./components/Contact/Contact";
 import GetMyHotels from "./components/HotelOwner/GetMyHotels";
 import UpdateHotel from "./components/HotelOwner/UpdateHotel";
 import AdminDashboard from "./components/SystemAdmin/AdminDashboard";

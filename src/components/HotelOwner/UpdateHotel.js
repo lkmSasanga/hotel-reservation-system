@@ -3,12 +3,9 @@ import { useLocation } from "react-router-dom";
 
 
 import classes from './UpdateHotel.module.css';
-import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
+// import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faMapMarkerAlt, faStar} from '@fortawesome/free-solid-svg-icons'
 import HOHeader from "./HOHeader/HOHeader";
 import Button from "../UI/Button/Button";
 import ImageUpload from "../UI/ImageUpload/ImageUpload";
@@ -17,10 +14,7 @@ import {toast} from "react-toastify";
 
 
 const UpdateHotel = (props) => {
-    // const [loggedUserToken, setLoggedUserToken] = useState('');
     const [hotelDetails, setHotelDetails] = useState('');
-    const [showSpinner, setShowSpinner] = useState(false);
-    const [hotelOwnerID, setHotelOwnerID] = useState();
     const [hotelName, setHotelName] = useState();
     const [city, setCity] = useState();
     const [rate, setRate] = useState();
@@ -29,40 +23,19 @@ const UpdateHotel = (props) => {
     const [price, setPrice] = useState();
     const [image, setImage] = useState();
 
-    const [loggedUserToken, setLoggedUserToken] = useState();
+    // const [loggedUserToken, setLoggedUserToken] = useState();
     const [loading, setLoading] = useState();
 
-    const history = useHistory();
+    // const history = useHistory();
     const location  = useLocation();
 
     useEffect(() => {
-        setShowSpinner(true);
+        // setShowSpinner(true);
         console.log(location.state.hotelDetails);
         setHotelDetails(location.state.hotelDetails);
 
-        // fetch('http://localhost:5000/api/get_towns', {
-        //     method: 'GET',
-        //     headers: {
-        //         'Authorization': `${localStorage.getItem('token')}`,
-        //     },
-        // }).then(res => res.json())
-        //     .then(json => {
-        //         if (json.success) {
-        //             setShowSpinner(false);
-        //             setTownsDetails(json.data)
-        //         } else {
-        //             console.log('Error Occurred');
-        //         }
-        //     })
-
     },[]);
 
-
-    // const gotoHotels = (town) => {
-    //     history.push("/get_hotels");
-    //     localStorage.setItem('town', town);
-    //     console.log(town);
-    // };
 
     const hotelNameChangeHandler = (e) => {
         e.preventDefault();
@@ -102,7 +75,7 @@ const UpdateHotel = (props) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                hotelOwner_id: hotelOwnerID,
+                hotelOwner_id: localStorage.getItem('id'),
                 city: city,
                 hotel_name: hotelName,
                 rate: rate,
@@ -117,12 +90,10 @@ const UpdateHotel = (props) => {
                 // console.log('inside api call');
 
                 if (json.success) {
-                    console.log('login successful', json);
-                    setLoading(false);
-                    // setSubmitMsg('New Hotel added Successfully');
-                    // this.setState({recievedUserType: json.user.userType});
                     toast("New Hotel added Successfully!", {type: "success"});
 
+                    console.log('login successful', json);
+                    setLoading(false);
                     setImage('');
                     setHotelName('');
                 }

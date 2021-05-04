@@ -9,30 +9,22 @@ import HOHeader from "./HOHeader/HOHeader";
 import Background from "../../assets/bg2.png";
 
 const ViewBookings = () => {
-    // const [loggedUserId, setLoggedUserId] = useState('');
     const [bookingDetails, setBookingDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
-    // const [paymentStatus, setPaymentStatus] = useState('Pending');
 
-    // const history = useHistory();
     moment().format();
 
     useEffect(() => {
-        // setLoggedUserId(localStorage.getItem('id'));
         setShowSpinner(true);
 
         fetch(`http://localhost:5000/api/hotel_bookings/${encodeURIComponent(localStorage.getItem('id'))}`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
-                // 'Content-Type': 'application/json',
             },
         }).then(res => res.json())
             .then(json => {
                 if (json.success) {
-                    // console.log('success');
-                    // console.log(typeof(json.data));
-                    console.log(json.data);
 
                     setShowSpinner(false);
                     setBookingDetails(json.data)
@@ -66,20 +58,14 @@ const ViewBookings = () => {
                         <div key={booking._id}>
                             <Card classname={classes.cardBody} >
                                 <div className={classes.oneTown} >
-                                    {/*<img alt="" className={classes.image} src={booking.image}/>*/}
                                     <p className={classes.header} >{booking.hotel_name}</p>
                                     <p className={classes.content}>Checkin Date : {moment(booking.checkin_date).format('YYYY-mm-dd')}</p>
                                     <p className={classes.content}>Checkout Date : {moment(booking.checkout_date).format('YYYY-mm-dd')}</p>
                                     <p className={classes.content}>People count : {booking.people_count}</p>
-                                    {/*<p>Payment : {booking.payment &&}</p>*/}
                                     {booking.payment ?
                                         <p className={classes.content}>Payment : Completed</p>
                                         : <p className={classes.content}>Payment : Pending</p>
                                     }
-                                    {/*<div className={classes.buttons}>*/}
-                                    {/*<Button className={classes.payNowButton}>Pay Now</Button>*/}
-                                    {/*<Button className={classes.cancelButton}>Cancel</Button>*/}
-                                    {/*</div>*/}
                                 </div>
                             </Card>
                         </div>

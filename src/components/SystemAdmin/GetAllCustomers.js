@@ -3,30 +3,23 @@ import React, {useEffect, useState} from 'react';
 import classes from './GetAllCustomers.module.css';
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
-import {useHistory} from "react-router-dom";
 import Background from '../../assets/bg2.png';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faCrown, faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
-import HOHeader from "../HotelOwner/HOHeader/HOHeader";
+import { faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
 import SAHeader from "./SAHeader/SAHeader";
 
 const GetAllCustomers = (props) => {
     const [customersDetails, setCustomersDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
-    // const [clickedTown, setClickedTown] = useState();
-
-    const history = useHistory();
 
     useEffect(() => {
-        // setClickedTown(localStorage.getItem('town'));
         setShowSpinner(true);
 
         fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
-                // 'Content-Type': 'application/json',
             },
         }).then(res => res.json())
             .then(json => {

@@ -34,11 +34,11 @@ const GetHotels = () => {
             }).then(res => res.json())
                 .then(json => {
                     if (json.success) {
-                        console.log('success');
-                        console.log(typeof(json.data));
-                        console.log(json.data);
-                        console.log(localStorage.getItem('town'))
-                        console.log(clickedTown)
+                        // console.log('success');
+                        // console.log(typeof(json.data));
+                        // console.log(json.data);
+                        // console.log(localStorage.getItem('town'))
+                        // console.log(clickedTown)
 
                         setShowSpinner(false);
                         setHotelDetails(json.data)

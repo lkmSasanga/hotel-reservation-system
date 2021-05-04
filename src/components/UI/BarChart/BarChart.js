@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
 
-import classes from './BarChart.module.css';
-
 import Highcharts from 'highcharts'
 import HighchartsReact from "highcharts-react-official";
-// import HighchartsReact from 'highcharts-react-official'
 
 class BarChart extends Component{
 
@@ -57,11 +54,6 @@ class BarChart extends Component{
             </React.Fragment>
         )
     };
-
-
-
-
-
 
 }
 

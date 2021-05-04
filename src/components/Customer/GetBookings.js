@@ -51,7 +51,7 @@ const GetBookings = () => {
                 if (json.success) {
                     // console.log('success');
                     // console.log(typeof(json.data));
-                    console.log(json.data);
+                    // console.log(json.data);
 
                     setShowSpinner(false);
                     setBookingDetails(json.data)
