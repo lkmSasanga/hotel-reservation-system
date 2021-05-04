@@ -9,6 +9,7 @@ import ThreeDots from '../UI/ThreeDots/ThreeDots';
 import OwnerDashboard from "../HotelOwner/OwnerDashboard";
 import AddTown from "../SystemAdmin/AddTown";
 import GetTowns from "../Customer/GetTowns";
+import AdminDashboard from "../SystemAdmin/AdminDashboard";
 
 class Login extends Component {
     state = {
@@ -325,8 +326,8 @@ class Login extends Component {
                     <>
                         {this.state.recievedUserType === 'System_Admin' ?
                             <>
-                                <Redirect to="/add_town"/>
-                                <AddTown/>
+                                <Redirect to="/admin_dashboard"/>
+                                <AdminDashboard/>
                                 {/*<Redirect to="/home"/>*/}
                                 {/*<Home/>*/}
                             </>
