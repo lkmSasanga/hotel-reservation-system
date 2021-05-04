@@ -2,6 +2,8 @@ import React from 'react';
 import {useHistory} from "react-router-dom";
 
 import classes from './HONavigation.module.css';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faPhoneAlt} from "@fortawesome/free-solid-svg-icons";
 
 const HONavigation = () => {
     const history = useHistory();
@@ -9,9 +11,9 @@ const HONavigation = () => {
     const gotoDashboard = () => {
         history.push('/owner_dashboard');
     };
-    const gotoContact = () => {
-        history.push('/contact');
-    };
+    // const gotoContact = () => {
+    //     history.push('/contact');
+    // };
 
     const onLogout = () => {
         localStorage.removeItem('token');
@@ -25,8 +27,8 @@ const HONavigation = () => {
                 <li>
                     <a href="/owner_dashboard" onClick={gotoDashboard}>Dashboard</a>
                 </li>
-                <li>
-                    <a href="/contact" onClick={gotoContact}>Contact</a>
+                <li style={{color: '#ffffff'}}>
+                    <FontAwesomeIcon icon={faPhoneAlt} /> &nbsp; +94 91 22 90 100
                 </li>
                 <li>
                     <button onClick={onLogout}>Logout</button>
