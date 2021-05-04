@@ -12,14 +12,14 @@ import {useHistory} from "react-router-dom";
 // import ViewBookings from "./ViewBookings";
 import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBookmark, faHotel} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark, faCrown} from "@fortawesome/free-solid-svg-icons";
 import SAHeader from "./SAHeader/SAHeader";
 
 const AdminDashboard = () => {
     const history = useHistory();
 
-    const loadHotelAddingForm  = () => {
-        history.push("/add_hotel");
+    const loadTownAddingForm  = () => {
+        history.push("/add_town");
     };
 
     const loadBookings = () => {
@@ -51,8 +51,8 @@ const AdminDashboard = () => {
                     <Card className={classes.cardBody}>
                         {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
                         <h1 className={classes.title}
-                            onClick={loadHotelAddingForm}>
-                            {<FontAwesomeIcon icon={faHotel} /> } &nbsp; Add a Hotel</h1>
+                            onClick={loadTownAddingForm}>
+                            {<FontAwesomeIcon icon={faCrown} /> }&nbsp; Add a Town</h1>
                     </Card>
                 </div>
                 <div className={classes.row}>
@@ -66,7 +66,8 @@ const AdminDashboard = () => {
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadGetHotels}>
-                            {<FontAwesomeIcon icon={faHotel}/>} &nbsp; Get Hotels</h1>
+                            {/*{<FontAwesomeIcon icon={faHotel}/>}*/}
+                            &nbsp; Get Hotels</h1>
                     </Card>
                 </div>
 
