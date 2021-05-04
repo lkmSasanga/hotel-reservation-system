@@ -65,3 +65,6 @@
     background: rgba(255, 255, 255, 0.51);
     margin-left: 5rem;
 }
+.cardBody:hover {
+    background: rgba(255, 255, 255, 0.54) !important;
+}

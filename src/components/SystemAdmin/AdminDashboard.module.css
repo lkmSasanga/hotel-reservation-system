@@ -27,6 +27,7 @@
 }
 .cardBody {
     width: 250px;
+    height: 100px;
     padding: 1rem 2rem 1rem 1rem;
     margin: 2rem 2rem 2rem 2rem ;
     align-content: center;
@@ -41,5 +42,7 @@
 
     background: rgba(255, 255, 255, 0.3) !important;
 
-
+}
+.cardBody:hover {
+    background: rgba(255, 255, 255, 0.54) !important;
 }

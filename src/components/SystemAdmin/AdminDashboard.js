@@ -54,20 +54,22 @@ const AdminDashboard = () => {
                             onClick={loadTownAddingForm}>
                             {<FontAwesomeIcon icon={faCrown} /> }&nbsp; Add a Town</h1>
                     </Card>
-                </div>
-                <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadCustomers}>
                             {<FontAwesomeIcon icon={faUser}/>}&nbsp; Customers</h1>
                     </Card>
-                </div>
-                <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadHotelOwners}>
                             {<FontAwesomeIcon icon={faUser}/>}&nbsp; Hotel Owners</h1>
                     </Card>
+                </div>
+                <div className={classes.row}>
+
+                </div>
+                <div className={classes.row}>
+
                 </div>
 
             </section>
