@@ -282,7 +282,7 @@ class Login extends Component {
                                                 <select className={Classes.dropdownOptions} onChange={e => this.onSelectUserType(e)}>
                                                     <option>Customer</option>
                                                     <option>Hotel_Owner</option>
-                                                    <option>System_Admin</option>
+                                                    {/*<option>System_Admin</option>*/}
 
                                                 </select>
                                             </div>

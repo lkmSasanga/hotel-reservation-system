@@ -53,6 +53,8 @@ const OwnerDashboard = () => {
                             onClick={loadHotelAddingForm}>
                             {<FontAwesomeIcon icon={faHotel} /> } &nbsp; Add a Hotel</h1>
                     </Card>
+                </div>
+                <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadBookings}>
@@ -63,9 +65,10 @@ const OwnerDashboard = () => {
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadGetHotels}>
-                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Get Hotels</h1>
+                            {<FontAwesomeIcon icon={faHotel}/>} &nbsp; Get Hotels</h1>
                     </Card>
                 </div>
+
             </section>
         </div>
     );
