@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
 import { Route, BrowserRouter, Redirect } from "react-router-dom";
-// import axios from 'axios';
-// import {loadStripe} from '@stripe/stripe-js';
 
 import Login from './components/Login/Login';
 // import Home from './components/Home/Home';
@@ -21,6 +19,7 @@ import GetMyHotels from "./components/HotelOwner/GetMyHotels";
 import UpdateHotel from "./components/HotelOwner/UpdateHotel";
 import AdminDashboard from "./components/SystemAdmin/AdminDashboard";
 import GetAllCustomers from "./components/SystemAdmin/GetAllCustomers";
+import GetAllHotelOwners from "./components/SystemAdmin/GetAllHotelOwners";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,19 +29,6 @@ function App() {
   // const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
 
   useEffect(() => {
-    // const storedUserLoggedInInformation = localStorage.getItem('isLoggedIn');
-
-    // if (storedUserLoggedInInformation === '1') {
-    //   setIsLoggedIn(true);
-    // }
-
-    // axios.get('http://localhost:5000/api/hotels').then(response => {
-    //   const receivedData = response.data;
-    //   console.log(receivedData);
-    //   setReceivedData(response.data);
-    // }).catch((error) => {
-    //   console.log(error);
-    // });
 
   }, []);
 
@@ -57,7 +43,6 @@ function App() {
 
   return (
       <BrowserRouter>
-        {/*<Switch>*/}
           <main>
             <div>
               <Route exact path="/">
@@ -65,8 +50,6 @@ function App() {
               </Route>
               <Route
                   path="/login"
-                  // component={Login}
-                  // onLogin={() => loginHandler()}
                   render={() => <Login
                       onLogin={loginHandler}
                       onLoginUserDetails={onLoginUserDetailsHandler}
@@ -97,13 +80,9 @@ function App() {
               <Route path="/update_hotel" component={UpdateHotel}/>
               <Route path="/admin_dashboard" component={AdminDashboard}/>
               <Route path="/all_customers" component={GetAllCustomers}/>
+              <Route path="/all_hotel_owners" component={GetAllHotelOwners}/>
             </div>
-
-            {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
-            {/*{isLoggedIn && <Home onLogout={logoutHandler} />}*/}
           </main>
-        {/*</Switch>*/}
-
 
       </BrowserRouter>
   );

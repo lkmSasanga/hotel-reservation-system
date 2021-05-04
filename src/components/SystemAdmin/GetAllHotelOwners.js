@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import classes from './GetAllCustomers.module.css';
+import classes from './GetAllHotelOwners.module.css';
 import Spinner from "../UI/Spinner/Spinner";
 import Card from "../UI/Card/Card";
 import {useHistory} from "react-router-dom";
@@ -11,7 +11,7 @@ import {faCrown, faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
 import HOHeader from "../HotelOwner/HOHeader/HOHeader";
 import SAHeader from "./SAHeader/SAHeader";
 
-const GetAllCustomers = () => {
+const GetAllHotelOwners = () => {
     const [customersDetails, setCustomersDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
     const [clickedTown, setClickedTown] = useState();
@@ -22,7 +22,7 @@ const GetAllCustomers = () => {
         setClickedTown(localStorage.getItem('town'));
         setShowSpinner(true);
 
-        fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
+        fetch(`http://localhost:5000/api/all_customers?userType=Hotel_Owner`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
@@ -46,12 +46,12 @@ const GetAllCustomers = () => {
 
     },[]);
 
-    const gotoHotel = (hotel) => {
-        console.log(hotel.hotelOwner_id)
-        console.log(hotel._id)
-        history.push("/add_booking", {hotelDetails: hotel});
-
-    }
+    // const gotoHotel = (hotel) => {
+    //     console.log(hotel.hotelOwner_id)
+    //     console.log(hotel._id)
+    //     history.push("/add_booking", {hotelDetails: hotel});
+    //
+    // }
 
     let sectionStyle = {
         marginTop: -18,
@@ -67,8 +67,8 @@ const GetAllCustomers = () => {
         <div className={classes.main}>
             <section style={ sectionStyle }>
                 <SAHeader/>
-                <h1 className={classes.heading}>All the Customers of the System</h1>
-                <p className={classes.subHeading}>Customer Details</p>
+                <h1 className={classes.heading}>All the Hotel Owners of the System</h1>
+                <p className={classes.subHeading}>Hotel Owner Details</p>
                 {customersDetails &&
                 <div className={classes.row}>
                     {customersDetails.map((customer) =>
@@ -91,4 +91,4 @@ const GetAllCustomers = () => {
     );
 }
 
-export default GetAllCustomers;
+export default GetAllHotelOwners;

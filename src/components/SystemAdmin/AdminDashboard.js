@@ -12,7 +12,7 @@ import {useHistory} from "react-router-dom";
 // import ViewBookings from "./ViewBookings";
 import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faBookmark, faCrown} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark, faCrown, faUser} from "@fortawesome/free-solid-svg-icons";
 import SAHeader from "./SAHeader/SAHeader";
 
 const AdminDashboard = () => {
@@ -25,8 +25,8 @@ const AdminDashboard = () => {
     const loadCustomers = () => {
         history.push("/all_customers");
     };
-    const loadGetHotels = () => {
-        history.push("/get_my_hotels");
+    const loadHotelOwners = () => {
+        history.push("/all_hotel_owners");
     };
 
     let sectionStyle = {
@@ -59,15 +59,14 @@ const AdminDashboard = () => {
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
                             onClick={loadCustomers}>
-                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Customers</h1>
+                            {<FontAwesomeIcon icon={faUser}/>}&nbsp; Customers</h1>
                     </Card>
                 </div>
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
-                            onClick={loadGetHotels}>
-                            {/*{<FontAwesomeIcon icon={faHotel}/>}*/}
-                            &nbsp; Get Hotels</h1>
+                            onClick={loadHotelOwners}>
+                            {<FontAwesomeIcon icon={faUser}/>}&nbsp; Hotel Owners</h1>
                     </Card>
                 </div>
 
