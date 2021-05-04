@@ -54,12 +54,6 @@ const GetHotels = () => {
         console.log(hotel.hotelOwner_id)
         console.log(hotel._id)
         history.push("/add_booking", {hotelDetails: hotel});
-        // return (
-        //   <>
-        //       <Redirect to="add_booking"/>
-        //       <AddBooking hotelDetails={hotel}/>
-        //   </>
-        // )
 
     }
 
@@ -114,7 +108,6 @@ const GetHotels = () => {
                                         </Button>
 
                                     }
-
                                 </div>
 
                             </Card>

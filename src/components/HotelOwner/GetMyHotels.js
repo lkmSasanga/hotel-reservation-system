@@ -43,6 +43,12 @@ const GetMyHotels = () => {
 
     },[]);
 
+    const gotoEditHotel = (hotel) => {
+        console.log(hotel._id);
+        console.log(hotel);
+        history.push("/update_hotel", {hotelDetails: hotel});
+    };
+
     let sectionStyle = {
         marginTop: -18,
         width: "100%",
@@ -76,9 +82,7 @@ const GetMyHotels = () => {
                                     <p className={classes.content}>Rooms Available : {hotel.rooms_available}</p>
 
                                     <Button
-                                        className={classes.bookNowButton}
-                                        style={{backgroundColor: '#32315e'}}
-                                    >Update
+                                        className={classes.bookNowButton} onClick={() => gotoEditHotel(hotel)}>Update
                                     </Button>
                                 </div>
                             </Card>
