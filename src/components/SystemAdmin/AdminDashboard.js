@@ -22,8 +22,8 @@ const AdminDashboard = () => {
         history.push("/add_town");
     };
 
-    const loadBookings = () => {
-        history.push("/hotel_bookings");
+    const loadCustomers = () => {
+        history.push("/all_customers");
     };
     const loadGetHotels = () => {
         history.push("/get_my_hotels");
@@ -58,8 +58,8 @@ const AdminDashboard = () => {
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
                         <h1 className={classes.title}
-                            onClick={loadBookings}>
-                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Bookings</h1>
+                            onClick={loadCustomers}>
+                            {<FontAwesomeIcon icon={faBookmark}/>} &nbsp; Customers</h1>
                     </Card>
                 </div>
                 <div className={classes.row}>

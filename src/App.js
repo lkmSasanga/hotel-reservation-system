@@ -20,6 +20,7 @@ import Contact from "./components/Contact/Contact";
 import GetMyHotels from "./components/HotelOwner/GetMyHotels";
 import UpdateHotel from "./components/HotelOwner/UpdateHotel";
 import AdminDashboard from "./components/SystemAdmin/AdminDashboard";
+import GetAllCustomers from "./components/SystemAdmin/GetAllCustomers";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -95,6 +96,7 @@ function App() {
               <Route path="/get_my_hotels" component={GetMyHotels}/>
               <Route path="/update_hotel" component={UpdateHotel}/>
               <Route path="/admin_dashboard" component={AdminDashboard}/>
+              <Route path="/all_customers" component={GetAllCustomers}/>
             </div>
 
             {/*{!isLoggedIn && <Login onLogin={loginHandler} />}*/}
