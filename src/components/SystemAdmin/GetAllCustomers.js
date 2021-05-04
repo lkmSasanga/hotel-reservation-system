@@ -11,15 +11,15 @@ import {faCrown, faEnvelope, faUser} from '@fortawesome/free-solid-svg-icons'
 import HOHeader from "../HotelOwner/HOHeader/HOHeader";
 import SAHeader from "./SAHeader/SAHeader";
 
-const GetAllCustomers = () => {
+const GetAllCustomers = (props) => {
     const [customersDetails, setCustomersDetails] = useState('');
     const [showSpinner, setShowSpinner] = useState(false);
-    const [clickedTown, setClickedTown] = useState();
+    // const [clickedTown, setClickedTown] = useState();
 
     const history = useHistory();
 
     useEffect(() => {
-        setClickedTown(localStorage.getItem('town'));
+        // setClickedTown(localStorage.getItem('town'));
         setShowSpinner(true);
 
         fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
@@ -33,12 +33,13 @@ const GetAllCustomers = () => {
                 if (json.success) {
                     console.log('success');
                     console.log(typeof(json.data));
-                    console.log(json.data);
-                    console.log(localStorage.getItem('town'))
-                    console.log(clickedTown)
+                    console.log(json.data.length);
 
                     setShowSpinner(false);
                     setCustomersDetails(json.data)
+
+                    // props.customerCount(json.data.length);
+
                 } else {
                     console.log('Error Occurred');
                 }
@@ -46,12 +47,6 @@ const GetAllCustomers = () => {
 
     },[]);
 
-    const gotoHotel = (hotel) => {
-        console.log(hotel.hotelOwner_id)
-        console.log(hotel._id)
-        history.push("/add_booking", {hotelDetails: hotel});
-
-    }
 
     let sectionStyle = {
         marginTop: -18,

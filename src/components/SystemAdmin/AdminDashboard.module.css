@@ -46,3 +46,31 @@
 .cardBody:hover {
     background: rgba(255, 255, 255, 0.54) !important;
 }
+.countName{
+    color: #120a4e;
+    text-align: center;
+}
+.count {
+    font-size: 80px;
+    font-weight: bolder;
+    color: purple;
+    margin-left: 5rem;
+    margin-top: -1rem;
+}
+.countCardBody{
+    width: 250px;
+    height: 200px;
+    padding: 1rem 2rem 1rem 1rem;
+    margin: 2rem 2rem 2rem 2rem ;
+    /*align-content: center;*/
+    cursor: pointer;
+
+    border-style: solid;
+    border-bottom-width: 7px;
+    border-color: #374ab6;
+    border-right: none;
+    border-top: none;
+    border-left: none;
+
+    background: rgba(255, 255, 255, 0.68) !important;
+}

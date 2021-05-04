@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 // import HOHeader from "./HOHeader/HOHeader";
 
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,9 +14,64 @@ import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBookmark, faCrown, faUser} from "@fortawesome/free-solid-svg-icons";
 import SAHeader from "./SAHeader/SAHeader";
+import GetAllCustomers from "./GetAllCustomers";
 
 const AdminDashboard = () => {
+    const [customerCount, setCustomerCount] = useState();
+    const [hotelOwnerCount, setHotelOwnerCount] = useState();
+    const [bookingsCount, setBookingsCount] = useState();
+
     const history = useHistory();
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`,
+            },
+        }).then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    console.log('success');
+                    console.log(json.data.length);
+                    setCustomerCount(json.data.length);
+                } else {
+                    console.log('Error Occurred');
+                }
+            })
+        fetch(`http://localhost:5000/api/all_customers?userType=Hotel_Owner`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`,
+            },
+        }).then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    console.log('success');
+                    console.log(json.data);
+                    setHotelOwnerCount(json.data.length);
+                } else {
+                    console.log('Error Occurred');
+                }
+            })
+
+        fetch('http://localhost:5000/api/all_bookings', {
+            method: 'GET',
+            headers: {
+                'Authorization': `${localStorage.getItem('token')}`,
+            },
+        }).then(res => res.json())
+            .then(json => {
+                if (json.success) {
+                    setBookingsCount(json.data.length);
+                } else {
+                    console.log('Error Occurred');
+                }
+            })
+
+    },[]);
+
+
 
     const loadTownAddingForm  = () => {
         history.push("/add_town");
@@ -66,7 +121,18 @@ const AdminDashboard = () => {
                     </Card>
                 </div>
                 <div className={classes.row}>
-
+                    <Card className={classes.countCardBody}>
+                        <h1 className={classes.countName}>Customers</h1>
+                        <p className={classes.count}>{customerCount}</p>
+                    </Card>
+                    <Card className={classes.countCardBody}>
+                        <h1 className={classes.countName}>Hotel Owners</h1>
+                        <p className={classes.count}>{hotelOwnerCount}</p>
+                    </Card>
+                    <Card className={classes.countCardBody}>
+                        <h1 className={classes.countName}>Bookings</h1>
+                        <p className={classes.count}>{bookingsCount}</p>
+                    </Card>
                 </div>
                 <div className={classes.row}>
 
