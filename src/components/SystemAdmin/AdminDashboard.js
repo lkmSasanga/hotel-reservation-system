@@ -9,6 +9,7 @@ import SAHeader from "./SAHeader/SAHeader";
 
 import DonetChart from "../UI/DonetChart/DonetChart";
 import { CountUp } from 'use-count-up'
+import Spinner from "../UI/Spinner/Spinner";
 
 const AdminDashboard = () => {
     const [customerCount, setCustomerCount] = useState();
@@ -117,20 +118,21 @@ const AdminDashboard = () => {
                             {<FontAwesomeIcon icon={faUser}/>}&nbsp; Hotel Owners</h1>
                     </Card>
                 </div>
-                <div className={classes.row}>
-
-                    <DonetChart chartDetails={ChartDetails}/>
-
-                    <Card className={classes.countCardBody}>
-                        <h1 className={classes.countName}>Bookings</h1>
-                        <p className={classes.count}>{BookingCountComponent()}</p>
-                    </Card>
-
-                </div>
-            <div className={classes.rowBottom}>
-                <p className={classes.countDown}>+{CustomersCountComponent()}&nbsp;  Customers</p>
-                <p className={classes.countDown}>+{HotelOwnersCountComponent()}&nbsp; Hotel Owners</p>
-            </div>
+                {customerCount && hotelOwnerCount && bookingsCount ?
+                    <>
+                        <div className={classes.row}>
+                            <DonetChart chartDetails={ChartDetails}/>
+                            <Card className={classes.countCardBody}>
+                                <h1 className={classes.countName}>Bookings</h1>
+                                <p className={classes.count}>{BookingCountComponent()}</p>
+                            </Card>
+                        </div>
+                        <div className={classes.rowBottom}>
+                            <p className={classes.countDown}>+{CustomersCountComponent()}&nbsp;  Customers</p>
+                            <p className={classes.countDown}>+{HotelOwnersCountComponent()}&nbsp; Hotel Owners</p>
+                        </div>
+                    </>
+                 : <Spinner/>}
             <p className={classes.space}>.</p>
         </div>
     );
