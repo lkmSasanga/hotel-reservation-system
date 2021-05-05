@@ -135,7 +135,7 @@ const AdminDashboard = () => {
                  : <Spinner/>}
             <p className={classes.space}>.</p>
         </div>
-    );
-}
+    )
+};
 
 export default AdminDashboard;

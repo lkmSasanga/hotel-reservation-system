@@ -18,6 +18,7 @@ import UpdateHotel from "./components/HotelOwner/UpdateHotel";
 import AdminDashboard from "./components/SystemAdmin/AdminDashboard";
 import GetAllCustomers from "./components/SystemAdmin/GetAllCustomers";
 import GetAllHotelOwners from "./components/SystemAdmin/GetAllHotelOwners";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -79,6 +80,8 @@ function App() {
               <Route path="/admin_dashboard" component={AdminDashboard}/>
               <Route path="/all_customers" component={GetAllCustomers}/>
               <Route path="/all_hotel_owners" component={GetAllHotelOwners}/>
+
+              <Route component={NotFound} />
             </div>
           </main>
 
