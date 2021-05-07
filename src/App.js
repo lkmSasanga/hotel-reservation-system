@@ -81,7 +81,7 @@ function App() {
               <Route path="/all_customers" component={GetAllCustomers}/>
               <Route path="/all_hotel_owners" component={GetAllHotelOwners}/>
 
-              <Route component={NotFound} />
+              {/*<Route component={NotFound} />*/}
             </div>
           </main>
 
