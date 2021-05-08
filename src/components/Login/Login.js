@@ -309,7 +309,7 @@ class Login extends Component {
 
                                 </form>
                                 {this.state.errorOccurs ?
-                                    <p style={{ color: "#c70303"}}>Login Failed</p>
+                                    <p style={{ color: "#c70303", paddingLeft: "10px", textAlign: "center"}}>Login Failed</p>
                                     : null}
 
                                 {this.state.signUpError ?
