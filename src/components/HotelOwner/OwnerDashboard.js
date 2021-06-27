@@ -1,15 +1,9 @@
 import React from 'react';
 import HOHeader from "./HOHeader/HOHeader";
 
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
-// import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
-
 import classes from './OwnerDashboard.module.css';
 import Card from "../UI/Card/Card";
-// import AddHotel from "./AddHotel";
 import {useHistory} from "react-router-dom";
-// import ViewBookings from "./ViewBookings";
 import Background from "../../assets/bg2.png";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBookmark, faHotel} from "@fortawesome/free-solid-svg-icons";
@@ -48,7 +42,6 @@ const OwnerDashboard = () => {
 
                 <div className={classes.row}>
                     <Card className={classes.cardBody}>
-                        {/*<FontAwesomeIcon icon={faArrowAltCircleUp}/>*/}
                         <h1 className={classes.title}
                             onClick={loadHotelAddingForm}>
                             {<FontAwesomeIcon icon={faHotel} /> } &nbsp; Add a Hotel</h1>

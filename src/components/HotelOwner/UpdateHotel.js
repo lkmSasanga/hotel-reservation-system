@@ -68,7 +68,7 @@ const UpdateHotel = (props) => {
         e.preventDefault();
         setLoading(true);
 
-        fetch(`http://localhost:5000/api/update_hotel/${hotelDetails._id}`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/update_hotel/${hotelDetails._id}`, {
             method: 'POST',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,

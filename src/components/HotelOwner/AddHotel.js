@@ -62,7 +62,7 @@ const AddHotel = () => {
         e.preventDefault();
         setLoading(true);
 
-        fetch('http://localhost:5000/api/add_hotel', {
+        fetch('https://hrs-dev.herokuapp.com/api/add_hotel', {
             method: 'POST',
             headers: {
                 'Authorization': `${loggedUserToken}`,

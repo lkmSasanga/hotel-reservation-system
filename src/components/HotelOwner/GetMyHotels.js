@@ -22,7 +22,7 @@ const GetMyHotels = () => {
         // setLoggedUserId(localStorage.getItem('id'));
         setShowSpinner(true);
 
-        fetch(`http://localhost:5000/api/get_my_hotels/${encodeURIComponent(localStorage.getItem('id'))}`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/get_my_hotels/${encodeURIComponent(localStorage.getItem('id'))}`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,

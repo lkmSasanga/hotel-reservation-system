@@ -17,7 +17,7 @@ const ViewBookings = () => {
     useEffect(() => {
         setShowSpinner(true);
 
-        fetch(`http://localhost:5000/api/hotel_bookings/${encodeURIComponent(localStorage.getItem('id'))}`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/hotel_bookings/${encodeURIComponent(localStorage.getItem('id'))}`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
