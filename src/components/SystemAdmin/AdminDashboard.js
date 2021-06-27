@@ -30,7 +30,7 @@ const AdminDashboard = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/api/all_customers?userType=Customer`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/all_customers?userType=Customer`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
                     console.log('Error Occurred');
                 }
             })
-        fetch(`http://localhost:5000/api/all_customers?userType=Hotel_Owner`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/all_customers?userType=Hotel_Owner`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
@@ -61,7 +61,7 @@ const AdminDashboard = () => {
                 }
             })
 
-        fetch('http://localhost:5000/api/all_bookings', {
+        fetch('https://hrs-dev.herokuapp.com/api/all_bookings', {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,

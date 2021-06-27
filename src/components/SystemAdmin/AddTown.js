@@ -34,7 +34,7 @@ const AddTown = (props) => {
         e.preventDefault();
         setLoading(true);
 
-        fetch('http://localhost:5000/api/add_town', {
+        fetch('https://hrs-dev.herokuapp.com/api/add_town', {
             method: 'POST',
             headers: {
                 'Authorization': `${loggedUserToken}`,

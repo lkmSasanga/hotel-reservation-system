@@ -18,7 +18,7 @@ const GetAllHotelOwners = () => {
         setClickedTown(localStorage.getItem('town'));
         setShowSpinner(true);
 
-        fetch(`http://localhost:5000/api/all_customers?userType=Hotel_Owner`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/all_customers?userType=Hotel_Owner`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
