@@ -48,7 +48,7 @@ const AddBooking = (props) => {
         setLoading(true);
         console.log(hotelDetails);
 
-        fetch('http://localhost:5000/api/add_booking', {
+        fetch('https://hrs-dev.herokuapp.com/api/add_booking', {
             method: 'POST',
             headers: {
                 'Authorization': `${loggedUserToken}`,

@@ -25,7 +25,7 @@ const GetHotels = () => {
         setShowSpinner(true);
 
         if (1) {
-            fetch(`http://localhost:5000/api/get_hotels?city=${encodeURIComponent(localStorage.getItem('town'))}`, {
+            fetch(`https://hrs-dev.herokuapp.com/api/get_hotels?city=${encodeURIComponent(localStorage.getItem('town'))}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `${localStorage.getItem('token')}`,

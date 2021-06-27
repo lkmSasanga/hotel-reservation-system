@@ -21,7 +21,7 @@ const GetTowns = () => {
         // let isMounted = true;
         setShowSpinner(true);
 
-        fetch('http://localhost:5000/api/get_towns', {
+        fetch('https://hrs-dev.herokuapp.com/api/get_towns', {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,

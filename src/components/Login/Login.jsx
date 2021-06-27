@@ -149,7 +149,7 @@ class Login extends Component {
 
             } else if (this.state.loadSignup) {
 
-                fetch('http://localhost:5000/api/register', {
+                fetch('https://hrs-dev.herokuapp.com/api/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

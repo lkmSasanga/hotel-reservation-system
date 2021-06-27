@@ -40,7 +40,7 @@ const GetBookings = () => {
         // setLoggedUserId(localStorage.getItem('id'));
         setShowSpinner(true);
 
-        fetch(`http://localhost:5000/api/get_bookings?id=${encodeURIComponent(localStorage.getItem('id'))}`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/get_bookings?id=${encodeURIComponent(localStorage.getItem('id'))}`, {
             method: 'GET',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
@@ -64,7 +64,7 @@ const GetBookings = () => {
 
     const removeBooking = (id) => {
         console.log('id', id);
-        fetch(`http://localhost:5000/api/delete_bookings/${id}`, {
+        fetch(`https://hrs-dev.herokuapp.com/api/delete_bookings/${id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `${localStorage.getItem('token')}`,
