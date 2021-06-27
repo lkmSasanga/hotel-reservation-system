@@ -95,7 +95,7 @@ class Login extends Component {
                 // console.log('loadSignup...', this.state.loadSignup)
                 // console.log('inside if')
 
-                fetch('http://localhost:5000/api/login', {
+                fetch('https://hrs-dev.herokuapp.com/api/login', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
